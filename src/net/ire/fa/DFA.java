@@ -23,11 +23,11 @@ public class DFA<C> {
         return states[state].terminatedPatterns;
     }
 
-    private class State {
+    public static class State {
         // For which of the patterns is this state terminatedPatterns?
         private BitSet terminatedPatterns;
 
-        private State(BitSet terminatedPatterns) {
+        public State(BitSet terminatedPatterns) {
             this.terminatedPatterns = terminatedPatterns;
         }
     }
