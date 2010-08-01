@@ -22,10 +22,10 @@ public class LinearISTest {
             states[1] = new IntState(1, zero);
             states[2] = new IntState(2, zero);
             states[3] = new IntState(3, term);
-            final TransferFunction<IntState> transferA = new Permutation(states, new int[] {1, 0, 0, 3});
-            final TransferFunction<IntState> transferB = new Permutation(states, new int[] {0, 2, 0, 3});
-            final TransferFunction<IntState> transferC = new Permutation(states, new int[] {0, 0, 3, 3});
-            final TransferFunction<IntState> transferX = new Permutation(states, new int[] {0, 0, 0, 3});
+            final TransferFunction<IntState> transferA = new IntTable(states, new int[] {1, 0, 0, 3});
+            final TransferFunction<IntState> transferB = new IntTable(states, new int[] {0, 2, 0, 3});
+            final TransferFunction<IntState> transferC = new IntTable(states, new int[] {0, 0, 3, 3});
+            final TransferFunction<IntState> transferX = new IntTable(states, new int[] {0, 0, 0, 3});
             TransferTable<Character, IntState> transfer = new TransferTable<Character, IntState>() {
                 public TransferFunction<IntState> forToken(Character token) {
                     if(token == 'a') {
@@ -47,10 +47,10 @@ public class LinearISTest {
             states[1] = new IntState(1, zero);
             states[2] = new IntState(2, zero);
             states[3] = new IntState(3, term);
-            final TransferFunction<IntState> transferA = new Permutation(states, new int[] {1, 0, 0, 3});
-            final TransferFunction<IntState> transferB = new Permutation(states, new int[] {0, 2, 0, 3});
-            final TransferFunction<IntState> transferC = new Permutation(states, new int[] {0, 0, 3, 3});
-            final TransferFunction<IntState> transferX = new Permutation(states, new int[] {0, 0, 0, 3});
+            final TransferFunction<IntState> transferA = new IntTable(states, new int[] {1, 0, 0, 3});
+            final TransferFunction<IntState> transferB = new IntTable(states, new int[] {0, 2, 0, 3});
+            final TransferFunction<IntState> transferC = new IntTable(states, new int[] {0, 0, 3, 3});
+            final TransferFunction<IntState> transferX = new IntTable(states, new int[] {0, 0, 0, 3});
             TransferTable<Character, IntState> transfer = new TransferTable<Character, IntState>() {
                 public TransferFunction<IntState> forToken(Character token) {
                     if(token == 'a') {

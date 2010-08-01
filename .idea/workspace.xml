@@ -101,21 +101,37 @@
   <component name="FileColors" enabled="true" enabledForTabs="true" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="LinearISTest.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="LinearISTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/net/ire/LinearISTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="29" selection-start="1670" selection-end="1670" vertical-scroll-proportion="0.7118644">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="32" column="45" selection-start="1309" selection-end="1309" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Permutation.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/net/ire/fa/Permutation.java">
+      <file leaf-file-name="BiDFA.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/net/ire/fa/BiDFA.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="11" selection-start="196" selection-end="196" vertical-scroll-proportion="0.0">
+            <state line="5" column="13" selection-start="77" selection-end="77" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PowerIntTable.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/net/ire/fa/PowerIntTable.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="0" selection-start="858" selection-end="858" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IntTable.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/net/ire/fa/IntTable.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="13" selection-start="77" selection-end="77" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -139,19 +155,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IntState.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/net/ire/fa/IntState.java">
+      <file leaf-file-name="PowerIntState.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/net/ire/fa/PowerIntState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="21" selection-start="392" selection-end="392" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="State.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/net/ire/fa/State.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="35" selection-start="150" selection-end="150" vertical-scroll-proportion="0.0">
+            <state line="7" column="26" selection-start="116" selection-end="116" vertical-scroll-proportion="0.101604275">
               <folding />
             </state>
           </provider>
@@ -161,9 +168,7 @@
         <entry file="file://$PROJECT_DIR$/src/net/ire/LinearIS.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="39" column="30" selection-start="1040" selection-end="1040" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -172,9 +177,7 @@
         <entry file="file://$PROJECT_DIR$/src/net/ire/UnbalancedIS.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="16" column="27" selection-start="365" selection-end="365" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -183,17 +186,6 @@
         <entry file="file://$PROJECT_DIR$/src/net/ire/DFABasedIS.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="56" column="26" selection-start="1978" selection-end="1978" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Pair.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/net/ire/Pair.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="42" selection-start="920" selection-end="920" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -209,11 +201,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/net/ire/UnbalancedIndexedString.java" />
-        <option value="$PROJECT_DIR$/src/net/ire/UIS.java" />
-        <option value="$PROJECT_DIR$/src/net/ire/fa/MultiDFA.java" />
-        <option value="$PROJECT_DIR$/src/net/ire/CharIteratee.java" />
-        <option value="$PROJECT_DIR$/src/net/ire/Pair.java" />
         <option value="$PROJECT_DIR$/src/net/ire/fa/State.java" />
         <option value="$PROJECT_DIR$/src/net/ire/fa/BiDFA.java" />
         <option value="$PROJECT_DIR$/src/net/ire/IndexedString.java" />
@@ -225,6 +212,11 @@
         <option value="$PROJECT_DIR$/src/net/ire/UnbalancedIS.java" />
         <option value="$PROJECT_DIR$/src/net/ire/LinearIS.java" />
         <option value="$PROJECT_DIR$/test/net/ire/LinearISTest.java" />
+        <option value="$PROJECT_DIR$/src/net/ire/fa/IntSetState.java" />
+        <option value="$PROJECT_DIR$/src/net/ire/fa/IntTable.java" />
+        <option value="$PROJECT_DIR$/src/net/ire/fa/PowerIntTable.java" />
+        <option value="$PROJECT_DIR$/src/net/ire/fa/PowerIntState1.java" />
+        <option value="$PROJECT_DIR$/src/net/ire/fa/PowerIntState.java" />
       </list>
     </option>
   </component>
@@ -360,9 +352,9 @@
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="options.searchVisible" value="true" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -499,22 +491,22 @@
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295082" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25911853" sideWeight="0.66065574" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2636778" sideWeight="0.66065574" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.49836066" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32786885" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32786885" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295082" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295082" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -555,16 +547,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/net/ire/fa/TransferFunction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="54" selection-start="157" selection-end="157" vertical-scroll-proportion="0.14973262" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/ire/Predicate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="21" selection-start="114" selection-end="114" vertical-scroll-proportion="0.14973262" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/net/ire/Compiler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="42" selection-start="131" selection-end="131" vertical-scroll-proportion="0.0" />
@@ -580,88 +562,70 @@
         <state line="35" column="42" selection-start="920" selection-end="920" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/ire/fa/BiDFA.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="38" selection-start="102" selection-end="102" vertical-scroll-proportion="0.12477718">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/net/ire/IndexedString.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="460" selection-end="460" vertical-scroll-proportion="0.54901963">
-          <folding />
-        </state>
+        <state line="22" column="0" selection-start="460" selection-end="460" vertical-scroll-proportion="0.54901963" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/ire/fa/State.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="35" selection-start="150" selection-end="150" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="8" column="35" selection-start="150" selection-end="150" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/ire/fa/IntState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="21" selection-start="392" selection-end="392" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/ire/fa/TransferTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="42" selection-start="144" selection-end="144" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/ire/fa/DFA.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="32" selection-start="470" selection-end="470" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/ire/fa/Permutation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="11" selection-start="196" selection-end="196" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/ire/DFABasedIS.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="26" selection-start="1978" selection-end="1978" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/ire/UnbalancedIS.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="27" selection-start="365" selection-end="365" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/ire/LinearIS.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="30" selection-start="1040" selection-end="1040" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
+        <state line="17" column="21" selection-start="392" selection-end="392" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/net/ire/LinearISTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="29" selection-start="1670" selection-end="1670" vertical-scroll-proportion="0.7118644">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="32" column="45" selection-start="1309" selection-end="1309" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/ire/fa/BiDFA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="13" selection-start="77" selection-end="77" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/ire/fa/PowerIntTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="0" selection-start="858" selection-end="858" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/ire/fa/IntTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="13" selection-start="77" selection-end="77" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/ire/fa/TransferTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="42" selection-start="144" selection-end="144" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/ire/fa/DFA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="32" selection-start="470" selection-end="470" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/ire/LinearIS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="30" selection-start="1040" selection-end="1040" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/ire/UnbalancedIS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="27" selection-start="365" selection-end="365" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/ire/DFABasedIS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="26" selection-start="1978" selection-end="1978" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/ire/fa/PowerIntState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="26" selection-start="116" selection-end="116" vertical-scroll-proportion="0.101604275">
+          <folding />
         </state>
       </provider>
     </entry>
