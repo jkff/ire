@@ -3,20 +3,20 @@ package net.ire.fa;
 /**
  * Created on: 25.07.2010 13:34:11
  */
-public class BiDFA<C> {
-    private DFA<C> forward;
-    private DFA<C> backward;
+public class BiDFA<C, ST extends State> {
+    private DFA<C, ST> forward;
+    private DFA<C, ST> backward;
 
-    public BiDFA(DFA<C> forward, DFA<C> backward) {
+    public BiDFA(DFA<C, ST> forward, DFA<C, ST> backward) {
         this.forward = forward;
         this.backward = backward;
     }
 
-    public DFA<C> getForward() {
+    public DFA<C, ST> getForward() {
         return forward;
     }
 
-    public DFA<C> getBackward() {
+    public DFA<C, ST> getBackward() {
         return backward;
     }
 }

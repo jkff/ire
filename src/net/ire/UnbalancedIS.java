@@ -1,8 +1,6 @@
 package net.ire;
 
-import net.ire.fa.BiDFA;
-import net.ire.fa.DFA;
-import net.ire.fa.TransferFunction;
+import net.ire.fa.*;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -10,21 +8,17 @@ import org.jetbrains.annotations.Nullable;
  *
  * Created on: 25.07.2010 13:40:19
  */
-public class UnbalancedIS extends DFABasedIS<UnbalancedIS> {
-
+public class UnbalancedIS<ST extends State> extends DFABasedIS<UnbalancedIS<ST>, ST> {
     private int length;
 
-    @Nullable
     private CharSequence value;
 
-    @Nullable
-    private UnbalancedIS left;
-    @Nullable
-    private UnbalancedIS right;
+    private UnbalancedIS<ST> left;
+    private UnbalancedIS<ST> right;
 
     private UnbalancedIS(
-            BiDFA<Character> bidfa,
-            TransferFunction<Integer> forward, TransferFunction<Integer> backward,
+            BiDFA<Character,ST> bidfa,
+            TransferFunction<ST> forward, TransferFunction<ST> backward,
             int length, CharSequence value, UnbalancedIS left, UnbalancedIS right)
     {
         super(forward, backward, bidfa);
@@ -34,39 +28,39 @@ public class UnbalancedIS extends DFABasedIS<UnbalancedIS> {
         this.right = right;
     }
 
-    public Pair<UnbalancedIS, UnbalancedIS> splitBefore(int index) {
+    public Pair<UnbalancedIS<ST>, UnbalancedIS<ST>> splitBefore(int index) {
         if(value != null) {
-            UnbalancedIS leftPart = forString(value.subSequence(0, index));
-            UnbalancedIS rightPart = forString(value.subSequence(index, value.length()));
+            UnbalancedIS<ST> leftPart = forString(value.subSequence(0, index));
+            UnbalancedIS<ST> rightPart = forString(value.subSequence(index, value.length()));
             return Pair.of(leftPart, rightPart);
         }
         if(index <= left.length) {
-            Pair<UnbalancedIS, UnbalancedIS> p = left.splitBefore(index);
+            Pair<UnbalancedIS<ST>, UnbalancedIS<ST>> p = left.splitBefore(index);
             return Pair.of(p.first, p.second.append(right));
         } else {
-            Pair<UnbalancedIS, UnbalancedIS> p = right.splitBefore(index - left.length);
+            Pair<UnbalancedIS<ST>, UnbalancedIS<ST>> p = right.splitBefore(index - left.length);
             return Pair.of(left.append(p.first), p.second);
         }
     }
 
     @Nullable
-    public Pair<UnbalancedIS, UnbalancedIS> splitAfterRise(final Predicate<UnbalancedIS> pred) {
+    public Pair<UnbalancedIS<ST>, UnbalancedIS<ST>> splitAfterRise(final Predicate<UnbalancedIS<ST>> pred) {
         if (!pred.isTrueFor(this))
             return null;
         if (value != null) {
             for(int i = 0; i < value.length(); ++i) {
-                UnbalancedIS leftPart = forString(value.subSequence(0, i));
+                UnbalancedIS<ST> leftPart = forString(value.subSequence(0, i));
                 if(pred.isTrueFor(leftPart))
                     return Pair.of(leftPart, forString(value.subSequence(i, value.length())));
             }
             return Pair.of(this, forString(""));
         }
         if (pred.isTrueFor(left)) {
-            Pair<UnbalancedIS, UnbalancedIS> p = left.splitAfterRise(pred);
+            Pair<UnbalancedIS<ST>, UnbalancedIS<ST>> p = left.splitAfterRise(pred);
             return Pair.of(p.first, p.second.append(right));
         } else {
-            Pair<UnbalancedIS, UnbalancedIS> p = right.splitAfterRise(new Predicate<UnbalancedIS>() {
-                public boolean isTrueFor(UnbalancedIS s) {
+            Pair<UnbalancedIS<ST>, UnbalancedIS<ST>> p = right.splitAfterRise(new Predicate<UnbalancedIS<ST>>() {
+                public boolean isTrueFor(UnbalancedIS<ST> s) {
                     return pred.isTrueFor(left.append(s));
                 }
             });
@@ -74,26 +68,15 @@ public class UnbalancedIS extends DFABasedIS<UnbalancedIS> {
         }
     }
 
-    public UnbalancedIS prepend(char c) {
-        UnbalancedIS left = new UnbalancedIS(
-                bidfa,
-                bidfa.getForward().transfer(c), bidfa.getBackward().transfer(c),
-                1, "" + c, null, null);
-        return left.append(this);
+    public UnbalancedIS<ST> prepend(char c) {
+        return forChar(bidfa, c).append(this);
     }
 
-    public UnbalancedIS append(char c) {
-        UnbalancedIS right = new UnbalancedIS(
+    public UnbalancedIS<ST> append(UnbalancedIS<ST> other) {
+        return new UnbalancedIS<ST>(
                 bidfa,
-                bidfa.getForward().transfer(c), bidfa.getBackward().transfer(c),
-                1, "" + c, null, null);
-        return this.append(right);
-    }
-
-    public UnbalancedIS append(UnbalancedIS other) {
-        return new UnbalancedIS(
-                bidfa,
-                this.forward.followedBy(other.forward), other.backward.followedBy(this.backward),
+                this.forward.followedBy(other.forward),
+                other.backward.followedBy(this.backward),
                 length + other.length, null, this, other);
     }
 
@@ -109,7 +92,7 @@ public class UnbalancedIS extends DFABasedIS<UnbalancedIS> {
         return right.charAt(index - left.length);
     }
 
-    public UnbalancedIS subSequence(int start, int end) {
+    public UnbalancedIS<ST> subSequence(int start, int end) {
         if(value != null)
             return forString(value.subSequence(start, end));
         if(end <= left.length)
@@ -119,33 +102,23 @@ public class UnbalancedIS extends DFABasedIS<UnbalancedIS> {
         return left.subSequence(start, left.length).append(right.subSequence(0, end - left.length));
     }
 
-    public IndexedString<UnbalancedIS> reverse() {
+    public UnbalancedIS<ST> reverse() {
         if(value == null) {
             return forString(new StringBuilder(value).reverse().toString());
         } else {
-            return new UnbalancedIS(bidfa, backward, forward, length, null, right, left);
+            return new UnbalancedIS<ST>(bidfa, backward, forward, length, null, right, left);
         }
     }
 
-    public boolean traverseWith(CharIteratee i) {
-        if(value == null) {
-            return left.traverseWith(i) && right.traverseWith(i);
-        } else {
-            for(int j = 0; j < value.length(); ++j) {
-                if(!i.onNext(value.charAt(j)))
-                    return false;
-            }
-            return true;
-        }
-    }
-
-    private static TransferFunction<Integer> transfer(DFA<Character> dfa, CharSequence s) {
-        TransferFunction<Integer> res = new TransferFunction<Integer>() {
-            public TransferFunction<Integer> followedBy(TransferFunction<Integer> other) {
+    private static <ST extends State> TransferFunction<ST> transfer(
+            DFA<Character,ST> dfa, CharSequence s)
+    {
+        TransferFunction<ST> res = new TransferFunction<ST>() {
+            public TransferFunction<ST> followedBy(TransferFunction<ST> other) {
                 return other;
             }
 
-            public Integer next(Integer x) {
+            public ST next(ST x) {
                 return x;
             }
         };
@@ -156,11 +129,18 @@ public class UnbalancedIS extends DFABasedIS<UnbalancedIS> {
         return res;
     }
 
-    private UnbalancedIS forString(CharSequence s) {
-        CharSequence rs = new StringBuilder(s).reverse();
-        TransferFunction<Integer> forward = transfer(bidfa.getForward(), s);
-        TransferFunction<Integer> backward = transfer(bidfa.getBackward(), rs);
-        return new UnbalancedIS(bidfa, forward, backward, s.length(), s, null, null);
+    public UnbalancedIS<ST> append(char c) {
+        return this.append(forChar(bidfa, c));
     }
 
+    private static <ST extends State> UnbalancedIS<ST> forChar(BiDFA<Character, ST> bidfa, char c) {
+        return new UnbalancedIS<ST>(bidfa, bidfa.getForward().transfer(c), bidfa.getBackward().transfer(c), 1, ""+c, null, null);
+    }
+
+    private UnbalancedIS<ST> forString(CharSequence s) {
+        CharSequence rs = new StringBuilder(s).reverse();
+        TransferFunction<ST> forward = transfer(bidfa.getForward(), s);
+        TransferFunction<ST> backward = transfer(bidfa.getBackward(), rs);
+        return new UnbalancedIS<ST>(bidfa, forward, backward, s.length(), s, null, null);
+    }
 }

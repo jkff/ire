@@ -1,14 +1,9 @@
 package net.ire;
 
-import net.ire.fa.BiDFA;
-import net.ire.fa.DFA;
-import net.ire.fa.Permutation;
-import net.ire.fa.TransferFunction;
+import net.ire.fa.*;
 import org.junit.Test;
 
 import java.util.BitSet;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created on: 31.07.2010 12:16:56
@@ -20,39 +15,59 @@ public class LinearISTest {
         term.set(0);
         BitSet zero = new BitSet(1);
 
-        DFA<Character> forward, backward;
+        DFA<Character,IntState> forward, backward;
         {
-            DFA.State[] states = new DFA.State[4];
-            states[0] = new DFA.State(zero);
-            states[1] = new DFA.State(zero);
-            states[2] = new DFA.State(zero);
-            states[3] = new DFA.State(term);
-            Map<Character, TransferFunction<Integer>> transfer = new HashMap<Character, TransferFunction<Integer>>();
-            TransferFunction<Integer> transferA = new Permutation(new int[] {1, 0, 0, 3});
-            TransferFunction<Integer> transferB = new Permutation(new int[] {0, 2, 0, 3});
-            TransferFunction<Integer> transferC = new Permutation(new int[] {0, 0, 3, 3});
-            transfer.put('a', transferA);
-            transfer.put('b', transferB);
-            transfer.put('c', transferC);
-            forward = new DFA<Character>(states, transfer);
+            IntState[] states = new IntState[4];
+            states[0] = new IntState(0, zero);
+            states[1] = new IntState(1, zero);
+            states[2] = new IntState(2, zero);
+            states[3] = new IntState(3, term);
+            final TransferFunction<IntState> transferA = new Permutation(states, new int[] {1, 0, 0, 3});
+            final TransferFunction<IntState> transferB = new Permutation(states, new int[] {0, 2, 0, 3});
+            final TransferFunction<IntState> transferC = new Permutation(states, new int[] {0, 0, 3, 3});
+            final TransferFunction<IntState> transferX = new Permutation(states, new int[] {0, 0, 0, 3});
+            TransferTable<Character, IntState> transfer = new TransferTable<Character, IntState>() {
+                public TransferFunction<IntState> forToken(Character token) {
+                    if(token == 'a') {
+                        return transferA;
+                    } else if(token == 'b') {
+                        return transferB;
+                    } else if(token == 'c') {
+                        return transferC;
+                    } else {
+                        return transferX;
+                    }
+                }
+            };
+            forward = new DFA<Character, IntState>(transfer, states[0]);
         }
         {
-            DFA.State[] states = new DFA.State[4];
-            states[0] = new DFA.State(zero);
-            states[1] = new DFA.State(zero);
-            states[2] = new DFA.State(zero);
-            states[3] = new DFA.State(term);
-            Map<Character, TransferFunction<Integer>> transfer = new HashMap<Character, TransferFunction<Integer>>();
-            TransferFunction<Integer> transferA = new Permutation(new int[] {0, 0, 3, 3});
-            TransferFunction<Integer> transferB = new Permutation(new int[] {0, 2, 0, 3});
-            TransferFunction<Integer> transferC = new Permutation(new int[] {1, 0, 0, 3});
-            transfer.put('a', transferA);
-            transfer.put('b', transferB);
-            transfer.put('c', transferC);
-            backward = new DFA<Character>(states, transfer);
+            IntState[] states = new IntState[4];
+            states[0] = new IntState(0, zero);
+            states[1] = new IntState(1, zero);
+            states[2] = new IntState(2, zero);
+            states[3] = new IntState(3, term);
+            final TransferFunction<IntState> transferA = new Permutation(states, new int[] {1, 0, 0, 3});
+            final TransferFunction<IntState> transferB = new Permutation(states, new int[] {0, 2, 0, 3});
+            final TransferFunction<IntState> transferC = new Permutation(states, new int[] {0, 0, 3, 3});
+            final TransferFunction<IntState> transferX = new Permutation(states, new int[] {0, 0, 0, 3});
+            TransferTable<Character, IntState> transfer = new TransferTable<Character, IntState>() {
+                public TransferFunction<IntState> forToken(Character token) {
+                    if(token == 'a') {
+                        return transferA;
+                    } else if(token == 'b') {
+                        return transferB;
+                    } else if(token == 'c') {
+                        return transferC;
+                    } else {
+                        return transferX;
+                    }
+                }
+            };
+            backward = new DFA<Character, IntState>(transfer, states[0]);
         }
-        BiDFA<Character> bidfa = new BiDFA<Character>(forward, backward);
-        LinearIS is = new LinearIS("cccabccccc", bidfa);
+        BiDFA<Character,IntState> bidfa = new BiDFA<Character, IntState>(forward, backward);
+        LinearIS<?> is = new LinearIS<IntState>("cccabccccc", bidfa);
         for(Match m : is.getMatches()) {
             System.out.println(m.whichPattern() + " at " + m.startPos() + " with length " + m.length());
         }

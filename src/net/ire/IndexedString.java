@@ -20,6 +20,4 @@ public interface IndexedString<S extends IndexedString> extends CharSequence {
     S subSequence(int start, int end);
 
     IndexedString<S> reverse();
-    
-    boolean traverseWith(CharIteratee i);
 }

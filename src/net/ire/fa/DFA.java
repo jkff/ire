@@ -1,34 +1,22 @@
 package net.ire.fa;
 
-import java.util.BitSet;
-import java.util.Map;
-
 /**
  * Created on: 22.07.2010 23:54:27
  */
-public class DFA<C> {
-    private State[] states;
-    private Map<C,TransferFunction<Integer>> transfer;
+public class DFA<C, S extends State> {
+    private TransferTable<C,S> transfer;
+    private S initialState;
 
-    public DFA(State[] states, Map<C,TransferFunction<Integer>> transfer) {
-        this.states = states;
+    public DFA(TransferTable<C,S> transfer, S initialState) {
         this.transfer = transfer;
+        this.initialState = initialState;
     }
 
-    public TransferFunction<Integer> transfer(C token) {
-        return transfer.get(token);
+    public S getInitialState() {
+        return initialState;
     }
 
-    public BitSet getTerminatedPatterns(int state) {
-        return states[state].terminatedPatterns;
-    }
-
-    public static class State {
-        // For which of the patterns is this state terminatedPatterns?
-        private BitSet terminatedPatterns;
-
-        public State(BitSet terminatedPatterns) {
-            this.terminatedPatterns = terminatedPatterns;
-        }
+    public TransferFunction<S> transfer(C token) {
+        return transfer.forToken(token);
     }
 }
