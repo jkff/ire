@@ -1,9 +1,13 @@
 package net.ire;
 
-import net.ire.fa.*;
+import net.ire.fa.BiDFA;
+import net.ire.fa.IntState;
 import org.junit.Test;
 
-import java.util.BitSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created on: 31.07.2010 12:16:56
@@ -11,65 +15,28 @@ import java.util.BitSet;
 public class LinearISTest {
     @Test
     public void testABC() {
-        BitSet term = new BitSet(1);
-        term.set(0);
-        BitSet zero = new BitSet(1);
+        DFABuilder forward = new DFABuilder(4, 0, 1);
+        forward.state(0).transitions('a', 1, null, 0);
+        forward.state(1).transitions('b', 2, null, 0);
+        forward.state(2).transitions('c', 3, null, 0);
+        forward.state(3, 0).transitions(null, 3);
 
-        DFA<Character,IntState> forward, backward;
-        {
-            IntState[] states = new IntState[4];
-            states[0] = new IntState(0, zero);
-            states[1] = new IntState(1, zero);
-            states[2] = new IntState(2, zero);
-            states[3] = new IntState(3, term);
-            final TransferFunction<IntState> transferA = new IntTable(states, new int[] {1, 0, 0, 3});
-            final TransferFunction<IntState> transferB = new IntTable(states, new int[] {0, 2, 0, 3});
-            final TransferFunction<IntState> transferC = new IntTable(states, new int[] {0, 0, 3, 3});
-            final TransferFunction<IntState> transferX = new IntTable(states, new int[] {0, 0, 0, 3});
-            TransferTable<Character, IntState> transfer = new TransferTable<Character, IntState>() {
-                public TransferFunction<IntState> forToken(Character token) {
-                    if(token == 'a') {
-                        return transferA;
-                    } else if(token == 'b') {
-                        return transferB;
-                    } else if(token == 'c') {
-                        return transferC;
-                    } else {
-                        return transferX;
-                    }
-                }
-            };
-            forward = new DFA<Character, IntState>(transfer, states[0]);
-        }
-        {
-            IntState[] states = new IntState[4];
-            states[0] = new IntState(0, zero);
-            states[1] = new IntState(1, zero);
-            states[2] = new IntState(2, zero);
-            states[3] = new IntState(3, term);
-            final TransferFunction<IntState> transferA = new IntTable(states, new int[] {1, 0, 0, 3});
-            final TransferFunction<IntState> transferB = new IntTable(states, new int[] {0, 2, 0, 3});
-            final TransferFunction<IntState> transferC = new IntTable(states, new int[] {0, 0, 3, 3});
-            final TransferFunction<IntState> transferX = new IntTable(states, new int[] {0, 0, 0, 3});
-            TransferTable<Character, IntState> transfer = new TransferTable<Character, IntState>() {
-                public TransferFunction<IntState> forToken(Character token) {
-                    if(token == 'a') {
-                        return transferA;
-                    } else if(token == 'b') {
-                        return transferB;
-                    } else if(token == 'c') {
-                        return transferC;
-                    } else {
-                        return transferX;
-                    }
-                }
-            };
-            backward = new DFA<Character, IntState>(transfer, states[0]);
-        }
-        BiDFA<Character,IntState> bidfa = new BiDFA<Character, IntState>(forward, backward);
-        LinearIS<?> is = new LinearIS<IntState>("cccabccccc", bidfa);
+        DFABuilder backward = new DFABuilder(4, 0, 1);
+        backward.state(0).transitions('c', 1, null, 0);
+        backward.state(1).transitions('b', 2, null, 0);
+        backward.state(2).transitions('a', 3, null, 0);
+        backward.state(3, 0).transitions(null, 3);
+
+        BiDFA<Character,IntState> bidfa = new BiDFA<Character, IntState>(forward.build(), backward.build());
+        LinearIS<?> is = new LinearIS<IntState>("xxxcabccccc", bidfa);
+
+        List<Match> matches = new ArrayList<Match>();
         for(Match m : is.getMatches()) {
-            System.out.println(m.whichPattern() + " at " + m.startPos() + " with length " + m.length());
+            matches.add(m);
         }
+        assertEquals(1, matches.size());
+        assertEquals(3, matches.get(0).length());
+        assertEquals(0, matches.get(0).whichPattern());
+        assertEquals(4, matches.get(0).startPos());
     }
 }
