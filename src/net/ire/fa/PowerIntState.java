@@ -26,9 +26,9 @@ public class PowerIntState implements State {
 
     public BitSet getTerminatedPatterns() {
         BitSet res = null;
-        for(int bit = subset.nextSetBit(0); bit >= 0; bit = subset.nextSetBit(0)) {
+        for(int bit = subset.nextSetBit(0); bit >= 0; bit = subset.nextSetBit(bit+1)) {
             if(res == null)
-                res = basis[bit].getTerminatedPatterns();
+                res = (BitSet) basis[bit].getTerminatedPatterns().clone();
             else
                 res.or(basis[bit].getTerminatedPatterns());
         }

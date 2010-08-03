@@ -39,6 +39,9 @@ public abstract class DFABasedIS<S extends DFABasedIS<S, ST>, ST extends State> 
         List<Match> res = new ArrayList<Match>();
 
         DFABasedIS<S,ST> rem = this;
+
+        int shift = 0;
+
         while(true) {
             Pair<S, S> p = rem.splitAfterRise(hasForwardMatch);
             if(p == null)
@@ -60,9 +63,12 @@ public abstract class DFABasedIS<S extends DFABasedIS<S, ST>, ST extends State> 
                 };
 
                 int len = matchingPrefix.reverse().splitAfterRise(startsThisMatch).first.length();
-                int startPos = matchingPrefix.length() - len;
+                int startPos = matchingPrefix.length() - len + shift;
                 res.add(new Match(bit, startPos, len));
             }
+
+            shift += p.first.length();
+            
             rem = p.second;
         }
 

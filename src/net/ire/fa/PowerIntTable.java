@@ -19,7 +19,7 @@ public class PowerIntTable implements TransferFunction<PowerIntState> {
             BitSet ourNext = state2next[state];
 
             BitSet next = new BitSet(n);
-            for(int bit = ourNext.nextSetBit(0); bit >= 0; bit = ourNext.nextSetBit(bit)) {
+            for(int bit = ourNext.nextSetBit(0); bit >= 0; bit = ourNext.nextSetBit(bit+1)) {
                 next.or(((PowerIntTable)other).state2next[bit]);    
             }
 
@@ -31,7 +31,7 @@ public class PowerIntTable implements TransferFunction<PowerIntState> {
     public PowerIntState next(PowerIntState st) {
         BitSet s = st.getSubset();
         BitSet res = new BitSet(s.length());
-        for(int bit = s.nextSetBit(0); bit >= 0; bit = s.nextSetBit(bit)) {
+        for(int bit = s.nextSetBit(0); bit >= 0; bit = s.nextSetBit(bit+1)) {
             res.or(state2next[bit]);
         }
         return new PowerIntState(st.getBasis(), res);
