@@ -68,6 +68,7 @@ public class LinearISTest {
         assertEquals(0, matches.get(0).whichPattern());
         assertEquals(4, matches.get(0).startPos());
     }
+    
     @Test
     public void testABorAConNFA() {
         NFABuilder forward = new NFABuilder(5, 0, 2);

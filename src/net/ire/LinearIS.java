@@ -3,21 +3,43 @@ package net.ire;
 import net.ire.fa.BiDFA;
 import net.ire.fa.State;
 import net.ire.fa.TransferFunction;
+import net.ire.util.Function2;
+import net.ire.util.Pair;
+import net.ire.util.Predicate;
 
 /**
  * Created on: 23.07.2010 9:23:42
  */
-public class LinearIS<ST extends State> extends DFABasedIS<LinearIS<ST>,ST> {
+public class LinearIS<ST extends State> implements DFAIndexedString<LinearIS<ST>,ST> {
     private CharSequence cs;
+    private BiDFA<Character, ST> bidfa;
+    private TransferFunction<ST> forward;
+    private TransferFunction<ST> backward;
 
     public LinearIS(CharSequence cs, BiDFA<Character, ST> bidfa) {
         this(cs, bidfa, transferForward(bidfa, cs), transferBackward(bidfa, cs));
     }
 
-    private LinearIS(CharSequence cs, BiDFA<Character, ST> bidfa,
-                          TransferFunction<ST> forward, TransferFunction<ST> backward) {
-        super(forward, backward, bidfa);
+    private LinearIS(CharSequence cs,
+                     BiDFA<Character, ST> bidfa,
+                     TransferFunction<ST> forward, TransferFunction<ST> backward) 
+    {
         this.cs = cs;
+        this.bidfa = bidfa;
+        this.forward = forward;
+        this.backward = backward;
+    }
+
+    public TransferFunction<ST> getForward() {
+        return forward;
+    }
+
+    public TransferFunction<ST> getBackward() {
+        return backward;
+    }
+
+    public Iterable<Match> getMatches() {
+        return DFAMatcher.getMatches(bidfa, this);
     }
 
     public int length() {
@@ -36,31 +58,37 @@ public class LinearIS<ST extends State> extends DFABasedIS<LinearIS<ST>,ST> {
         return new LinearIS<ST>(cs.subSequence(start, end), bidfa);
     }
 
-    public LinearIS<ST> reverse() {
-        return new LinearIS<ST>(new StringBuilder(cs).reverse(), 
-                new BiDFA<Character, ST>(bidfa.getBackward(), bidfa.getForward()));
-    }
-
     public Pair<LinearIS<ST>, LinearIS<ST>> splitBefore(int index) {
         return Pair.of(
                 new LinearIS<ST>(cs.subSequence(0, index), bidfa),
                 new LinearIS<ST>(cs.subSequence(index, cs.length()), bidfa));
     }
 
-    public Pair<LinearIS<ST>, LinearIS<ST>> splitAfterRise(Predicate<LinearIS<ST>> pred) {
-        for(int i = 0; i <= length(); ++i) {
-            if(pred.isTrueFor(subSequence(0, i)))
+    public <T> Pair<LinearIS<ST>, LinearIS<ST>> splitAfterRise(
+            T seed,
+            Function2<T, LinearIS<ST>, T> addChunk, Function2<T, Character, T> addChar, Predicate<T> toBool)
+    {
+        T t = seed;
+        for(int i = 0; i < length(); ++i) {
+            if(toBool.isTrueFor(t))
                 return splitBefore(i);
+            t = addChar.applyTo(t, this.charAt(i));
         }
         return null;
     }
 
-    public LinearIS<ST> prepend(char c) {
-        return new LinearIS<ST>(c+cs.toString(), bidfa);
-    }
-
-    public LinearIS<ST> append(char c) {
-        return new LinearIS<ST>(cs.toString()+c, bidfa);
+    public <T> Pair<LinearIS<ST>, LinearIS<ST>> splitAfterBackRise(
+            T seed,
+            Function2<T, LinearIS<ST>, T> addChunk, Function2<T, Character, T> addChar,
+            Predicate<T> toBool)
+    {
+        T t = seed;
+        for(int i = length()-1; i >= 0; --i) {
+            if(toBool.isTrueFor(t))
+                return splitBefore(i+1);
+            t = addChar.applyTo(t, this.charAt(i));
+        }
+        return null;
     }
 
     public LinearIS<ST> append(LinearIS<ST> other) {

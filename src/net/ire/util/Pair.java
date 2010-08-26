@@ -1,4 +1,4 @@
-package net.ire;
+package net.ire.util;
 
 /**
  * Created on: 22.07.2010 23:23:43
