@@ -74,6 +74,8 @@ public class LinearIS<ST extends State> implements DFAIndexedString<LinearIS<ST>
                 return splitBefore(i);
             t = addChar.applyTo(t, this.charAt(i));
         }
+        if(toBool.isTrueFor(t))
+            return splitBefore(length());
         return null;
     }
 

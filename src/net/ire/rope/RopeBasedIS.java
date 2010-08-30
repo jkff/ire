@@ -12,11 +12,16 @@ import net.ire.util.*;
  * Created on: 21.08.2010 21:10:19
  */
 public class RopeBasedIS<ST extends State> implements DFAIndexedString<RopeBasedIS<ST>, ST> {
+    private static final int DEFAULT_BLOCK_SIZE = 256;
+    
     private BiDFA<Character,ST> bidfa;
     private Rope<TransferFunctions<ST>> rope;
 
     public RopeBasedIS(BiDFA<Character,ST> bidfa, String value) {
-        this(bidfa, Rope.fromString(new TFProduct<ST>(), new TFMap<ST>(bidfa), value));
+        this(bidfa, Rope.fromString(
+                new RopeFactory<TransferFunctions<ST>>(
+                        DEFAULT_BLOCK_SIZE, new TFProduct<ST>(), new TFMap<ST>(bidfa)),
+                value));
     }
 
     private RopeBasedIS(BiDFA<Character,ST> bidfa, Rope<TransferFunctions<ST>> rope) {

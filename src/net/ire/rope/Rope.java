@@ -1,15 +1,14 @@
 package net.ire.rope;
 
 import net.ire.util.*;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Created on: 21.08.2010 17:46:38
  */
 public class Rope<M> {
-    private static final int BLOCK_N = 128;
-
-    private final Reducer<M> reducer;
-    private final Function<Character, M> map;
+    @NotNull
+    private RopeFactory<M> factory;
 
     private final M sum;
 
@@ -20,18 +19,18 @@ public class Rope<M> {
     private final String block;
 
     private Rope(Rope<M> a, Rope<M> b) {
-        this(a, b, null, null, null, null);
+        this(a, b, null, a.factory, null);
     }
 
     private Rope(Rope<M> a, Rope<M> b, Rope<M> c) {
-        this(a, b, c, null, null, null);
+        this(a, b, c, a.factory, null);
     }
 
-    private Rope(Reducer<M> reducer, Function<Character, M> map, String block) {
-        this(null, null, null, reducer, map, block);
+    private Rope(RopeFactory<M> factory, String block) {
+        this(null, null, null, factory, block);
     }
 
-    private Rope(Rope<M> a, Rope<M> b, Rope<M> c, Reducer<M> reducer, Function<Character, M> map, String block) {
+    private Rope(Rope<M> a, Rope<M> b, Rope<M> c, RopeFactory<M> factory, String block) {
         if(block != null) {
             assert a == null : "Block can't have a child: 'a'";
             assert b == null : "Block can't have a child: 'b'";
@@ -40,8 +39,9 @@ public class Rope<M> {
             this.h = 0;
             this.length = block.length();
             this.block = block;
-            this.reducer = reducer;
-            this.map = map;
+            this.factory = factory;
+            Function<Character, M> map = factory.getMap();
+            Reducer<M> reducer = factory.getReducer();
             M sum = reducer.unit();
             for(int i = 0; i < block.length(); ++i) {
                 sum = reducer.compose(sum, map.applyTo(block.charAt(i)));
@@ -54,19 +54,19 @@ public class Rope<M> {
             this.a = a;
             this.b = b;
             this.block = null;
-            this.reducer = a.reducer;
-            this.map = a.map;
+            this.factory = factory;
             if(c == null) {
                 this.c = null;
                 this.h = a.h + 1;
                 this.length = a.length + b.length;
-                this.sum = reducer.compose(a.sum, b.sum);
+                this.sum = factory.getReducer().compose(a.sum, b.sum);
             } else {
                 assert a.h == c.h : "Fork's 'a' and 'c' children must have same height";
                 this.c = c;
                 this.h = a.h + 1;
                 this.length = a.length + b.length + c.length;
-                this.sum = reducer.compose(a.sum, reducer.compose(b.sum, c.sum));
+                this.sum = factory.getReducer().compose(
+                        a.sum, factory.getReducer().compose(b.sum, c.sum));
             }
         }
     }
@@ -94,17 +94,21 @@ public class Rope<M> {
     }
 
     private static <M> Rope<M> append(Rope<M> left, Rope<M> right) {
+        int blockSize = left.factory.getBlockSize();
+        Reducer<M> reducer = left.factory.getReducer();
+        Function<Character,M> map = left.factory.getMap();
+
         if(left.h == right.h) {
             if(left.h > 0)
                 return new Rope<M>(left, right);
             if(!left.isUnderflownBlock() && !right.isUnderflownBlock())
                 return new Rope<M>(left, right);
             String bigBlock = left.block + right.block;
-            if(bigBlock.length() <= 2 * BLOCK_N - 1)
-                return new Rope<M>(left.reducer, left.map, bigBlock);
-            return new Rope(
-                    new Rope<M>(left.reducer, left.map, bigBlock.substring(0, BLOCK_N)),
-                    new Rope<M>(left.reducer, left.map, bigBlock.substring(BLOCK_N, bigBlock.length())));
+            if(bigBlock.length() <= 2 * blockSize - 1)
+                return new Rope<M>(left.factory, bigBlock);
+            return new Rope<M>(
+                    new Rope<M>(left.factory, bigBlock.substring(0, blockSize)),
+                    new Rope<M>(left.factory, bigBlock.substring(blockSize, bigBlock.length())));
         } else if(left.h == right.h + 1) {
             if(left.c == null)
                 return new Rope<M>(left.a, left.b, right);
@@ -141,14 +145,16 @@ public class Rope<M> {
             for(int i = 0; i < block.length() ; ++i) {
                 if(toBool.isTrueFor(s))
                     return Pair.of(
-                            new Rope<M>(this.reducer, this.map, block.substring(0,i)),
-                            new Rope<M>(this.reducer, this.map, block.substring(i, block.length())));
+                            new Rope<M>(this.factory, block.substring(0,i)),
+                            new Rope<M>(this.factory, block.substring(i, block.length())));
                 s = addChar.applyTo(s, block.charAt(i));
             }
+            if(toBool.isTrueFor(s))
+                return Pair.of(this, new Rope<M>(this.factory, ""));
             return null;
         } else {
             if(toBool.isTrueFor(seed))
-                return Pair.of(new Rope<M>(this.reducer, this.map, ""), this);
+                return Pair.of(new Rope<M>(this.factory, ""), this);
             S afterA = addChunk.applyTo(seed, a);
             if(toBool.isTrueFor(afterA)) {
                 Pair<Rope<M>,Rope<M>> sa = a.splitAfterRise(seed, addChunk, addChar, toBool);
@@ -158,17 +164,22 @@ public class Rope<M> {
             }
             S afterB = addChunk.applyTo(afterA, b);
             if(toBool.isTrueFor(afterB)) {
-                Pair<Rope<M>,Rope<M>> sb = a.splitAfterRise(afterA, addChunk, addChar, toBool);
-                return (c == null) ? Pair.of(this, new Rope<M>(this.reducer, this.map, "")) : Pair.of(this, c);
+                Pair<Rope<M>,Rope<M>> sb = b.splitAfterRise(afterA, addChunk, addChar, toBool);
+                return (c == null)
+                        ? Pair.of(a.append(sb.first), sb.second)
+                        : Pair.of(a.append(sb.first), sb.second.append(c));
             }
             if(c == null)
                 return null;
-            s = addChunk.applyTo(s, c);
-            if(toBool.isTrueFor(s))
-                return Pair.of(this, new Rope<M>(this.reducer, this.map, ""));
+            S afterC = addChunk.applyTo(afterB, c);
+            if(toBool.isTrueFor(afterC)) {
+                Pair<Rope<M>,Rope<M>> sc = c.splitAfterRise(afterB, addChunk, addChar, toBool);
+                return Pair.of(a.append(b).append(sc.first), sc.second);
+            }
             return null;
         }
     }
+    
     public <S> Pair<Rope<M>,Rope<M>> splitAfterBackRise(
             S seed,
             Function2<S, Rope<M>, S> addChunk, Function2<S, Character, S> addChar,
@@ -179,35 +190,44 @@ public class Rope<M> {
             for(int i = block.length() - 1; i >= 0; --i) {
                 if(toBool.isTrueFor(s))
                     return Pair.of(
-                            new Rope<M>(this.reducer, this.map, block.substring(0,i+1)),
-                            new Rope<M>(this.reducer, this.map, block.substring(i+1, block.length())));
+                            new Rope<M>(this.factory, block.substring(0,i+1)),
+                            new Rope<M>(this.factory, block.substring(i+1, block.length())));
                 s = addChar.applyTo(s, block.charAt(i));
             }
+            if(toBool.isTrueFor(s))
+                return Pair.of(new Rope<M>(this.factory, ""), this);
             return null;
         } else {
-            S s = seed;
-            if(toBool.isTrueFor(s))
-                return Pair.of(this, new Rope<M>(this.reducer, this.map, ""));
+            if(toBool.isTrueFor(seed))
+                return Pair.of(this, new Rope<M>(this.factory, ""));
+            S beforeC = seed;
             if(c != null) {
-                s = addChunk.applyTo(s, c);
-                if(toBool.isTrueFor(s)) {
-                    Split c
+                beforeC = addChunk.applyTo(seed, c);
+                if(toBool.isTrueFor(beforeC)) {
+                    Pair<Rope<M>,Rope<M>> sc = c.splitAfterBackRise(seed, addChunk, addChar, toBool);
+                    return Pair.of(a.append(b).append(sc.first), sc.second);
                 }
             }
-            s = addChunk.applyTo(s, b);
-            if(toBool.isTrueFor(s))
-                return (c == null) ? Pair.of(this, new Rope<M>(this.reducer, this.map, "")) : Pair.of(this, c);
-            if(c == null)
-                return null;
-            s = addChunk.applyTo(s, c);
-            if(toBool.isTrueFor(s))
-                return Pair.of(this, new Rope<M>(this.reducer, this.map, ""));
+            S beforeB = addChunk.applyTo(beforeC, b);
+            if(toBool.isTrueFor(beforeB)) {
+                Pair<Rope<M>,Rope<M>> sb = b.splitAfterBackRise(beforeC, addChunk, addChar, toBool);
+                return (c == null)
+                        ? Pair.of(a.append(sb.first), sb.second)
+                        : Pair.of(a.append(sb.first), sb.second.append(c));
+            }
+            S beforeA = addChunk.applyTo(beforeB, a);
+            if(toBool.isTrueFor(beforeA)) {
+                Pair<Rope<M>,Rope<M>> sa = a.splitAfterBackRise(beforeB, addChunk, addChar, toBool);
+                return (c == null)
+                        ? Pair.of(sa.first, sa.second.append(b))
+                        : Pair.of(sa.first, sa.second.append(b).append(c));
+            }
             return null;
         }
     }
 
     private boolean isUnderflownBlock() {
-        return h==0 && block.length() < BLOCK_N;
+        return h==0 && block.length() < factory.getBlockSize();
     }
 
     public String toString() {
@@ -227,10 +247,11 @@ public class Rope<M> {
         return sb;
     }
 
-    public static <M> Rope<M> fromString(Reducer<M> reducer, Function<Character,M> map, String value) {
-        Rope<M> res = new Rope<M>(reducer, map, "");
-        for(int i = 0; i < value.length(); i += 2 * BLOCK_N - 1) {
-            res = res.append(new Rope<M>(reducer, map, value.substring(i, i + 2 * BLOCK_N - 1)));
+    public static <M> Rope<M> fromString(RopeFactory<M> factory, String value) {
+        Rope<M> res = new Rope<M>(factory, "");
+        for(int i = 0; i < value.length(); i += 2 * factory.getBlockSize() - 1) {
+            String block = value.substring(i, Math.min(value.length(), i + 2 * factory.getBlockSize() - 1));
+            res = res.append(new Rope<M>(factory, block));
         }
         return res;
     }
