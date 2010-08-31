@@ -13,14 +13,18 @@ import net.ire.util.*;
  */
 public class RopeBasedIS<ST extends State> implements DFAIndexedString<RopeBasedIS<ST>, ST> {
     private static final int DEFAULT_BLOCK_SIZE = 256;
-    
+
     private BiDFA<Character,ST> bidfa;
     private Rope<TransferFunctions<ST>> rope;
 
     public RopeBasedIS(BiDFA<Character,ST> bidfa, String value) {
+        this(bidfa, value, DEFAULT_BLOCK_SIZE);
+    }
+
+    public RopeBasedIS(BiDFA<Character,ST> bidfa, String value, int blockSize) {
         this(bidfa, Rope.fromString(
                 new RopeFactory<TransferFunctions<ST>>(
-                        DEFAULT_BLOCK_SIZE, new TFProduct<ST>(), new TFMap<ST>(bidfa)),
+                        blockSize, new TFProduct<ST>(), new TFMap<ST>(bidfa)),
                 value));
     }
 
@@ -69,13 +73,17 @@ public class RopeBasedIS<ST extends State> implements DFAIndexedString<RopeBased
     {
         Pair<Rope<TransferFunctions<ST>>, Rope<TransferFunctions<ST>>> p = rope.splitAfterRise(
                 seed, toRopeAddChunkFun(addChunk), addChar, toBool);
-        return Pair.of(new RopeBasedIS<ST>(bidfa, p.first), new RopeBasedIS<ST>(bidfa, p.second));
+        return (p == null) ? null : Pair.of(
+                new RopeBasedIS<ST>(bidfa, p.first),
+                new RopeBasedIS<ST>(bidfa, p.second));
     }
 
     public <T> Pair<RopeBasedIS<ST>, RopeBasedIS<ST>> splitAfterBackRise(T seed, Function2<T, RopeBasedIS<ST>, T> addChunk, Function2<T, Character, T> addChar, Predicate<T> toBool) {
         Pair<Rope<TransferFunctions<ST>>, Rope<TransferFunctions<ST>>> p = rope.splitAfterBackRise(
                 seed, toRopeAddChunkFun(addChunk), addChar, toBool);
-        return Pair.of(new RopeBasedIS<ST>(bidfa, p.first), new RopeBasedIS<ST>(bidfa, p.second));
+        return (p == null) ? null : Pair.of(
+                new RopeBasedIS<ST>(bidfa, p.first),
+                new RopeBasedIS<ST>(bidfa, p.second));
     }
 
     private <T> Function2<T, Rope<TransferFunctions<ST>>, T> toRopeAddChunkFun(final Function2<T, RopeBasedIS<ST>, T> addChunk) {
@@ -102,6 +110,10 @@ public class RopeBasedIS<ST extends State> implements DFAIndexedString<RopeBased
         return rope.charAt(index);
     }
 
+    public String toString() {
+        return rope.toString();
+    }
+
     private static class TransferFunctions<ST> {
         TransferFunction<ST> forward;
         TransferFunction<ST> backward;
@@ -125,8 +137,10 @@ public class RopeBasedIS<ST extends State> implements DFAIndexedString<RopeBased
 
         public TransferFunctions<ST> compose(TransferFunctions<ST> a, TransferFunctions<ST> b) {
             return new TransferFunctions<ST>(
+                    a.forward==UNIT_TF ? b.forward : b.forward == UNIT_TF ? a.forward :
                     a.forward.followedBy(b.forward),
-                    b.backward.followedBy(a.backward));
+                    a.backward==UNIT_TF ? b.backward : b.backward == UNIT_TF ? a.backward :
+                    a.backward.followedBy(b.backward));
         }
 
         public TransferFunctions<ST> unit() {
