@@ -74,16 +74,16 @@ public class LinearISTest {
         NFABuilder forward = new NFABuilder(5, 0, 2);
         forward.state(0).transitions('a', 1, 'a', 3, null, 0);
         forward.state(1).transitions('b', 2, null, 0);
-        forward.state(2, 0).transitions(null, 0);
+        forward.state(2, 0).transitions(null, 2);
         forward.state(3).transitions('c', 4, null, 0);
-        forward.state(4, 1).transitions(null, 0);
+        forward.state(4, 1).transitions(null, 4);
 
         NFABuilder backward = new NFABuilder(5, 0, 2);
         backward.state(0).transitions('b', 1, 'c', 3, null, 0);
         backward.state(1).transitions('a', 2, null, 0);
-        backward.state(2, 0).transitions(null, 0);
+        backward.state(2, 0).transitions(null, 2);
         backward.state(3).transitions('a', 4, null, 0);
-        backward.state(4, 1).transitions(null, 0);
+        backward.state(4, 1).transitions(null, 4);
 
         BiDFA<Character,PowerIntState> bidfa = new BiDFA<Character, PowerIntState>(
                 forward.build(), backward.build());

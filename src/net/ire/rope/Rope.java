@@ -18,19 +18,33 @@ public class Rope<M> {
 
     private final String block;
 
-    private Rope(Rope<M> a, Rope<M> b) {
-        this(a, b, null, a.factory, null);
+    private Rope(Rope<M> a, Rope<M> b, M sum) {
+        this(a, b, null, a.factory, null, sum);
     }
 
-    private Rope(Rope<M> a, Rope<M> b, Rope<M> c) {
-        this(a, b, c, a.factory, null);
+    private Rope(Rope<M> a, Rope<M> b, Rope<M> c, M sum) {
+        this(a, b, c, a.factory, null, sum);
+    }
+
+    private Rope(RopeFactory<M> factory, String block, M sum) {
+        this(null, null, null, factory, block, sum);
     }
 
     private Rope(RopeFactory<M> factory, String block) {
-        this(null, null, null, factory, block);
+        this(null, null, null, factory, block, sumString(factory, block));
     }
 
-    private Rope(Rope<M> a, Rope<M> b, Rope<M> c, RopeFactory<M> factory, String block) {
+    private static <M> M sumString(RopeFactory<M> factory, String block) {
+        Function<Character, M> map = factory.getMap();
+        Reducer<M> reducer = factory.getReducer();
+        M sum = reducer.unit();
+        for(int i = 0; i < block.length(); ++i) {
+            sum = reducer.compose(sum, map.applyTo(block.charAt(i)));
+        }
+        return sum;
+    }
+
+    private Rope(Rope<M> a, Rope<M> b, Rope<M> c, RopeFactory<M> factory, String block, M sum) {
         if(block != null) {
             assert a == null : "Block can't have a child: 'a'";
             assert b == null : "Block can't have a child: 'b'";
@@ -40,12 +54,6 @@ public class Rope<M> {
             this.length = block.length();
             this.block = block;
             this.factory = factory;
-            Function<Character, M> map = factory.getMap();
-            Reducer<M> reducer = factory.getReducer();
-            M sum = reducer.unit();
-            for(int i = 0; i < block.length(); ++i) {
-                sum = reducer.compose(sum, map.applyTo(block.charAt(i)));
-            }
             this.sum = sum;
         } else {
             assert a != null : "Fork must have a child: 'a'";
@@ -55,18 +63,16 @@ public class Rope<M> {
             this.b = b;
             this.block = null;
             this.factory = factory;
+            this.sum = sum;
             if(c == null) {
                 this.c = null;
                 this.h = a.h + 1;
                 this.length = a.length + b.length;
-                this.sum = factory.getReducer().compose(a.sum, b.sum);
             } else {
                 assert a.h == c.h : "Fork's 'a' and 'c' children must have same height";
                 this.c = c;
                 this.h = a.h + 1;
                 this.length = a.length + b.length + c.length;
-                this.sum = factory.getReducer().compose(
-                        a.sum, factory.getReducer().compose(b.sum, c.sum));
             }
         }
     }
@@ -96,29 +102,39 @@ public class Rope<M> {
     private static <M> Rope<M> append(Rope<M> left, Rope<M> right) {
         int blockSize = left.factory.getBlockSize();
         Reducer<M> reducer = left.factory.getReducer();
-        Function<Character,M> map = left.factory.getMap();
 
+        M sum = reducer.compose(left.sum, right.sum);
+        
         if(left.h == right.h) {
             if(left.h > 0)
-                return new Rope<M>(left, right);
+                return new Rope<M>(left, right, sum);
             if(!left.isUnderflownBlock() && !right.isUnderflownBlock())
-                return new Rope<M>(left, right);
+                return new Rope<M>(left, right, sum);
             String bigBlock = left.block + right.block;
             if(bigBlock.length() <= 2 * blockSize - 1)
-                return new Rope<M>(left.factory, bigBlock);
+                return new Rope<M>(left.factory, bigBlock, sum);
             return new Rope<M>(
                     new Rope<M>(left.factory, bigBlock.substring(0, blockSize)),
-                    new Rope<M>(left.factory, bigBlock.substring(blockSize, bigBlock.length())));
+                    new Rope<M>(left.factory, bigBlock.substring(blockSize, bigBlock.length())),
+                    sum);
         } else if(left.h == right.h + 1) {
             if(left.c == null)
-                return new Rope<M>(left.a, left.b, right);
+                return new Rope<M>(left.a, left.b, right, sum);
             else
-                return new Rope<M>(new Rope<M>(left.a, left.b), new Rope<M>(left.c, right));
+                return new Rope<M>(
+                        // Optimization opportunity: remember a+b and b+c sums in 3-child nodes
+                        new Rope<M>(left.a, left.b, reducer.compose(left.a.sum, left.b.sum)),
+                        new Rope<M>(left.c, right, reducer.compose(left.c.sum, right.sum)),
+                        sum);
         } else if(right.h == left.h + 1) {
             if(right.c == null)
-                return new Rope<M>(left, right.a, right.b);
+                return new Rope<M>(left, right.a, right.b, sum);
             else
-                return new Rope<M>(new Rope<M>(left, right.a), new Rope<M>(right.b, right.c));
+                return new Rope<M>(
+                        new Rope<M>(left, right.a, reducer.compose(left.sum, right.a.sum)),
+                        // Optimization opportunity: remember a+b and b+c sums in 3-child nodes
+                        new Rope<M>(right.b, right.c, reducer.compose(right.b.sum, right.c.sum)),
+                        sum);
         } else if (left.h > right.h + 1) {
             if(left.c == null)
                 // This would not be well-founded recursion, if not for the two previous cases

@@ -140,7 +140,7 @@ public class RopeBasedIS<ST extends State> implements DFAIndexedString<RopeBased
                     a.forward==UNIT_TF ? b.forward : b.forward == UNIT_TF ? a.forward :
                     a.forward.followedBy(b.forward),
                     a.backward==UNIT_TF ? b.backward : b.backward == UNIT_TF ? a.backward :
-                    a.backward.followedBy(b.backward));
+                    b.backward.followedBy(a.backward));
         }
 
         public TransferFunctions<ST> unit() {
