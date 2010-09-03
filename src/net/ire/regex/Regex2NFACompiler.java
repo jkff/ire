@@ -3,10 +3,9 @@ package net.ire.regex;
 import net.ire.DFARopePatternSet;
 import net.ire.PatternSet;
 import net.ire.fa.*;
+import net.ire.util.Pair;
 
-import java.util.ArrayList;
-import java.util.BitSet;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created on: 01.09.2010 23:43:07
@@ -27,7 +26,108 @@ public class Regex2NFACompiler {
     }
 
     private static DFA<Character, PowerIntState> compileToDFA(Node node) {
-        throw new UnsupportedOperationException();
+        return toDFA(eClosure(toNFA(node)));
+    }
+
+    private static DFA<Character, PowerIntState> toDFA(NFA nfa) {
+
+    }
+
+    private static NFA eClosure(NFA nfa) {
+        Map<Set<NFA.Node>, NFA.Node> closure2newNode = new HashMap<Set<NFA.Node>, NFA.Node>();
+        Map<NFA.Node, Set<NFA.Node>> node2closure = new HashMap<NFA.Node, Set<NFA.Node>>();
+        Map<NFA.Node, NFA.Node> node2newNode = new HashMap<NFA.Node, NFA.Node>();
+
+        Set<NFA.Node> allNodes = new HashSet<NFA.Node>();
+        {
+            Set<NFA.Node> toVisit = new HashSet<NFA.Node>();
+            toVisit.add(nfa.begin);
+            while(!toVisit.isEmpty()) {
+                NFA.Node node = toVisit.iterator().next();
+                toVisit.remove(node);
+                if(allNodes.add(node)) {
+                    for (Pair<CharacterClass, NFA.Node> out : node.out) {
+                        toVisit.add(out.second);
+                    }
+                }
+            }
+        }
+
+        for(NFA.Node node : allNodes) {
+            Set<NFA.Node> closure = new HashSet<NFA.Node>();
+            closure.add(node);
+            while(!closure.isEmpty()) {
+                NFA.Node next = closure.iterator().next();
+                closure.remove(node);
+                if(allNodes.add(node)) {
+                    for (Pair<CharacterClass, NFA.Node> out : node.out) {
+                        if(out.first == null) { // Sic! Only epsilon transitions
+                            closure.add(out.second);
+                        }
+                    }
+                }
+            }
+            node2closure.put(node, closure);
+
+            NFA.Node newNode = closure2newNode.get(closure);
+            if(newNode == null) {
+                closure2newNode.put(closure, newNode = new NFA.Node());
+            }
+
+
+        }
+    }
+
+    private static NFA toNFA(Node node) {
+        if(node instanceof Alternative) {
+            Alternative x = (Alternative) node;
+            NFA res = new NFA();
+            NFA a = toNFA(x.a), b = toNFA(x.b);
+            res.begin.transition(null, a.begin);
+            res.begin.transition(null, b.begin);
+            a.begin.transition(null, res.end);
+            b.begin.transition(null, res.end);
+            return res;
+        } else if(node instanceof CharacterClass) {
+            NFA res = new NFA();
+            res.begin.transition((CharacterClass)node, res.end);
+        } else if(node instanceof Empty) {
+            NFA res = new NFA();
+            res.begin.transition(null, res.end);
+        } else if(node instanceof OnceOrMore) {
+            OnceOrMore x = (OnceOrMore) node;
+            NFA res = toNFA(x.a);
+            res.end.transition(null, res.begin);
+            return res;
+        } else if(node instanceof Optional) {
+            Optional x = (Optional) node;
+            NFA res = toNFA(x.a);
+            res.begin.transition(null, res.end);
+            return res;
+        } else if(node instanceof Sequence) {
+            Sequence x = (Sequence) node;
+            NFA a = toNFA(x.a), b = toNFA(x.b);
+            NFA res = new NFA();
+            res.begin = a.begin;
+            a.end.transition(null, b.begin);
+            res.end = a.end;
+            return res;
+        } else {
+            throw new UnsupportedOperationException("Unsupported node type " + node.getClass());
+        }
+    }
+
+    private static class NFA {
+        Node begin = new Node();
+        Node end = new Node();
+
+        private static class Node {
+            private List<Pair<CharacterClass, Node>> out = new ArrayList<Pair<CharacterClass, Node>>();
+
+            void transition(CharacterClass cc, Node dest) {
+                out.add(Pair.<CharacterClass, Node>of(cc, dest));
+            }
+        }
     }
 
     private static Node reverse(Node node) {
@@ -59,8 +159,7 @@ public class Regex2NFACompiler {
         List<State> basisList = new ArrayList<State>();
         basisList.add(new IntState(0, new BitSet(numPatterns)));
         for(DFA<Character,PowerIntState> dfa : dfas) {
-            for(State s : dfa.getInitialState().getBasis())
-                basisList.add(s);
+            basisList.addAll(Arrays.asList(dfa.getInitialState().getBasis()));
         }
         final State[] basis = basisList.toArray(new State[basisList.size()]);
 
