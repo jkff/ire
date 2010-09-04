@@ -148,11 +148,6 @@ public class RegexCompiler {
             NFA res = toNFA(x.a);
             res.end.transition(null, res.begin);
             return res;
-        } else if(rxNode instanceof Optional) {
-            Optional x = (Optional) rxNode;
-            NFA res = toNFA(x.a);
-            res.begin.transition(null, res.end);
-            return res;
         } else if(rxNode instanceof Sequence) {
             Sequence x = (Sequence) rxNode;
             NFA a = toNFA(x.a), b = toNFA(x.b);
@@ -198,9 +193,6 @@ public class RegexCompiler {
         } else if(rxNode instanceof OnceOrMore) {
             OnceOrMore x = (OnceOrMore) rxNode;
             return new OnceOrMore(reverse(x.a));
-        } else if(rxNode instanceof Optional) {
-            Optional x = (Optional) rxNode;
-            return new Optional(reverse(x.a));
         } else if(rxNode instanceof Sequence) {
             Sequence x = (Sequence) rxNode;
             // The only interesting case.

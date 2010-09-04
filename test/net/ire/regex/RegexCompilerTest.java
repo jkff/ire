@@ -76,18 +76,6 @@ public class RegexCompilerTest {
         assertTerminatesPatterns(dfa, "aabab", false);
     }
 
-    @Test
-    public void testOptional() {
-        DFA<Character,PowerIntState> dfa = toDFA(toNFA(new Labeled(
-                new Optional(new Sequence(CharacterClass.oneOf("a"), CharacterClass.oneOf("b"))), 0)), 1);
-        assertTerminatesPatterns(dfa, "", true);
-        assertTerminatesPatterns(dfa, "a", false);
-        assertTerminatesPatterns(dfa, "ab", true);
-        assertTerminatesPatterns(dfa, "aba", false);
-        assertTerminatesPatterns(dfa, "cab", false);
-        assertTerminatesPatterns(dfa, "abab", false);
-    }
-
     private void assertTerminatesPatterns(
             DFA<Character,PowerIntState> dfa, String input, boolean... terminatesWhichPatterns)
     {
