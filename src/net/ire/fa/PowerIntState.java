@@ -10,8 +10,6 @@ public class PowerIntState implements State {
     private BitSet subset;
 
     public PowerIntState(State[] basis, BitSet subset) {
-        if(subset.isEmpty())
-            throw new AssertionError("Unexpected: empty powerstate");
         this.basis = basis;
         this.subset = subset;
     }

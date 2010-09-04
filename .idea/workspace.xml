@@ -2,8 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1637b614-9bba-4095-a6e7-d915f195ed72" name="Default" comment="Ropes seem to work; added a test for them.">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/ire/regex/Regex2NFACompiler.java" afterPath="$PROJECT_DIR$/src/net/ire/regex/Regex2NFACompiler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/ire/regex/Sequence.java" afterPath="$PROJECT_DIR$/src/net/ire/regex/Sequence.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/ire/regex/Optional.java" afterPath="$PROJECT_DIR$/src/net/ire/regex/Optional.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/ire/fa/PowerIntState.java" afterPath="$PROJECT_DIR$/src/net/ire/fa/PowerIntState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/net/ire/rope/RopeBasedISTest.java" afterPath="$PROJECT_DIR$/test/net/ire/rope/RopeBasedISTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/net/ire/LinearISTest.java" afterPath="$PROJECT_DIR$/test/net/ire/LinearISTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/net/ire/util/CollectionFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/ire/DFAMatcher.java" afterPath="$PROJECT_DIR$/src/net/ire/DFAMatcher.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/ire/regex/CharacterClass.java" afterPath="$PROJECT_DIR$/src/net/ire/regex/CharacterClass.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/net/ire/NFABuilder.java" afterPath="$PROJECT_DIR$/test/net/ire/NFABuilder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/net/ire/regex/RegexCompiler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/net/ire/regex/RegexCompilerTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/net/ire/regex/Labeled.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/ire/regex/Empty.java" afterPath="$PROJECT_DIR$/src/net/ire/regex/Empty.java" />
+      <change type="DELETED" beforePath="C:\projects\opensource\ire\src\net\ire\regex\Regex2NFACompiler.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/ire/regex/Alternative.java" afterPath="$PROJECT_DIR$/src/net/ire/regex/Alternative.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/net/ire/DFABuilder.java" afterPath="$PROJECT_DIR$/test/net/ire/DFABuilder.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\regex\Node.java" afterPath="$PROJECT_DIR$/src/net/ire/regex/RxNode.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/ire/regex/OnceOrMore.java" afterPath="$PROJECT_DIR$/src/net/ire/regex/OnceOrMore.java" />
     </list>
     <ignored path=".idea/workspace.xml" />
     <ignored path="ire.iws" />
@@ -129,6 +146,45 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/test/net/ire/regex/RegexCompilerTest.java" line="24" class="net.ire.regex.RegexCompilerTest" package="net.ire.regex">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/test/net/ire/regex/RegexCompilerTest.java" line="99" class="net.ire.regex.RegexCompilerTest" package="net.ire.regex">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/test/net/ire/regex/RegexCompilerTest.java" line="42" class="net.ire.regex.RegexCompilerTest" package="net.ire.regex">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
     </line_breakpoints>
     <breakpoint_any>
       <breakpoint>
@@ -171,55 +227,10 @@
   <component name="FileColors" enabled="true" enabledForTabs="true" highlightNonProjectFiles="true" nonProjectFilesColor="ffffe4" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="LinearISTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/net/ire/LinearISTest.java">
+      <file leaf-file-name="RegexCompiler.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/net/ire/regex/RegexCompiler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="19" selection-start="2922" selection-end="2922" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DFARopePatternSet.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/net/ire/DFARopePatternSet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="48" selection-start="256" selection-end="256" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Sequence.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/net/ire/regex/Sequence.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="30" selection-start="97" selection-end="97" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OnceOrMore.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/net/ire/regex/OnceOrMore.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="31" selection-start="166" selection-end="166" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Alternative.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/net/ire/regex/Alternative.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="40" selection-start="201" selection-end="201" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Regex2NFACompiler.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/net/ire/regex/Regex2NFACompiler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="75" selection-start="183" selection-end="183" vertical-scroll-proportion="0.23161764">
+            <state line="135" column="17" selection-start="5097" selection-end="5097" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -227,19 +238,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DFA.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/net/ire/fa/DFA.java">
+      <file leaf-file-name="Object.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.6.0_21/src.zip!/java/lang/Object.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="13" selection-start="386" selection-end="386" vertical-scroll-proportion="0.0">
+            <state line="364" column="29" selection-start="17922" selection-end="17922" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TransferTable.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/net/ire/fa/TransferTable.java">
+      <file leaf-file-name="RegexCompilerTest.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/net/ire/regex/RegexCompilerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="17" selection-start="81" selection-end="81" vertical-scroll-proportion="0.0">
+            <state line="88" column="21" selection-start="3421" selection-end="3421" vertical-scroll-proportion="0.9285714">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PowerIntState.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/net/ire/fa/PowerIntState.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="22" selection-start="501" selection-end="505" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -248,16 +270,52 @@
       <file leaf-file-name="CharacterClass.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/ire/regex/CharacterClass.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="0" selection-start="174" selection-end="174" vertical-scroll-proportion="0.0">
+            <state line="19" column="23" selection-start="536" selection-end="536" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PatternSet.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/net/ire/PatternSet.java">
+      <file leaf-file-name="DFAMatcher.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/net/ire/DFAMatcher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="17" selection-start="78" selection-end="78" vertical-scroll-proportion="0.0">
+            <state line="4" column="20" selection-start="88" selection-end="88" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DFABuilder.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/net/ire/DFABuilder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="19" selection-start="59" selection-end="59" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LinearISTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/net/ire/LinearISTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="20" selection-start="124" selection-end="124" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NFABuilder.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/net/ire/NFABuilder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="19" selection-start="59" selection-end="59" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RopeBasedISTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/net/ire/rope/RopeBasedISTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="20" selection-start="205" selection-end="205" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -270,32 +328,54 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="Git.Branch.Configurations">
+    <option name="CURRENT" value="master" />
+    <option name="CONFIGURATIONS">
+      <array>
+        <BranchConfiguration>
+          <option name="IS_AUTO_DETECTED" value="true" />
+          <option name="NAME" value="master" />
+          <option name="BRANCHES">
+            <array>
+              <BranchInfo>
+                <option name="ROOT" value="$PROJECT_DIR$" />
+                <option name="REFERENCE" value="master" />
+              </BranchInfo>
+            </array>
+          </option>
+        </BranchConfiguration>
+      </array>
+    </option>
+  </component>
   <component name="Git.Settings">
-    <option name="GIT_EXECUTABLE" value="C:\msysgit\cmd\git.cmd" />
+    <option name="GIT_EXECUTABLE" value="C:\Program Files (x86)\Git\cmd\git.cmd" />
     <option name="CHECKOUT_INCLUDE_TAGS" value="false" />
     <option name="UPDATE_CHANGES_POLICY" value="STASH" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/net/ire/rope/RopeBasedIS.java" />
-        <option value="$PROJECT_DIR$/src/net/ire/rope/Rope.java" />
-        <option value="$PROJECT_DIR$/test/net/ire/rope/RopeBasedISTest.java" />
-        <option value="$PROJECT_DIR$/test/net/ire/LinearISTest.java" />
-        <option value="$PROJECT_DIR$/src/net/ire/regex/Node.java" />
-        <option value="$PROJECT_DIR$/src/net/ire/regex/Empty.java" />
-        <option value="$PROJECT_DIR$/src/net/ire/regex/Optional.java" />
-        <option value="$PROJECT_DIR$/src/net/ire/regex/Sequence.java" />
-        <option value="$PROJECT_DIR$/src/net/ire/regex/OnceOrMore.java" />
-        <option value="$PROJECT_DIR$/src/net/ire/regex/Alternative.java" />
-        <option value="$PROJECT_DIR$/src/net/ire/fa/DFAPatternSet.java" />
         <option value="$PROJECT_DIR$/src/net/ire/fa/DFARopePatternSet.java" />
         <option value="$PROJECT_DIR$/src/net/ire/DFARopePatternSet.java" />
-        <option value="$PROJECT_DIR$/src/net/ire/regex/CharacterClass.java" />
         <option value="$PROJECT_DIR$/src/net/ire/fa/DFA.java" />
+        <option value="$PROJECT_DIR$/src/net/ire/util/CollectionFactory.java" />
+        <option value="$PROJECT_DIR$/test/net/ire/DFABuilder.java" />
+        <option value="$PROJECT_DIR$/src/net/ire/DFAMatcher.java" />
+        <option value="$PROJECT_DIR$/test/net/ire/LinearISTest.java" />
+        <option value="$PROJECT_DIR$/test/net/ire/NFABuilder.java" />
+        <option value="$PROJECT_DIR$/test/net/ire/rope/RopeBasedISTest.java" />
         <option value="$PROJECT_DIR$/src/net/ire/regex/Regex2NFACompiler.java" />
+        <option value="$PROJECT_DIR$/test/net/ire/regex/Regex2NFACompilerTest.java" />
+        <option value="$PROJECT_DIR$/src/net/ire/regex/Labeled.java" />
+        <option value="$PROJECT_DIR$/src/net/ire/regex/CharacterClass.java" />
+        <option value="$PROJECT_DIR$/src/net/ire/fa/PowerIntState.java" />
+        <option value="$PROJECT_DIR$/src/net/ire/regex/RegexCompiler.java" />
+        <option value="$PROJECT_DIR$/test/net/ire/regex/RegexCompilerTest.java" />
       </list>
     </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="jreName" value="#JAVA_INTERNAL" />
   </component>
   <component name="ModuleEditorState">
     <option name="LAST_EDITED_MODULE_NAME" />
@@ -332,9 +412,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Favorites" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -363,6 +440,46 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ire" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ire" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ire" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ire" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="regex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ire" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ire" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -371,8 +488,33 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ire" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ire" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ire" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="regex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Favorites" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -383,7 +525,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="options.lastSelected" value="project.propVCSSupport.VCSs.Git" />
+    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
@@ -404,16 +546,16 @@
       <recent name="net.ire" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in ire">
-    <configuration default="false" name="RopeBasedISTest" type="JUnit" factoryName="JUnit" temporary="true">
+  <component name="RunManager" selected="JUnit.RegexCompilerTest.testOptional">
+    <configuration default="false" name="RegexCompilerTest.testAB" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="snapshooter" />
       <module name="ire" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="net.ire.rope" />
-      <option name="MAIN_CLASS_NAME" value="net.ire.rope.RopeBasedISTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="net.ire.regex" />
+      <option name="MAIN_CLASS_NAME" value="net.ire.regex.RegexCompilerTest" />
+      <option name="METHOD_NAME" value="testAB" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -424,24 +566,18 @@
       </option>
       <envs />
       <patterns />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="43014" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
       <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <configuration default="false" name="RopeBasedISTest.testABConDFA" type="JUnit" factoryName="JUnit" temporary="true">
+    <configuration default="false" name="RegexCompilerTest.testAorB" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="snapshooter" />
       <module name="ire" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="net.ire.rope" />
-      <option name="MAIN_CLASS_NAME" value="net.ire.rope.RopeBasedISTest" />
-      <option name="METHOD_NAME" value="testABConDFA" />
+      <option name="PACKAGE_NAME" value="net.ire.regex" />
+      <option name="MAIN_CLASS_NAME" value="net.ire.regex.RegexCompilerTest" />
+      <option name="METHOD_NAME" value="testAorB" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" />
       <option name="PARAMETERS" />
@@ -454,7 +590,7 @@
       <envs />
       <patterns />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="42965" />
+        <option name="DEBUG_PORT" value="37812" />
         <option name="TRANSPORT" value="0" />
         <option name="LOCAL" value="true" />
       </RunnerSettings>
@@ -463,14 +599,14 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <configuration default="false" name="RopeBasedISTest.testABorAConNFA" type="JUnit" factoryName="JUnit" temporary="true">
+    <configuration default="false" name="RegexCompilerTest.testAorMore" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="snapshooter" />
       <module name="ire" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="net.ire.rope" />
-      <option name="MAIN_CLASS_NAME" value="net.ire.rope.RopeBasedISTest" />
-      <option name="METHOD_NAME" value="testABorAConNFA" />
+      <option name="PACKAGE_NAME" value="net.ire.regex" />
+      <option name="MAIN_CLASS_NAME" value="net.ire.regex.RegexCompilerTest" />
+      <option name="METHOD_NAME" value="testAorMore" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" />
       <option name="PARAMETERS" />
@@ -482,25 +618,19 @@
       </option>
       <envs />
       <patterns />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="1848" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
       <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <configuration default="false" name="net.ire in ire" type="JUnit" factoryName="JUnit" temporary="true">
+    <configuration default="false" name="RegexCompilerTest.testABorMore" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="snapshooter" />
       <module name="ire" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="net.ire" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="PACKAGE_NAME" value="net.ire.regex" />
+      <option name="MAIN_CLASS_NAME" value="net.ire.regex.RegexCompilerTest" />
+      <option name="METHOD_NAME" value="testABorMore" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -515,15 +645,15 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <configuration default="false" name="All in ire" type="JUnit" factoryName="JUnit" temporary="true">
+    <configuration default="false" name="RegexCompilerTest.testOptional" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="snapshooter" />
       <module name="ire" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="PACKAGE_NAME" value="net.ire.regex" />
+      <option name="MAIN_CLASS_NAME" value="net.ire.regex.RegexCompilerTest" />
+      <option name="METHOD_NAME" value="testOptional" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -648,11 +778,11 @@
       </method>
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.RopeBasedISTest" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.RopeBasedISTest.testABConDFA" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.RopeBasedISTest.testABorAConNFA" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.net.ire in ire" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.All in ire" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.RegexCompilerTest.testAB" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.RegexCompilerTest.testAorB" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.RegexCompilerTest.testAorMore" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.RegexCompilerTest.testABorMore" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.RegexCompilerTest.testOptional" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -673,29 +803,29 @@
     <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
     <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
     <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
-    <configuration useDefault="true">C:\Users\Administrator\AppData\Roaming\Subversion</configuration>
+    <configuration useDefault="true">C:\Users\jkff\AppData\Roaming\Subversion</configuration>
     <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32997763" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5672131" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295082" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28032786" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32786885" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30213904" sideWeight="0.7214765" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2993921" sideWeight="0.7229508" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2785235" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27704918" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295082" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -739,74 +869,9 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/net/ire/rope/Rope.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="13" selection-start="1106" selection-end="1106" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/net/ire/rope/RopeBasedISTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="0" selection-start="3588" selection-end="3588" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/ire/Compiler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="134" selection-end="134" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/ire/regex/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="16" selection-start="83" selection-end="83" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/ire/regex/Empty.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="35" selection-start="102" selection-end="102" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/ire/regex/Optional.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="37" selection-start="104" selection-end="104" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/net/ire/LinearISTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="19" selection-start="2922" selection-end="2922" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/ire/DFARopePatternSet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="48" selection-start="256" selection-end="256" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/ire/regex/Sequence.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="30" selection-start="97" selection-end="97" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/ire/regex/OnceOrMore.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="31" selection-start="166" selection-end="166" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/ire/regex/Alternative.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="40" selection-start="201" selection-end="201" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/ire/fa/DFA.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="13" selection-start="386" selection-end="386" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/net/ire/fa/TransferTable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="17" selection-start="81" selection-end="81" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/ire/regex/CharacterClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="174" selection-end="174" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/ire/PatternSet.java">
@@ -814,9 +879,102 @@
         <state line="5" column="17" selection-start="78" selection-end="78" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/ire/regex/Regex2NFACompiler.java">
+    <entry file="file://$PROJECT_DIR$/src/net/ire/regex/Alternative.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="75" selection-start="183" selection-end="183" vertical-scroll-proportion="0.23161764">
+        <state line="9" column="44" selection-start="211" selection-end="211" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/ire/regex/OnceOrMore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="33" selection-start="172" selection-end="172" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/ire/util/CollectionFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="40" selection-start="331" selection-end="331" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/net/ire/DFABuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="19" selection-start="59" selection-end="59" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/ire/DFAMatcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="20" selection-start="88" selection-end="88" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/net/ire/LinearISTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="20" selection-start="124" selection-end="124" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/net/ire/NFABuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="19" selection-start="59" selection-end="59" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/net/ire/rope/RopeBasedISTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="20" selection-start="205" selection-end="205" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/ire/regex/Labeled.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="45" selection-start="213" selection-end="213" vertical-scroll-proportion="0.22459893">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/ire/regex/CharacterClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="23" selection-start="536" selection-end="536" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/ire/fa/PowerIntState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="22" selection-start="501" selection-end="505" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.6.0_21/src.zip!/java/lang/Object.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="364" column="29" selection-start="17922" selection-end="17922" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/ire/regex/RegexCompiler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="135" column="17" selection-start="5097" selection-end="5097" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/net/ire/regex/RegexCompilerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="88" column="21" selection-start="3421" selection-end="3421" vertical-scroll-proportion="0.9285714">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

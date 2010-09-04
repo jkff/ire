@@ -6,9 +6,10 @@ import net.ire.util.Function2;
 import net.ire.util.Pair;
 import net.ire.util.Predicate;
 
-import java.util.ArrayList;
 import java.util.BitSet;
 import java.util.List;
+
+import static net.ire.util.CollectionFactory.newArrayList;
 
 /**
  * Created on: 31.07.2010 12:19:28
@@ -40,7 +41,7 @@ public class DFAMatcher {
             }
         };
 
-        List<Match> res = new ArrayList<Match>();
+        List<Match> res = newArrayList();
 
         DFAIndexedString<S,ST> rem = string;
 

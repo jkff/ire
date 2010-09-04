@@ -2,7 +2,10 @@ package net.ire;
 
 import net.ire.fa.*;
 
-import java.util.*;
+import java.util.BitSet;
+import java.util.List;
+
+import static net.ire.util.CollectionFactory.newArrayList;
 
 /**
  * Created on: 01.08.2010 13:47:21
@@ -11,7 +14,7 @@ public class NFABuilder {
     private IntState[] basisStates;
     private int numPatterns;
     private int initialState;
-    private List<Transition> transitions = new ArrayList<Transition>();
+    private List<Transition> transitions = newArrayList();
 
     public NFABuilder(int numBasisStates, int initialState, int numPatterns) {
         this.basisStates = new IntState[numBasisStates];

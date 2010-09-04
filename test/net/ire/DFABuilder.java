@@ -2,7 +2,12 @@ package net.ire;
 
 import net.ire.fa.*;
 
-import java.util.*;
+import java.util.BitSet;
+import java.util.List;
+import java.util.Map;
+
+import static net.ire.util.CollectionFactory.newArrayList;
+import static net.ire.util.CollectionFactory.newHashMap;
 
 /**
  * Created on: 01.08.2010 13:47:21
@@ -11,7 +16,7 @@ public class DFABuilder {
     private IntState[] states;
     private int numPatterns;
     private int initialState;
-    private List<Transition> transitions = new ArrayList<Transition>();
+    private List<Transition> transitions = newArrayList();
 
     public DFABuilder(int numStates, int initialState, int numPatterns) {
         this.states = new IntState[numStates];
@@ -24,7 +29,7 @@ public class DFABuilder {
     }
 
     public DFA<Character, IntState> build() {
-        final Map<Character,int[]> char2table = new HashMap<Character,int[]>();
+        final Map<Character,int[]> char2table = newHashMap();
         for(Transition t : transitions) {
             int[] table = char2table.get(t.c);
             if(table == null)

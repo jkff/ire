@@ -8,9 +8,9 @@ import net.ire.fa.IntState;
 import net.ire.fa.PowerIntState;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import static net.ire.util.CollectionFactory.newArrayList;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -35,7 +35,7 @@ public class RopeBasedISTest {
         int blockSize = 3;
         RopeBasedIS<?> is = new RopeBasedIS<IntState>(bidfa, "xxxcabccccc", blockSize);
 
-        List<Match> matches = new ArrayList<Match>();
+        List<Match> matches = newArrayList();
         for(Match m : is.getMatches()) {
             matches.add(m);
         }
@@ -64,7 +64,7 @@ public class RopeBasedISTest {
         int blockSize = 3;
         RopeBasedIS<?> is = new RopeBasedIS<PowerIntState>(bidfa, "xxxcabccccc", blockSize);
 
-        List<Match> matches = new ArrayList<Match>();
+        List<Match> matches = newArrayList();
         for(Match m : is.getMatches()) {
             matches.add(m);
         }
@@ -95,7 +95,7 @@ public class RopeBasedISTest {
         int blockSize = 3;
         RopeBasedIS<?> is = new RopeBasedIS<PowerIntState>(bidfa, "xxxcabcacccc", blockSize);
 
-        List<Match> matches = new ArrayList<Match>();
+        List<Match> matches = newArrayList();
         for(Match m : is.getMatches()) {
             matches.add(m);
         }

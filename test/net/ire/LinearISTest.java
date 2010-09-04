@@ -5,9 +5,9 @@ import net.ire.fa.IntState;
 import net.ire.fa.PowerIntState;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import static net.ire.util.CollectionFactory.newArrayList;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -31,7 +31,7 @@ public class LinearISTest {
         BiDFA<Character,IntState> bidfa = new BiDFA<Character, IntState>(forward.build(), backward.build());
         LinearIS<?> is = new LinearIS<IntState>("xxxcabccccc", bidfa);
 
-        List<Match> matches = new ArrayList<Match>();
+        List<Match> matches = newArrayList();
         for(Match m : is.getMatches()) {
             matches.add(m);
         }
@@ -59,7 +59,7 @@ public class LinearISTest {
                 forward.build(), backward.build());
         LinearIS<?> is = new LinearIS<PowerIntState>("xxxcabccccc", bidfa);
 
-        List<Match> matches = new ArrayList<Match>();
+        List<Match> matches = newArrayList();
         for(Match m : is.getMatches()) {
             matches.add(m);
         }
@@ -89,7 +89,7 @@ public class LinearISTest {
                 forward.build(), backward.build());
         LinearIS<?> is = new LinearIS<PowerIntState>("xxxcabcacccc", bidfa);
 
-        List<Match> matches = new ArrayList<Match>();
+        List<Match> matches = newArrayList();
         for(Match m : is.getMatches()) {
             matches.add(m);
         }
