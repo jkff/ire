@@ -232,7 +232,7 @@
       <file leaf-file-name="Regex2NFACompiler.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/net/ire/regex/Regex2NFACompiler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="48" selection-start="1082" selection-end="1082" vertical-scroll-proportion="0.7463235">
+            <state line="9" column="75" selection-start="183" selection-end="183" vertical-scroll-proportion="0.23161764">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -828,7 +828,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/ire/regex/Regex2NFACompiler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="48" selection-start="1082" selection-end="1082" vertical-scroll-proportion="0.7463235">
+        <state line="9" column="75" selection-start="183" selection-end="183" vertical-scroll-proportion="0.23161764">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
