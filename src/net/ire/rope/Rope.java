@@ -142,12 +142,12 @@ public class Rope<M> {
                 return left.a.append(left.b.append(right));
             else
                 // etc.
-                return left.a.append(left.b.append(left.c.append(right)));
+                return (left.a.append(left.b)).append(left.c.append(right));
         } else { // right.h > left.h + 1
             if(right.c == null)
                 return left.append(right.a).append(right.b);
             else
-                return left.append(right.a).append(right.b).append(right.c);
+                return (left.append(right.a)).append(right.b.append(right.c));
         }
     }
 

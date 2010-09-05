@@ -55,6 +55,9 @@ public class RegexParser {
         } else if(t.peek() == (Character)'[') {
             t.next();
             return parseCharacterRange(t);
+        } else if(t.peek() == (Character)'.') {
+            t.next();
+            return CharacterClass.ANY_CHAR;
         } else {
             return CharacterClass.oneOf(""+parseChar(t));
         }

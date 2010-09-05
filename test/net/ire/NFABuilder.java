@@ -2,7 +2,8 @@ package net.ire;
 
 import net.ire.fa.*;
 
-import java.util.BitSet;
+import net.ire.util.WrappedBitSet;
+
 import java.util.List;
 
 import static net.ire.util.CollectionFactory.newArrayList;
@@ -27,10 +28,10 @@ public class NFABuilder {
     }
 
     public DFA<Character, PowerIntState> build() {
-        final BitSet[][] char2state2next = new BitSet[256][basisStates.length];
+        final WrappedBitSet[][] char2state2next = new WrappedBitSet[256][basisStates.length];
         for(int i = 0; i < 256; ++i)
             for(int j = 0; j < basisStates.length; ++j)
-                char2state2next[i][j] = new BitSet(basisStates.length);
+                char2state2next[i][j] = new WrappedBitSet(basisStates.length);
         
         for(Transition t : transitions) {
             if(t.c != null) {
@@ -50,7 +51,7 @@ public class NFABuilder {
             }
         };
 
-        BitSet justInitial = new BitSet(basisStates.length);
+        WrappedBitSet justInitial = new WrappedBitSet(basisStates.length);
         justInitial.set(initialState);
         return new DFA<Character, PowerIntState>(transfer, new PowerIntState(basisStates, justInitial));
     }
@@ -68,7 +69,7 @@ public class NFABuilder {
             for(int i = 0; i < char2state.length; i += 2) {
                 transitions.add(new Transition(this.state, (Character)char2state[i], (Integer)char2state[i+1]));
             }
-            BitSet t = new BitSet(numPatterns);
+            WrappedBitSet t = new WrappedBitSet(numPatterns);
             for(int tp : termPatterns)
                 t.set(tp);
             basisStates[state] = new IntState(state, t);

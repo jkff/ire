@@ -3,9 +3,11 @@ package net.ire.regex;
 import net.ire.DFARopePatternSet;
 import net.ire.PatternSet;
 import net.ire.fa.*;
+import net.ire.util.WrappedBitSet;
 import net.ire.util.Pair;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import static net.ire.util.CollectionFactory.*;
 
@@ -38,16 +40,14 @@ public class RegexCompiler {
             alt = new Alternative(alt, labeled.get(i));
         }
 
-        return toDFA(toNFA(alt), rxNodes.size());
+        return toDFA(reduceNFA(toNFA(alt)), rxNodes.size());
     }
 
     static DFA<Character, PowerIntState> toDFA(NFA nfa, int numPatterns) {
-        final Map<NFA.Node, Set<NFA.Node>> node2closure = newHashMap();
+        Pair<Set<NFA.Node>, NFA.Node> eClosure = computeEClosure(nfa);
 
-        Set<NFA.Node> allNodes = dfs(nfa.begin, true);
-        for(NFA.Node node : allNodes) {
-            node2closure.put(node, dfs(node, false));
-        }
+        Set<NFA.Node> allNodes = eClosure.first;
+        NFA.Node newInitial = eClosure.second;
 
         final int numStates = allNodes.size();
 
@@ -60,10 +60,9 @@ public class RegexCompiler {
 
         State[] basis = new State[numStates];
         for(int i = 0; i < numStates; ++i) {
-            BitSet terminatedPatterns = new BitSet(numPatterns);
-            for(NFA.Node node : node2closure.get(id2node[i])) {
-                if(node.patternId != -1)
-                    terminatedPatterns.set(node.patternId);
+            WrappedBitSet terminatedPatterns = new WrappedBitSet(numPatterns);
+            for(int pat : id2node[i].patternIds) {
+                terminatedPatterns.set(pat);
             }
             basis[i] = new IntState(i, terminatedPatterns);
         }
@@ -80,17 +79,13 @@ public class RegexCompiler {
             }
 
             private TransferFunction<PowerIntState> computeTransferFor(Character token) {
-                BitSet[] state2next = new BitSet[numStates];
+                WrappedBitSet[] state2next = new WrappedBitSet[numStates];
                 for(int i = 0; i < numStates; ++i) {
-                    BitSet res = new BitSet(numStates);
+                    WrappedBitSet res = new WrappedBitSet(numStates);
                     NFA.Node node = id2node[i];
-                    for(NFA.Node eReachableSrc : node2closure.get(node)) {
-                        for (Pair<CharacterClass, NFA.Node> out : eReachableSrc.out) {
-                            if(out.first != null && out.first.acceptsChar(token)) {
-                                for(NFA.Node eReachableDest : node2closure.get(out.second)) {
-                                    res.set(node2id.get(eReachableDest));
-                                }
-                            }
+                    for (Pair<CharacterClass, NFA.Node> out : node.out) {
+                        if(out.first.acceptsChar(token)) {
+                            res.set(node2id.get(out.second));
                         }
                     }
                     state2next[i] = res;
@@ -99,13 +94,66 @@ public class RegexCompiler {
             }
         };
 
-        BitSet justInitial = new BitSet(numStates);
-        for(NFA.Node node : node2closure.get(nfa.begin)) {
-            justInitial.set(node2id.get(node));
-        }
+        WrappedBitSet justInitial = new WrappedBitSet(numStates);
+        justInitial.set(node2id.get(newInitial));
         PowerIntState initial = new PowerIntState(basis, justInitial);
 
         return new DFA<Character, PowerIntState>(transfer, initial);
+    }
+
+    private static Pair<Set<NFA.Node>, NFA.Node> computeEClosure(NFA nfa) {
+        final Map<NFA.Node, Set<NFA.Node>> node2closure = newHashMap();
+
+        Set<NFA.Node> allOldNodes = dfs(nfa.begin, true);
+        for(NFA.Node node : allOldNodes) {
+            node2closure.put(node, dfs(node, false));
+        }
+
+        final Map<NFA.Node, Set<NFA.Node>> newNode2contents = newHashMap();
+        final Map<Set<NFA.Node>, NFA.Node> contents2newNode = newHashMap();
+        Set<NFA.Node> newNodesToVisit = newHashSet();
+        Set<NFA.Node> initialEC = node2closure.get(nfa.begin);
+        NFA.Node newInitial = new NFA.Node();
+        for(NFA.Node subNode : initialEC) {
+            newInitial.patternIds.addAll(subNode.patternIds);
+        }
+        newNodesToVisit.add(newInitial);
+        newNode2contents.put(newInitial, initialEC);
+        contents2newNode.put(initialEC, newInitial);
+        while(!newNodesToVisit.isEmpty()) {
+            NFA.Node newNode = newNodesToVisit.iterator().next();
+            newNodesToVisit.remove(newNode);
+            Map<CharacterClass, Set<NFA.Node>> class2dest = newHashMap();
+            for(NFA.Node subNode : newNode2contents.get(newNode)) {
+                for(Pair<CharacterClass, NFA.Node> out : subNode.out) {
+                    if(out.first == null) {
+                        // Skip epsilon transitions: we're operating on epsilon closures
+                        continue;
+                    }
+                    Set<NFA.Node> dest = class2dest.get(out.first);
+                    if(dest == null) {
+                        class2dest.put(out.first, dest = newHashSet());
+                    }
+                    dest.addAll(node2closure.get(out.second));
+                }
+            }
+            for(CharacterClass cc : class2dest.keySet()) {
+                Set<NFA.Node> dest = class2dest.get(cc);
+                NFA.Node newDest = contents2newNode.get(dest);
+                if(newDest == null) {
+                    newDest = new NFA.Node();
+                    for(NFA.Node subNode : dest) {
+                        newDest.patternIds.addAll(subNode.patternIds);
+                    }
+                    newNode2contents.put(newDest, dest);
+                    contents2newNode.put(dest, newDest);
+                    newNodesToVisit.add(newDest);
+                }
+                newNode.transition(cc, newDest);
+            }
+        }
+
+        return Pair.of(newNode2contents.keySet(), newInitial);
     }
 
     static Set<NFA.Node> dfs(NFA.Node origin, boolean acceptNonEps) {
@@ -123,6 +171,12 @@ public class RegexCompiler {
             }
         }
         return res;
+    }
+
+    static NFA reduceNFA(NFA nfa) {
+        //
+        return nfa;
+        // TODO
     }
 
     static NFA toNFA(RxNode rxNode) {
@@ -157,7 +211,7 @@ public class RegexCompiler {
         } else if(rxNode instanceof Labeled) {
             Labeled x = (Labeled) rxNode;
             NFA a = toNFA(x.a);
-            a.end.patternId = x.patternId;
+            a.end.patternIds.add(x.patternId);
             return a;
         } else {
             throw new UnsupportedOperationException("Unsupported node type " + rxNode.getClass());
@@ -173,11 +227,18 @@ public class RegexCompiler {
         }
 
         static class Node {
-            List<Pair<CharacterClass, Node>> out = newArrayList();
-            int patternId = -1;
+            static AtomicInteger nextId = new AtomicInteger(0);
+
+            final List<Pair<CharacterClass, Node>> out = newArrayList();
+            final Set<Integer> patternIds = newHashSet();
+            final int id = nextId.incrementAndGet();
 
             void transition(CharacterClass cc, Node dest) {
                 out.add(Pair.<CharacterClass, Node>of(cc, dest));
+            }
+
+            public String toString() {
+                return ""+id;
             }
         }
     }
