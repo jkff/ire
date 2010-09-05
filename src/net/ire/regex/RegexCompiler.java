@@ -3,6 +3,7 @@ package net.ire.regex;
 import net.ire.DFARopePatternSet;
 import net.ire.PatternSet;
 import net.ire.fa.*;
+import net.ire.util.WrappedBitSet;
 import net.ire.util.Pair;
 
 import java.util.*;
@@ -60,7 +61,7 @@ public class RegexCompiler {
 
         State[] basis = new State[numStates];
         for(int i = 0; i < numStates; ++i) {
-            BitSet terminatedPatterns = new BitSet(numPatterns);
+            WrappedBitSet terminatedPatterns = new WrappedBitSet(numPatterns);
             for(NFA.Node node : node2closure.get(id2node[i])) {
                 if(node.patternId != -1)
                     terminatedPatterns.set(node.patternId);
@@ -80,9 +81,9 @@ public class RegexCompiler {
             }
 
             private TransferFunction<PowerIntState> computeTransferFor(Character token) {
-                BitSet[] state2next = new BitSet[numStates];
+                WrappedBitSet[] state2next = new WrappedBitSet[numStates];
                 for(int i = 0; i < numStates; ++i) {
-                    BitSet res = new BitSet(numStates);
+                    WrappedBitSet res = new WrappedBitSet(numStates);
                     NFA.Node node = id2node[i];
                     for(NFA.Node eReachableSrc : node2closure.get(node)) {
                         for (Pair<CharacterClass, NFA.Node> out : eReachableSrc.out) {
@@ -99,7 +100,7 @@ public class RegexCompiler {
             }
         };
 
-        BitSet justInitial = new BitSet(numStates);
+        WrappedBitSet justInitial = new WrappedBitSet(numStates);
         for(NFA.Node node : node2closure.get(nfa.begin)) {
             justInitial.set(node2id.get(node));
         }

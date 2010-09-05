@@ -1,15 +1,15 @@
 package net.ire.fa;
 
-import java.util.BitSet;
+import net.ire.util.WrappedBitSet;
 
 /**
  * Created on: 31.07.2010 15:16:46
  */
 public class IntState implements State {
     private int index;
-    private BitSet terminatedPatterns;
+    private WrappedBitSet terminatedPatterns;
 
-    public IntState(int index, BitSet terminatedPatterns) {
+    public IntState(int index, WrappedBitSet terminatedPatterns) {
         this.index = index;
         this.terminatedPatterns = terminatedPatterns;
     }
@@ -18,7 +18,7 @@ public class IntState implements State {
         return index;
     }
 
-    public BitSet getTerminatedPatterns() {
+    public WrappedBitSet getTerminatedPatterns() {
         return terminatedPatterns;
     }
 }

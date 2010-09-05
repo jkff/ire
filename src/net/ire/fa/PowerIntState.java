@@ -1,15 +1,15 @@
 package net.ire.fa;
 
-import java.util.BitSet;
+import net.ire.util.WrappedBitSet;
 
 /**
  * Created on: 01.08.2010 13:20:58
  */
 public class PowerIntState implements State {
     private State[] basis;
-    private BitSet subset;
+    private WrappedBitSet subset;
 
-    public PowerIntState(State[] basis, BitSet subset) {
+    public PowerIntState(State[] basis, WrappedBitSet subset) {
         this.basis = basis;
         this.subset = subset;
     }
@@ -18,15 +18,15 @@ public class PowerIntState implements State {
         return basis;
     }
 
-    public BitSet getSubset() {
+    public WrappedBitSet getSubset() {
         return subset;
     }
 
-    public BitSet getTerminatedPatterns() {
-        BitSet res = null;
+    public WrappedBitSet getTerminatedPatterns() {
+        WrappedBitSet res = null;
         for(int bit = subset.nextSetBit(0); bit >= 0; bit = subset.nextSetBit(bit+1)) {
             if(res == null)
-                res = (BitSet) basis[bit].getTerminatedPatterns().clone();
+                res = (WrappedBitSet) basis[bit].getTerminatedPatterns().makeCopy();
             else
                 res.or(basis[bit].getTerminatedPatterns());
         }

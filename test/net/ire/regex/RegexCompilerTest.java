@@ -2,9 +2,8 @@ package net.ire.regex;
 
 import net.ire.fa.DFA;
 import net.ire.fa.PowerIntState;
+import net.ire.util.WrappedBitSet;
 import org.junit.Test;
-
-import java.util.BitSet;
 
 import static net.ire.regex.RegexCompiler.*;
 import static org.junit.Assert.*;
@@ -83,7 +82,7 @@ public class RegexCompilerTest {
         for(char c : input.toCharArray()) {
             s = dfa.transfer(c).next(s);
         }
-        BitSet bs = s.getTerminatedPatterns();
+        WrappedBitSet bs = s.getTerminatedPatterns();
         for(int i = 0; i < terminatesWhichPatterns.length; ++i) {
             assertEquals("Pattern " + i, terminatesWhichPatterns[i], (bs == null) ? false : bs.get(i));
         }

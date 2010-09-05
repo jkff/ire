@@ -2,7 +2,8 @@ package net.ire;
 
 import net.ire.fa.*;
 
-import java.util.BitSet;
+import net.ire.util.WrappedBitSet;
+
 import java.util.List;
 import java.util.Map;
 
@@ -69,7 +70,7 @@ public class DFABuilder {
             for(int i = 0; i < char2state.length; i += 2) {
                 transitions.add(new Transition(this.state, (Character)char2state[i], (Integer)char2state[i+1]));
             }
-            BitSet t = new BitSet(numPatterns);
+            WrappedBitSet t = new WrappedBitSet(numPatterns);
             for(int tp : termPatterns)
                 t.set(tp);
             states[state] = new IntState(state, t);

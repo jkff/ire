@@ -25,4 +25,8 @@ public class Match {
     public int length() {
         return length;
     }
+
+    public String toString() {
+        return "" + whichPattern + "@("+startPos+","+length+")";
+    }
 }

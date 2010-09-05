@@ -6,7 +6,7 @@ import net.ire.util.Function2;
 import net.ire.util.Pair;
 import net.ire.util.Predicate;
 
-import java.util.BitSet;
+import net.ire.util.WrappedBitSet;
 import java.util.List;
 
 import static net.ire.util.CollectionFactory.newArrayList;
@@ -54,7 +54,7 @@ public class DFAMatcher {
 
             S matchingPrefix = p.first;
             final State stateLeftEnd = matchingPrefix.getForward().next(initial);
-            BitSet term = stateLeftEnd.getTerminatedPatterns();
+            WrappedBitSet term = stateLeftEnd.getTerminatedPatterns();
 
             ST backwardInitial = bidfa.getBackward().getInitialState();
 
