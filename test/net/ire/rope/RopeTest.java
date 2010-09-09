@@ -1,7 +1,10 @@
 package net.ire.rope;
 
+import net.ire.fa.Sequence;
 import net.ire.util.*;
 import org.junit.Test;
+
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
@@ -17,6 +20,14 @@ public class RopeTest {
 
         public String unit() {
             return "";
+        }
+
+        public String sumAll(Sequence<String> ss) {
+            StringBuilder res = new StringBuilder();
+            for(int i = 0; i < ss.length(); ++i) {
+                res.append(ss.get(i));
+            }
+            return res.toString();
         }
     };
     private static final Function<Character, String> SINGLETON_STRING = new Function<Character, String>() {

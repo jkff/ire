@@ -47,7 +47,7 @@ public class NFABuilder {
         }
         TransferTable<Character, PowerIntState> transfer = new TransferTable<Character, PowerIntState>() {
             public TransferFunction<PowerIntState> forToken(Character token) {
-                return new PowerIntTable(char2state2next[token]);
+                return new PowerIntTable(char2state2next[token], doCommute);
             }
         };
 

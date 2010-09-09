@@ -46,10 +46,11 @@ public class IntegrationTest {
 
         System.out.println("Indexed in " + (System.currentTimeMillis() - tStart) + "ms");
         tStart = System.currentTimeMillis();
+        long t0 = tStart;
         for(int i = 0; i < 1000000; ++i) {
             Pair<IndexedString,IndexedString> pair = is.splitBefore(i);
             if(i > 0 && i % 1000 == 0) {
-                System.out.println("1000 done in " + (System.currentTimeMillis() - tStart));
+                System.out.println("1000 done in " + (System.currentTimeMillis() - tStart) + " (" + (System.currentTimeMillis() - t0)+ ")");
                 tStart = System.currentTimeMillis();
                 System.out.println(
                         i + " " + getMatches(pair.first) + " / " +

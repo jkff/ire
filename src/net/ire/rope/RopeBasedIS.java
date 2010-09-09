@@ -3,10 +3,13 @@ package net.ire.rope;
 import net.ire.DFAIndexedString;
 import net.ire.DFAMatcher;
 import net.ire.Match;
-import net.ire.fa.BiDFA;
-import net.ire.fa.State;
-import net.ire.fa.TransferFunction;
+import net.ire.fa.*;
 import net.ire.util.*;
+
+import java.util.Collections;
+import java.util.List;
+
+import static net.ire.util.CollectionFactory.newArrayList;
 
 /**
  * Created on: 21.08.2010 21:10:19
@@ -145,6 +148,34 @@ public class RopeBasedIS<ST extends State> implements DFAIndexedString<RopeBased
 
         public TransferFunctions<ST> unit() {
             return (TransferFunctions<ST>) UNIT;
+        }
+
+        public TransferFunctions<ST> sumAll(final Sequence<TransferFunctions<ST>> tfs) {
+            if(tfs.length() == 0) {
+                return UNIT;
+            }
+
+            TransferFunction sumForward = PowerIntTable.composeAll(new Sequence<PowerIntTable>() {
+                public int length() {
+                    return tfs.length();
+                }
+
+                public PowerIntTable get(int i) {
+                    return (PowerIntTable) tfs.get(i).forward;
+                }
+            });
+
+            TransferFunction sumBackward = PowerIntTable.composeAll(new Sequence<PowerIntTable>() {
+                public int length() {
+                    return tfs.length();
+                }
+
+                public PowerIntTable get(int i) {
+                    return (PowerIntTable) tfs.get(length()-i-1).backward;
+                }
+            });
+
+            return new TransferFunctions<ST>(sumForward, sumBackward);
         }
     }
 

@@ -68,17 +68,18 @@ public class RegexCompiler {
         }
 
         TransferTable<Character,PowerIntState> transfer = new TransferTable<Character, PowerIntState>() {
-            private Map<Character, TransferFunction<PowerIntState>> transfer = newHashMap();
+            private TransferFunction[] transfer = new TransferFunction[Character.MAX_VALUE+1];
 
             public TransferFunction<PowerIntState> forToken(Character token) {
-                TransferFunction<PowerIntState> f = transfer.get(token);
+                char t = token;
+                TransferFunction<PowerIntState> f = transfer[t];
                 if(f == null) {
-                    transfer.put(token, f = computeTransferFor(token));
+                    transfer[t] = f = computeTransferFor(t);
                 }
                 return f;
             }
 
-            private TransferFunction<PowerIntState> computeTransferFor(Character token) {
+            private TransferFunction<PowerIntState> computeTransferFor(char token) {
                 WrappedBitSet[] state2next = new WrappedBitSet[numStates];
                 for(int i = 0; i < numStates; ++i) {
                     WrappedBitSet res = new WrappedBitSet(numStates);
@@ -90,7 +91,7 @@ public class RegexCompiler {
                     }
                     state2next[i] = res;
                 }
-                return new PowerIntTable(state2next);
+                return new PowerIntTable(state2next, doCommute);
             }
         };
 

@@ -1,10 +1,10 @@
 package net.ire.util;
 
 public class WrappedBitSet implements Cloneable {
-    private final static int ADDRESS_BITS_PER_WORD = 6;
-    private final static int BITS_PER_WORD = 1 << ADDRESS_BITS_PER_WORD;
+    public final static int ADDRESS_BITS_PER_WORD = 6;
+    public final static int BITS_PER_WORD = 1 << ADDRESS_BITS_PER_WORD;
 
-    private static final long WORD_MASK = 0xffffffffffffffffL;
+    public static final long WORD_MASK = 0xffffffffffffffffL;
 
     private long[] words;
     private int offset;
@@ -46,7 +46,7 @@ public class WrappedBitSet implements Cloneable {
     }
 
     public int nextSetBit(int fromIndex) {
-        int u = wordIndex(fromIndex)-offset;
+        int u = (fromIndex >> ADDRESS_BITS_PER_WORD);
     	long word = words[offset+u] & (WORD_MASK << fromIndex);
         while (true) {
             if (word != 0)
@@ -54,6 +54,18 @@ public class WrappedBitSet implements Cloneable {
             if (++u == length)
                 return -1;
             word = words[offset+u];
+        }
+    }
+
+    public static int nextSetBit(long[] words, int offset, int length, int fromIndex) {
+        int u = (fromIndex >> ADDRESS_BITS_PER_WORD);
+    	long word = words[offset + u] & (WORD_MASK << fromIndex);
+        while (true) {
+            if (word != 0)
+                return (u * BITS_PER_WORD) + Long.numberOfTrailingZeros(word);
+            if (++u == length)
+                return -1;
+            word = words[offset + u];
         }
     }
 
