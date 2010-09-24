@@ -10,7 +10,7 @@ import net.ire.util.Predicate;
 /**
  * Created on: 23.07.2010 9:23:42
  */
-public class LinearIS<ST extends State> implements DFAIndexedString<LinearIS<ST>,ST> {
+public class LinearIS<ST extends State> implements DFAIndexedString<ST> {
     private CharSequence cs;
     private BiDFA<Character, ST> bidfa;
     private TransferFunction<ST> forward;
@@ -58,15 +58,16 @@ public class LinearIS<ST extends State> implements DFAIndexedString<LinearIS<ST>
         return new LinearIS<ST>(cs.subSequence(start, end), bidfa);
     }
 
-    public Pair<LinearIS<ST>, LinearIS<ST>> splitBefore(int index) {
+    public Pair<IndexedString, IndexedString> splitBefore(int index) {
         return Pair.of(
-                new LinearIS<ST>(cs.subSequence(0, index), bidfa),
-                new LinearIS<ST>(cs.subSequence(index, cs.length()), bidfa));
+                (IndexedString)new LinearIS<ST>(cs.subSequence(0, index), bidfa),
+                (IndexedString)new LinearIS<ST>(cs.subSequence(index, cs.length()), bidfa));
     }
 
-    public <T> Pair<LinearIS<ST>, LinearIS<ST>> splitAfterRise(
+    public <T> Pair<IndexedString, IndexedString> splitAfterRise(
             T seed,
-            Function2<T, LinearIS<ST>, T> addChunk, Function2<T, Character, T> addChar, Predicate<T> toBool)
+            Function2<T, IndexedString, T> addChunk,
+            Function2<T, Character, T> addChar, Predicate<T> toBool)
     {
         T t = seed;
         for(int i = 0; i < length(); ++i) {
@@ -79,9 +80,9 @@ public class LinearIS<ST extends State> implements DFAIndexedString<LinearIS<ST>
         return null;
     }
 
-    public <T> Pair<LinearIS<ST>, LinearIS<ST>> splitAfterBackRise(
+    public <T> Pair<IndexedString, IndexedString> splitAfterBackRise(
             T seed,
-            Function2<T, LinearIS<ST>, T> addChunk, Function2<T, Character, T> addChar,
+            Function2<T, IndexedString, T> addChunk, Function2<T, Character, T> addChar,
             Predicate<T> toBool)
     {
         T t = seed;
@@ -93,7 +94,7 @@ public class LinearIS<ST extends State> implements DFAIndexedString<LinearIS<ST>
         return null;
     }
 
-    public LinearIS<ST> append(LinearIS<ST> other) {
+    public IndexedString append(IndexedString other) {
         return new LinearIS<ST>(cs.toString() + other.toString(), bidfa);
     }
 

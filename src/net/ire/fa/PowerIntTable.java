@@ -1,6 +1,5 @@
 package net.ire.fa;
 
-import net.ire.util.Function2;
 import net.ire.util.WrappedBitSet;
 
 import java.util.Arrays;
@@ -13,11 +12,7 @@ public class PowerIntTable implements TransferFunction<PowerIntState> {
     private final int blockSize;
     private final long[] words; // numStates blocks of ceil(numStates/64) longs
 
-    // TODO get rid of this hack
-    private final Function2<PowerIntTable, PowerIntTable, Boolean> doCommute;
-
-    public PowerIntTable(WrappedBitSet[] state2next, Function2<PowerIntTable, PowerIntTable, Boolean> doCommute) {
-        this.doCommute = doCommute;
+    public PowerIntTable(WrappedBitSet[] state2next) {
         this.numStates = state2next.length;
         this.blockSize = (63+numStates) / 64;
         this.words = new long[numStates * blockSize];
@@ -26,9 +21,8 @@ public class PowerIntTable implements TransferFunction<PowerIntState> {
         }
     }
 
-    private PowerIntTable(int numStates, long[] words, Function2<PowerIntTable, PowerIntTable, Boolean> doCommute) {
+    private PowerIntTable(int numStates, long[] words) {
         this.numStates = numStates;
-        this.doCommute = doCommute;
         this.blockSize = (63+numStates) / 64;
         this.words = words;
     }
@@ -46,7 +40,7 @@ public class PowerIntTable implements TransferFunction<PowerIntState> {
                 bit = WrappedBitSet.nextSetBit(this.words, ourOffset, blockSize, bit + 1);
             }
         }
-        return new PowerIntTable(numStates, words, doCommute);
+        return new PowerIntTable(numStates, words);
     }
 
     public PowerIntState next(PowerIntState st) {
@@ -58,10 +52,19 @@ public class PowerIntTable implements TransferFunction<PowerIntState> {
         return new PowerIntState(st.getBasis(), res);
     }
 
-    private static int total, numCalls;
-    public static PowerIntTable composeAll(Sequence<PowerIntTable> fs) {
-        long t = System.currentTimeMillis();
+    private static final long DEBRUIJN_64 = 0x07EDD5E59A4E28C2L;
+    private static final int[] INDEX_64 = {
+        63,  0, 58,  1, 59, 47, 53,  2,
+        60, 39, 48, 27, 54, 33, 42,  3,
+        61, 51, 37, 40, 49, 18, 28, 20,
+        55, 30, 34, 11, 43, 14, 22,  4,
+        62, 57, 46, 52, 38, 26, 32, 41,
+        50, 36, 17, 19, 29, 10, 13, 21,
+        56, 45, 25, 31, 35, 16,  9, 12,
+        44, 24, 15,  8, 23,  7,  6,  5
+    };
 
+    public static PowerIntTable composeAll(Sequence<PowerIntTable> fs) {
         PowerIntTable first = fs.get(0);
 
         int numWords = first.words.length;
@@ -77,12 +80,20 @@ public class PowerIntTable implements TransferFunction<PowerIntState> {
             long[] nextWords = fs.get(iF).words;
             for (int state = 0; state < numStates; ++state) {
                 int ourOffset = state * blockSize;
-                int bit = WrappedBitSet.nextSetBit(curWords, ourOffset, blockSize, 0);
-                while (bit >= 0) {
-                    for (int i = 0; i < blockSize; ++i) {
-                        newWords[ourOffset + i] |= nextWords[bit * blockSize + i];
+                for(int i = 0; i < blockSize; ++i) {
+                    long w = curWords[ourOffset + i];
+                    int bitBase = i * 64;
+                    while(w != 0) {
+                        long withoutLsb = w & (w - 1);
+                        long lsb = w ^ withoutLsb;
+
+                        int bit = bitBase + INDEX_64[((int) ((lsb * DEBRUIJN_64) >>> 58))];
+                        for (int j = 0; j < blockSize; ++j) {
+                            newWords[ourOffset + j] |= nextWords[bit * blockSize + j];
+                        }
+
+                        w = withoutLsb;
                     }
-                    bit = WrappedBitSet.nextSetBit(curWords, ourOffset, blockSize, bit + 1);
                 }
             }
             long[] tmp = curWords;
@@ -90,11 +101,6 @@ public class PowerIntTable implements TransferFunction<PowerIntState> {
             newWords = tmp;
         }
 
-        total += System.currentTimeMillis() - t;
-        numCalls++;
-        if(numCalls % 1000 == 0) {
-            System.out.println("Total " + total + " / " + numCalls);
-        }
-        return new PowerIntTable(numStates, curWords, first.doCommute);
+        return new PowerIntTable(numStates, curWords);
     }
 }

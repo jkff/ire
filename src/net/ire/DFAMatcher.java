@@ -15,15 +15,16 @@ import static net.ire.util.CollectionFactory.newArrayList;
  * Created on: 31.07.2010 12:19:28
  */
 public class DFAMatcher {
-    public static <S extends DFAIndexedString<S,ST>, ST extends State>
+    @SuppressWarnings("unchecked")
+    public static <ST extends State>
         Iterable<Match> getMatches(
-            final BiDFA<Character, ST> bidfa, final S string)
+            final BiDFA<Character, ST> bidfa, final DFAIndexedString<ST> string)
     {
         final ST initial = bidfa.getForward().getInitialState();
 
-        Function2<ST, S, ST> addString = new Function2<ST, S, ST>() {
-            public ST applyTo(ST st, S s) {
-                return s.getForward().next(st);
+        Function2<ST, IndexedString, ST> addString = new Function2<ST, IndexedString, ST>() {
+            public ST applyTo(ST st, IndexedString s) {
+                return ((DFAIndexedString<ST>) s).getForward().next(st);
             }
         };
         Function2<ST, Character, ST> addChar = new Function2<ST, Character, ST>() {
@@ -43,16 +44,17 @@ public class DFAMatcher {
 
         List<Match> res = newArrayList();
 
-        DFAIndexedString<S,ST> rem = string;
+        DFAIndexedString<ST> rem = string;
 
         int shift = 0;
 
         while(true) {
-            Pair<S, S> p = rem.splitAfterRise(initial, addString, addChar, hasForwardMatch);
+            Pair<IndexedString, IndexedString> p = rem.splitAfterRise(
+                    initial, addString, addChar, hasForwardMatch);
             if(p == null)
                 break;
 
-            S matchingPrefix = p.first;
+            DFAIndexedString<ST> matchingPrefix = (DFAIndexedString<ST>) p.first;
             final State stateLeftEnd = matchingPrefix.getForward().next(initial);
             WrappedBitSet term = stateLeftEnd.getTerminatedPatterns();
 
@@ -61,9 +63,9 @@ public class DFAMatcher {
             for(int bit = term.nextSetBit(0); bit >= 0; bit = term.nextSetBit(bit+1)) {
                 final int bit2 = bit;
 
-                Function2<ST, S, ST> addStringBack = new Function2<ST, S, ST>() {
-                    public ST applyTo(ST st, S s) {
-                        return s.getBackward().next(st);
+                Function2<ST, IndexedString, ST> addStringBack = new Function2<ST, IndexedString, ST>() {
+                    public ST applyTo(ST st, IndexedString s) {
+                        return ((DFAIndexedString<ST>) s).getBackward().next(st);
                     }
                 };
 
@@ -87,7 +89,7 @@ public class DFAMatcher {
 
             shift += p.first.length();
             
-            rem = p.second;
+            rem = (DFAIndexedString<ST>) p.second;
         }
 
         return res;

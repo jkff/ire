@@ -3,6 +3,7 @@ package net.ire.regex;
 import net.ire.DFARopePatternSet;
 import net.ire.PatternSet;
 import net.ire.fa.*;
+import net.ire.util.Function2;
 import net.ire.util.WrappedBitSet;
 import net.ire.util.Pair;
 
@@ -91,7 +92,7 @@ public class RegexCompiler {
                     }
                     state2next[i] = res;
                 }
-                return new PowerIntTable(state2next, doCommute);
+                return new PowerIntTable(state2next);
             }
         };
 

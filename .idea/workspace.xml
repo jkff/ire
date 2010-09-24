@@ -2,22 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1637b614-9bba-4095-a6e7-d915f195ed72" name="Default" comment="Ropes seem to work; added a test for them.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/net/ire/monoid/PartiallyCommutativeProduct.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/ire/util/Reducer.java" afterPath="$PROJECT_DIR$/src/net/ire/util/Reducer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/net/ire/fa/Sequence.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/net/ire/fa/MutableTransferFunction.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/ire/regex/RegexCompiler.java" afterPath="$PROJECT_DIR$/src/net/ire/regex/RegexCompiler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/ire/rope/RopeFactory.java" afterPath="$PROJECT_DIR$/src/net/ire/rope/RopeFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/ire/DFAMatcher.java" afterPath="$PROJECT_DIR$/src/net/ire/DFAMatcher.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/net/ire/NFABuilder.java" afterPath="$PROJECT_DIR$/test/net/ire/NFABuilder.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/ire/fa/PowerIntTable.java" afterPath="$PROJECT_DIR$/src/net/ire/fa/PowerIntTable.java" />
+      <change type="DELETED" beforePath="C:\projects\opensource\ire\test\net\ire\monoid\PartiallyCommutativeProductTest.java" afterPath="" />
       <change type="MOVED" beforePath="C:\projects\opensource\ire\test\net\ire\Integrationtest.java" afterPath="$PROJECT_DIR$/test/net/ire/IntegrationTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/net/ire/monoid/Monoid.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/net/ire/rope/RopeTest.java" afterPath="$PROJECT_DIR$/test/net/ire/rope/RopeTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/ire/IndexedString.java" afterPath="$PROJECT_DIR$/src/net/ire/IndexedString.java" />
+      <change type="DELETED" beforePath="C:\projects\opensource\ire\src\net\ire\monoid\PartiallyCommutativeProduct.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\projects\opensource\ire\src\net\ire\monoid\Monoid.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/ire/rope/Rope.java" afterPath="$PROJECT_DIR$/src/net/ire/rope/Rope.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/ire/LinearIS.java" afterPath="$PROJECT_DIR$/src/net/ire/LinearIS.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/ire/rope/RopeBasedIS.java" afterPath="$PROJECT_DIR$/src/net/ire/rope/RopeBasedIS.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/net/ire/monoid/PartiallyCommutativeProductTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/ire/util/WrappedBitSet.java" afterPath="$PROJECT_DIR$/src/net/ire/util/WrappedBitSet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/ire/DFAIndexedString.java" afterPath="$PROJECT_DIR$/src/net/ire/DFAIndexedString.java" />
     </list>
     <ignored path=".idea/workspace.xml" />
     <ignored path="ire.iws" />
@@ -182,19 +179,6 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/test/net/ire/monoid/PartiallyCommutativeProductTest.java" line="58" class="net.ire.monoid.PartiallyCommutativeProductTest" package="net.ire.monoid">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
     </line_breakpoints>
     <breakpoint_any>
       <breakpoint>
@@ -237,59 +221,73 @@
   <component name="FileColors" enabled="true" enabledForTabs="true" highlightNonProjectFiles="true" nonProjectFilesColor="ffffe4" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="PowerIntTable.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/net/ire/fa/PowerIntTable.java">
+      <file leaf-file-name="IntegrationTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/net/ire/IntegrationTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="31" selection-start="2783" selection-end="2783" vertical-scroll-proportion="0.2611111">
+            <state line="0" column="71" selection-start="16" selection-end="16" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Monoid.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/net/ire/monoid/Monoid.java">
+      <file leaf-file-name="RegexCompiler.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/net/ire/regex/RegexCompiler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="0" selection-start="112" selection-end="112" vertical-scroll-proportion="0.0">
+            <state line="96" column="0" selection-start="3557" selection-end="3557" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PartiallyCommutativeProduct.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/net/ire/monoid/PartiallyCommutativeProduct.java">
+      <file leaf-file-name="NFABuilder.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/net/ire/NFABuilder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="52" selection-start="271" selection-end="271" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PartiallyCommutativeProductTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/net/ire/monoid/PartiallyCommutativeProductTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="8" selection-start="1507" selection-end="1507" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Reducer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/net/ire/util/Reducer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="29" selection-start="217" selection-end="217" vertical-scroll-proportion="0.0">
+            <state line="56" column="59" selection-start="1950" selection-end="1950" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RopeBasedIS.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="IndexedString.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/net/ire/IndexedString.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="25" selection-start="464" selection-end="464" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DFAMatcher.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/net/ire/DFAMatcher.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="32" selection-start="377" selection-end="377" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DFAIndexedString.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/net/ire/DFAIndexedString.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="28" selection-start="126" selection-end="126" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RopeBasedIS.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/net/ire/rope/RopeBasedIS.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="157" column="51" selection-start="5873" selection-end="5873" vertical-scroll-proportion="0.0">
+            <state line="204" column="33" selection-start="7342" selection-end="7342" vertical-scroll-proportion="0.6888889">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Rope.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/net/ire/rope/Rope.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="268" column="30" selection-start="10325" selection-end="10325" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -329,21 +327,21 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/net/ire/fa/TransferFunction.java" />
-        <option value="$PROJECT_DIR$/src/net/ire/fa/MutableTransferFunction.java" />
-        <option value="$PROJECT_DIR$/src/net/ire/fa/Sequence.java" />
-        <option value="$PROJECT_DIR$/test/net/ire/rope/RopeTest.java" />
-        <option value="$PROJECT_DIR$/src/net/ire/rope/Rope.java" />
-        <option value="$PROJECT_DIR$/test/net/ire/IntegrationTest.java" />
-        <option value="$PROJECT_DIR$/src/net/ire/semigroup/Semigroup.java" />
-        <option value="$PROJECT_DIR$/src/net/ire/semigroup/PartiallyCommutativeProduct.java" />
-        <option value="$PROJECT_DIR$/src/net/ire/monoid/Monoid.java" />
         <option value="$PROJECT_DIR$/test/net/ire/monoid/PartiallyCommutativeProductTest.java" />
-        <option value="$PROJECT_DIR$/src/net/ire/monoid/PartiallyCommutativeProduct.java" />
         <option value="$PROJECT_DIR$/src/net/ire/rope/RopeFactory.java" />
         <option value="$PROJECT_DIR$/src/net/ire/util/Reducer.java" />
         <option value="$PROJECT_DIR$/src/net/ire/fa/TransferTable.java" />
+        <option value="$PROJECT_DIR$/src/net/ire/fa/TransferFunction.java" />
+        <option value="$PROJECT_DIR$/src/net/ire/monoid/PartiallyCommutativeProduct.java" />
+        <option value="$PROJECT_DIR$/src/net/ire/DFAIndexedString.java" />
+        <option value="$PROJECT_DIR$/src/net/ire/LinearIS.java" />
+        <option value="$PROJECT_DIR$/src/net/ire/IndexedString.java" />
+        <option value="$PROJECT_DIR$/src/net/ire/DFAMatcher.java" />
         <option value="$PROJECT_DIR$/src/net/ire/rope/RopeBasedIS.java" />
+        <option value="$PROJECT_DIR$/test/net/ire/IntegrationTest.java" />
+        <option value="$PROJECT_DIR$/src/net/ire/regex/RegexCompiler.java" />
+        <option value="$PROJECT_DIR$/test/net/ire/NFABuilder.java" />
+        <option value="$PROJECT_DIR$/src/net/ire/RandomAccessTest.java" />
         <option value="$PROJECT_DIR$/src/net/ire/fa/PowerIntTable.java" />
       </list>
     </option>
@@ -386,8 +384,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Favorites" />
       <pane id="Scope" />
+      <pane id="Favorites" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -457,28 +455,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ire" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="monoid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ire" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ire" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -509,49 +485,43 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ire" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ire" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ire" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="monoid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="137" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="156" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="154" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.Font" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="159" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="828" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="834" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="154" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="150" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="options.searchVisible" value="true" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.Font" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -564,30 +534,7 @@
       <recent name="net.ire" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PartiallyCommutativeProductTest.testMultiply">
-    <configuration default="false" name="LinearISTest" type="JUnit" factoryName="JUnit" temporary="true">
-      <extension name="snapshooter" />
-      <module name="ire" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="net.ire" />
-      <option name="MAIN_CLASS_NAME" value="net.ire.LinearISTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.IntegrationTest">
     <configuration default="false" name="IntegrationTest" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="snapshooter" />
       <module name="ire" />
@@ -597,7 +544,7 @@
       <option name="MAIN_CLASS_NAME" value="net.ire.IntegrationTest" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="" />
+      <option name="VM_PARAMETERS" value="-server  -XX:+AggressiveOpts " />
       <option name="PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ENV_VARIABLES" />
@@ -613,7 +560,7 @@
         <option name="LOCAL" value="true" />
       </RunnerSettings>
       <RunnerSettings RunnerId="Profile ">
-        <option name="myExternalizedOptions" value="&#13;&#10;additional-options2=onexit\=snapshot&#13;&#10;" />
+        <option name="myExternalizedOptions" value="&#13;&#10;alloc-size-limit-enabled=false&#13;&#10;alloc-record-each=1000&#13;&#10;alloc-size-limit=1048576&#13;&#10;alloc-record-each-enabled=true&#13;&#10;additional-options2=onexit\=snapshot&#13;&#10;startup=6&#13;&#10;" />
       </RunnerSettings>
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Debug" />
@@ -693,6 +640,39 @@
       </RunnerSettings>
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="IntegrationTest.testPerformance" type="JUnit" factoryName="JUnit" temporary="true">
+      <extension name="snapshooter" />
+      <module name="ire" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="PACKAGE_NAME" value="net.ire" />
+      <option name="MAIN_CLASS_NAME" value="net.ire.IntegrationTest" />
+      <option name="METHOD_NAME" value="testPerformance" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="1086" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Profile ">
+        <option name="myExternalizedOptions" value="&#13;&#10;additional-options2=onexit\=snapshot&#13;&#10;" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Profile " />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
@@ -805,12 +785,33 @@
         <option name="Maven.BeforeRunTask" enabled="false" />
       </method>
     </configuration>
-    <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.LinearISTest" />
+    <configuration default="false" name="RandomAccessTest" type="Application" factoryName="Application">
+      <extension name="snapshooter" />
+      <option name="MAIN_CLASS_NAME" value="net.ire.RandomAccessTest" />
+      <option name="VM_PARAMETERS" value="-Xmx3072m" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="ire" />
+      <envs />
+      <RunnerSettings RunnerId="Profile ">
+        <option name="myExternalizedOptions" value="&#13;&#10;use-64-bit=false&#13;&#10;additional-options2=onexit\=snapshot&#13;&#10;" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <list size="6">
+      <item index="0" class="java.lang.String" itemvalue="Application.RandomAccessTest" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.IntegrationTest" />
       <item index="2" class="java.lang.String" itemvalue="JUnit.RegexCompilerTest" />
       <item index="3" class="java.lang.String" itemvalue="JUnit.PartiallyCommutativeProductTest.testPower" />
       <item index="4" class="java.lang.String" itemvalue="JUnit.PartiallyCommutativeProductTest.testMultiply" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.IntegrationTest.testPerformance" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -840,18 +841,18 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32997763" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3295082" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295082" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3885246" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40655738" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295082" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32786885" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32978722" sideWeight="0.6704918" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32978722" sideWeight="0.5967213" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24918033" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40327868" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -897,106 +898,89 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/net/ire/DFARopePatternSet.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.6.0_21/jre/lib/rt.jar!/sun/reflect/DelegatingMethodAccessorImpl.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="408" selection-end="408" vertical-scroll-proportion="0.0" />
+        <state line="10" column="28" selection-start="414" selection-end="414" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/ire/util/WrappedBitSet.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.6.0_21/src.zip!/java/lang/reflect/Method.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="46" selection-start="997" selection-end="997" vertical-scroll-proportion="0.0" />
+        <state line="596" column="0" selection-start="23678" selection-end="23678" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/ire/rope/Rope.java">
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.7.jar!/org/junit/runners/model/FrameworkMethod.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="4" selection-start="1122" selection-end="1122" vertical-scroll-proportion="0.0" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/ire/fa/Sequence.java">
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.7.jar!/org/junit/internal/runners/statements/InvokeMethod.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="17" selection-start="129" selection-end="129" vertical-scroll-proportion="0.0" />
+        <state line="11" column="16" selection-start="499" selection-end="499" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/net/ire/rope/RopeTest.java">
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.7.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="14" selection-start="520" selection-end="520" vertical-scroll-proportion="0.0" />
+        <state line="11" column="40" selection-start="404" selection-end="404" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/net/ire/IntegrationTest.java">
+    <entry file="file://$PROJECT_DIR$/src/net/ire/LinearIS.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="0" selection-start="1619" selection-end="1619" vertical-scroll-proportion="0.0" />
+        <state line="84" column="35" selection-start="2444" selection-end="2444" vertical-scroll-proportion="0.13253012" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/ire/monoid/Monoid.java">
+    <entry file="file://$PROJECT_DIR$/src/net/ire/IndexedString.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="112" selection-end="112" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="18" column="25" selection-start="464" selection-end="464" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/ire/monoid/PartiallyCommutativeProduct.java">
+    <entry file="file://$PROJECT_DIR$/src/net/ire/DFAMatcher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="52" selection-start="271" selection-end="271" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
+        <state line="17" column="32" selection-start="377" selection-end="377" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/net/ire/monoid/PartiallyCommutativeProductTest.java">
+    <entry file="file://$PROJECT_DIR$/src/net/ire/DFAIndexedString.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="8" selection-start="1507" selection-end="1507" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
+        <state line="7" column="28" selection-start="126" selection-end="126" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/ire/util/Reducer.java">
+    <entry file="file://$PROJECT_DIR$/test/net/ire/NFABuilder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="29" selection-start="217" selection-end="217" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/ire/fa/TransferTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="145" selection-end="145" vertical-scroll-proportion="0.27222222">
+        <state line="56" column="59" selection-start="1950" selection-end="1950" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/ire/regex/RegexCompiler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="62" selection-start="2357" selection-end="2357" vertical-scroll-proportion="0.15555556">
+        <state line="96" column="0" selection-start="3557" selection-end="3557" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/ire/fa/PowerIntTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="46" selection-start="695" selection-end="695" vertical-scroll-proportion="0.81666666">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/net/ire/IntegrationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="71" selection-start="16" selection-end="16" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/ire/fa/DFA.java">
+    <entry file="file://$PROJECT_DIR$/src/net/ire/rope/Rope.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="30" selection-start="468" selection-end="468" vertical-scroll-proportion="0.73888886">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/ire/rope/RopeFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="12" selection-start="334" selection-end="334" vertical-scroll-proportion="0.33333334">
+        <state line="268" column="30" selection-start="10325" selection-end="10325" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/ire/rope/RopeBasedIS.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="157" column="51" selection-start="5873" selection-end="5873" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/ire/fa/PowerIntTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="31" selection-start="2783" selection-end="2783" vertical-scroll-proportion="0.2611111">
+        <state line="204" column="33" selection-start="7342" selection-end="7342" vertical-scroll-proportion="0.6888889">
           <folding />
         </state>
       </provider>

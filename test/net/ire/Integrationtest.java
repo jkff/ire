@@ -6,10 +6,7 @@ import net.ire.util.Pair;
 import org.junit.Test;
 
 import java.util.Arrays;
-import java.util.List;
 import java.util.regex.Pattern;
-
-import static net.ire.util.CollectionFactory.newArrayList;
 
 /**
  * Created on: 04.09.2010 18:10:51
@@ -20,7 +17,7 @@ public class IntegrationTest {
         PatternSet pat = RegexCompiler.compile(Arrays.asList(RegexParser.parse(".*007.*")));
         IndexedString s1 = pat.match("as00haklsdjhfla00");
         IndexedString s2 = pat.match("7jhd7dsh007dsfa");
-        System.out.println(getMatches(s1.append(s2)));
+        System.out.println(s1.append(s2).getMatches());
     }
 
     @Test
@@ -53,8 +50,8 @@ public class IntegrationTest {
                 System.out.println("1000 done in " + (System.currentTimeMillis() - tStart) + " (" + (System.currentTimeMillis() - t0)+ ")");
                 tStart = System.currentTimeMillis();
                 System.out.println(
-                        i + " " + getMatches(pair.first) + " / " +
-                        getMatches(pair.second) + " / " + getMatches(pair.first.append(pair.second)));
+                        i + " " + pair.first.getMatches() + " / " +
+                                pair.second.getMatches() + " / " + pair.first.append(pair.second).getMatches());
             }
         }
 
@@ -70,12 +67,4 @@ public class IntegrationTest {
         }
     }
 
-    private static List<Match> getMatches(IndexedString s) {
-        List<Match> matches = newArrayList();
-        Iterable<Match> matchesIterable = s.getMatches();
-        for(Match m : matchesIterable) {
-            matches.add(m);
-        }
-        return matches;
-    }
 }

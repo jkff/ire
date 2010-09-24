@@ -8,15 +8,15 @@ import org.jetbrains.annotations.Nullable;
 /**
  * Created on: 22.07.2010 23:20:48
  */
-public interface IndexedString<S extends IndexedString> extends CharSequence {
+public interface IndexedString extends CharSequence {
     Iterable<Match> getMatches();
 
-    Pair<S,S> splitBefore(int index);
+    Pair<IndexedString,IndexedString> splitBefore(int index);
 
     @Nullable
-    <ST> Pair<S,S> splitAfterRise(
+    <ST> Pair<IndexedString,IndexedString> splitAfterRise(
             ST seed,
-            Function2<ST,S,ST> addChunk, Function2<ST,Character,ST> addChar,
+            Function2<ST,IndexedString,ST> addChunk, Function2<ST,Character,ST> addChar,
             Predicate<ST> toBool);
 
     /**
@@ -24,12 +24,12 @@ public interface IndexedString<S extends IndexedString> extends CharSequence {
      * @param addChunk will be given a NON-REVERSED chunk
      */
     @Nullable
-    <T> Pair<S,S> splitAfterBackRise(
+    <T> Pair<IndexedString,IndexedString> splitAfterBackRise(
             T seed,
-            Function2<T,S,T> addChunk, Function2<T,Character,T> addChar, 
+            Function2<T,IndexedString,T> addChunk, Function2<T,Character,T> addChar,
             Predicate<T> toBool);
 
-    S append(S s);
+    IndexedString append(IndexedString s);
 
-    S subSequence(int start, int end);
+    IndexedString subSequence(int start, int end);
 }

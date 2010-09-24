@@ -2,6 +2,7 @@ package net.ire.rope;
 
 import net.ire.DFAIndexedString;
 import net.ire.DFAMatcher;
+import net.ire.IndexedString;
 import net.ire.Match;
 import net.ire.fa.*;
 import net.ire.util.*;
@@ -14,7 +15,8 @@ import static net.ire.util.CollectionFactory.newArrayList;
 /**
  * Created on: 21.08.2010 21:10:19
  */
-public class RopeBasedIS<ST extends State> implements DFAIndexedString<RopeBasedIS<ST>, ST> {
+@SuppressWarnings("unchecked")
+public class RopeBasedIS<ST extends State> implements DFAIndexedString<ST> {
     private static final int DEFAULT_BLOCK_SIZE = 128;
 
     private BiDFA<Character,ST> bidfa;
@@ -48,7 +50,7 @@ public class RopeBasedIS<ST extends State> implements DFAIndexedString<RopeBased
         return DFAMatcher.getMatches(bidfa, this);
     }
 
-    public Pair<RopeBasedIS<ST>, RopeBasedIS<ST>> splitBefore(final int index) {
+    public Pair<IndexedString, IndexedString> splitBefore(final int index) {
         Function2<Integer, Rope<TransferFunctions<ST>>, Integer> addRopeLength = new Function2<Integer, Rope<TransferFunctions<ST>>, Integer>() {
             public Integer applyTo(Integer len, Rope<TransferFunctions<ST>> rope) {
                 return len + rope.length();
@@ -66,30 +68,38 @@ public class RopeBasedIS<ST extends State> implements DFAIndexedString<RopeBased
         };
         Pair<Rope<TransferFunctions<ST>>, Rope<TransferFunctions<ST>>> p =
                 rope.splitAfterRise(0, addRopeLength, inc, isAfterIndex);
-        return Pair.of(new RopeBasedIS<ST>(bidfa, p.first), new RopeBasedIS<ST>(bidfa, p.second));
+        return Pair.of(
+                (IndexedString)new RopeBasedIS<ST>(bidfa, p.first),
+                (IndexedString)new RopeBasedIS<ST>(bidfa, p.second));
     }
 
-    public <T> Pair<RopeBasedIS<ST>, RopeBasedIS<ST>> splitAfterRise(
+    public <T> Pair<IndexedString, IndexedString> splitAfterRise(
             T seed,
-            final Function2<T, RopeBasedIS<ST>, T> addChunk, Function2<T, Character, T> addChar,
+            final Function2<T, IndexedString, T> addChunk,
+            Function2<T, Character, T> addChar,
             Predicate<T> toBool)
     {
         Pair<Rope<TransferFunctions<ST>>, Rope<TransferFunctions<ST>>> p = rope.splitAfterRise(
                 seed, toRopeAddChunkFun(addChunk), addChar, toBool);
         return (p == null) ? null : Pair.of(
-                new RopeBasedIS<ST>(bidfa, p.first),
-                new RopeBasedIS<ST>(bidfa, p.second));
+                (IndexedString) new RopeBasedIS<ST>(bidfa, p.first),
+                (IndexedString) new RopeBasedIS<ST>(bidfa, p.second));
     }
 
-    public <T> Pair<RopeBasedIS<ST>, RopeBasedIS<ST>> splitAfterBackRise(T seed, Function2<T, RopeBasedIS<ST>, T> addChunk, Function2<T, Character, T> addChar, Predicate<T> toBool) {
+    public <T> Pair<IndexedString, IndexedString> splitAfterBackRise(
+            T seed,
+            Function2<T, IndexedString, T> addChunk,
+            Function2<T, Character, T> addChar, Predicate<T> toBool)
+    {
         Pair<Rope<TransferFunctions<ST>>, Rope<TransferFunctions<ST>>> p = rope.splitAfterBackRise(
                 seed, toRopeAddChunkFun(addChunk), addChar, toBool);
         return (p == null) ? null : Pair.of(
-                new RopeBasedIS<ST>(bidfa, p.first),
-                new RopeBasedIS<ST>(bidfa, p.second));
+                (IndexedString) new RopeBasedIS<ST>(bidfa, p.first),
+                (IndexedString) new RopeBasedIS<ST>(bidfa, p.second));
     }
 
-    private <T> Function2<T, Rope<TransferFunctions<ST>>, T> toRopeAddChunkFun(final Function2<T, RopeBasedIS<ST>, T> addChunk) {
+    private <T> Function2<T, Rope<TransferFunctions<ST>>, T> toRopeAddChunkFun(
+            final Function2<T, IndexedString, T> addChunk) {
         return new Function2<T, Rope<TransferFunctions<ST>>, T>() {
             public T applyTo(T st, Rope<TransferFunctions<ST>> r) {
                 return addChunk.applyTo(st, new RopeBasedIS<ST>(bidfa, r));
@@ -97,12 +107,12 @@ public class RopeBasedIS<ST extends State> implements DFAIndexedString<RopeBased
         };
     }
 
-    public RopeBasedIS<ST> append(RopeBasedIS<ST> s) {
-        return new RopeBasedIS<ST>(bidfa, rope.append(s.rope));
+    public RopeBasedIS<ST> append(IndexedString s) {
+        return new RopeBasedIS<ST>(bidfa, rope.append(((RopeBasedIS<ST>) s).rope));
     }
 
     public RopeBasedIS<ST> subSequence(int start, int end) {
-        return splitBefore(start).second.splitBefore(end-start).first;
+        return (RopeBasedIS<ST>) splitBefore(start).second.splitBefore(end-start).first;
     }
 
     public int length() {

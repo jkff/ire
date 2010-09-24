@@ -2,6 +2,7 @@ package net.ire;
 
 import net.ire.fa.*;
 
+import net.ire.util.Function2;
 import net.ire.util.WrappedBitSet;
 
 import java.util.List;
@@ -47,7 +48,7 @@ public class NFABuilder {
         }
         TransferTable<Character, PowerIntState> transfer = new TransferTable<Character, PowerIntState>() {
             public TransferFunction<PowerIntState> forToken(Character token) {
-                return new PowerIntTable(char2state2next[token], doCommute);
+                return new PowerIntTable(char2state2next[token]);
             }
         };
 
