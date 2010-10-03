@@ -8,22 +8,20 @@ public class WrappedBitSet implements Cloneable {
 
     private long[] words;
     private int offset;
-    private int length;
-
+    private int numWords;
     private int numBits;
 
-    public WrappedBitSet(int nbits) {
-        words = new long[wordIndex(nbits -1) + 1];
+    public WrappedBitSet(int numBits) {
+        words = new long[wordIndex(numBits -1) + 1];
         this.offset = 0;
-        this.length = words.length;
-        this.numBits = nbits;
+        this.numWords = words.length;
+        this.numBits = numBits;
     }
 
-    public WrappedBitSet(long[] words, int offset, int length, int numBits) {
+    public WrappedBitSet(long[] words, int offset, int numWords, int numBits) {
         this.words = words;
         this.offset = offset;
-        this.length = length;
-        this.numBits = numBits;
+        this.numWords = numWords;
     }
 
     private int wordIndex(int bitIndex) {
@@ -47,11 +45,13 @@ public class WrappedBitSet implements Cloneable {
 
     public int nextSetBit(int fromIndex) {
         int u = (fromIndex >> ADDRESS_BITS_PER_WORD);
+        if(u >= numWords)
+            return -1;
     	long word = words[offset+u] & (WORD_MASK << fromIndex);
         while (true) {
             if (word != 0)
                 return (u * BITS_PER_WORD) + Long.numberOfTrailingZeros(word);
-            if (++u == length)
+            if (++u == numWords)
                 return -1;
             word = words[offset+u];
         }
@@ -59,6 +59,8 @@ public class WrappedBitSet implements Cloneable {
 
     public static int nextSetBit(long[] words, int offset, int length, int fromIndex) {
         int u = (fromIndex >> ADDRESS_BITS_PER_WORD);
+        if(u >= length)
+            return -1;
     	long word = words[offset + u] & (WORD_MASK << fromIndex);
         while (true) {
             if (word != 0)
@@ -70,11 +72,11 @@ public class WrappedBitSet implements Cloneable {
     }
 
     public int length() {
-        return length;
+        return numWords;
     }
 
     public boolean isEmpty() {
-        for(int i = offset; i < offset + length; ++i) {
+        for(int i = offset; i < offset + numWords; ++i) {
             if(words[i] != 0)
                 return false;
         }
@@ -83,19 +85,19 @@ public class WrappedBitSet implements Cloneable {
 
     public int cardinality() {
         int sum = 0;
-        for(int i = offset; i < offset + length; ++i)  {
+        for(int i = offset; i < offset + numWords; ++i)  {
             sum += Long.bitCount(words[i]);
         }
         return sum;
     }
 
     public void and(WrappedBitSet set) {
-        for (int i = 0; i < length; ++i)
+        for (int i = 0; i < numWords; ++i)
             words[offset+i] &= set.words[set.offset+i];
     }
 
     public void or(WrappedBitSet set) {
-        for (int i = 0; i < length; ++i)
+        for (int i = 0; i < numWords; ++i)
             words[offset+i] |= set.words[set.offset+i];
     }
 
@@ -116,8 +118,12 @@ public class WrappedBitSet implements Cloneable {
     }
 
     public WrappedBitSet makeCopy() {
-        long[] words = new long[length];
-        System.arraycopy(this.words, offset, words, 0, length);
+        long[] words = new long[numWords];
+        System.arraycopy(this.words, offset, words, 0, numWords);
         return new WrappedBitSet(words, 0, words.length, numBits);
+    }
+
+    public int numBits() {
+        return numBits;
     }
 }

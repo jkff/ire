@@ -26,10 +26,14 @@ public class PowerIntState implements State {
         WrappedBitSet res = null;
         for(int bit = subset.nextSetBit(0); bit >= 0; bit = subset.nextSetBit(bit+1)) {
             if(res == null)
-                res = (WrappedBitSet) basis[bit].getTerminatedPatterns().makeCopy();
+                res = basis[bit].getTerminatedPatterns().makeCopy();
             else
                 res.or(basis[bit].getTerminatedPatterns());
         }
         return res;
+    }
+
+    public String toString() {
+        return subset.toString();
     }
 }

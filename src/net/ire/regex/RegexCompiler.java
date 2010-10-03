@@ -3,7 +3,6 @@ package net.ire.regex;
 import net.ire.DFARopePatternSet;
 import net.ire.PatternSet;
 import net.ire.fa.*;
-import net.ire.util.Function2;
 import net.ire.util.WrappedBitSet;
 import net.ire.util.Pair;
 
@@ -20,12 +19,23 @@ public class RegexCompiler {
         return new DFARopePatternSet(compileToBiDFA(roots));
     }
 
+    public static PatternSet compile(String... regexes) {
+        List<RxNode> roots = newArrayList();
+        for(String regex : regexes) {
+            roots.add(RegexParser.parse(regex));
+        }
+        return compile(roots);
+    }
+
     static BiDFA<Character, PowerIntState> compileToBiDFA(List<RxNode> roots) {
+        List<RxNode> rootsAnywhere = newArrayList();
         List<RxNode> reversedRoots = newArrayList();
         for(RxNode root : roots) {
-            reversedRoots.add(reverse(root));
+            Alternative dotStar = new Alternative(new Empty(), new OnceOrMore(CharacterClass.ANY_CHAR));
+            rootsAnywhere.add(new Sequence(dotStar, new Sequence(root, dotStar)));
+            reversedRoots.add(new Sequence(reverse(root), dotStar));
         }
-        return new BiDFA<Character, PowerIntState>(compileToDFA(roots), compileToDFA(reversedRoots));
+        return new BiDFA<Character, PowerIntState>(compileToDFA(rootsAnywhere), compileToDFA(reversedRoots));
     }
 
     static DFA<Character, PowerIntState> compileToDFA(List<RxNode> rxNodes) {
@@ -52,14 +62,14 @@ public class RegexCompiler {
 
         final int numStates = allNodes.size();
 
-        final Map<NFA.Node, Integer> node2id = newHashMap();
+        final Map<NFA.Node, Integer> node2id = newLinkedHashMap();
         final NFA.Node[] id2node = allNodes.toArray(new NFA.Node[allNodes.size()]);
 
         for(int i = 0; i < id2node.length; ++i) {
             node2id.put(id2node[i], i);
         }
 
-        State[] basis = new State[numStates];
+        final State[] basis = new State[numStates];
         for(int i = 0; i < numStates; ++i) {
             WrappedBitSet terminatedPatterns = new WrappedBitSet(numPatterns);
             for(int pat : id2node[i].patternIds) {
@@ -96,24 +106,57 @@ public class RegexCompiler {
             }
         };
 
-        WrappedBitSet justInitial = new WrappedBitSet(numStates);
+        final WrappedBitSet justInitial = new WrappedBitSet(numStates);
         justInitial.set(node2id.get(newInitial));
         PowerIntState initial = new PowerIntState(basis, justInitial);
 
-        return new DFA<Character, PowerIntState>(transfer, initial);
+//        StringBuilder dot = new StringBuilder();
+//        dot.append("digraph g {\n");
+//        for(int i = 0; i < numStates; ++i) {
+//            WrappedBitSet justThis = new WrappedBitSet(numStates);
+//            justThis.set(i);
+//            PowerIntState state = new PowerIntState(basis, justThis);
+//            dot.append(i + " [shape=" + (state.getTerminatedPatterns().isEmpty() ? "circle" : "square") + "]\n");
+//        }
+//        for(int i = 0; i < numStates; ++i) {
+//            WrappedBitSet justThis = new WrappedBitSet(numStates);
+//            justThis.set(i);
+//            PowerIntState state = new PowerIntState(basis, justThis);
+//            PowerIntState nextState = transfer.forToken('t').next(state);
+//            WrappedBitSet next = nextState.getSubset();
+//            for(int bit = next.nextSetBit(0); bit != -1; bit = next.nextSetBit(bit+1)) {
+//                dot.append(i + " -> " + bit + "\n");
+//            }
+//        }
+//        dot.append("}\n");
+
+        return new DFA<Character, PowerIntState>(transfer, initial, PowerIntTable.REDUCER) {
+            @Override
+            public PowerIntState resetTerminatedPattern(PowerIntState state, int pattern) {
+                WrappedBitSet reset = new WrappedBitSet(basis.length);
+                reset.or(state.getSubset());
+                for(int substate = reset.nextSetBit(0); substate != -1; substate = reset.nextSetBit(substate + 1)) {
+                    if(basis[substate].getTerminatedPatterns().get(pattern)) {
+                        reset.clear(substate);
+                    }
+                }
+                reset.or(justInitial);
+                return new PowerIntState(basis, reset);
+            }
+        };
     }
 
     private static Pair<Set<NFA.Node>, NFA.Node> computeEClosure(NFA nfa) {
-        final Map<NFA.Node, Set<NFA.Node>> node2closure = newHashMap();
+        final Map<NFA.Node, Set<NFA.Node>> node2closure = newLinkedHashMap();
 
         Set<NFA.Node> allOldNodes = dfs(nfa.begin, true);
         for(NFA.Node node : allOldNodes) {
             node2closure.put(node, dfs(node, false));
         }
 
-        final Map<NFA.Node, Set<NFA.Node>> newNode2contents = newHashMap();
-        final Map<Set<NFA.Node>, NFA.Node> contents2newNode = newHashMap();
-        Set<NFA.Node> newNodesToVisit = newHashSet();
+        final Map<NFA.Node, Set<NFA.Node>> newNode2contents = newLinkedHashMap();
+        final Map<Set<NFA.Node>, NFA.Node> contents2newNode = newLinkedHashMap();
+        Set<NFA.Node> newNodesToVisit = newLinkedHashSet();
         Set<NFA.Node> initialEC = node2closure.get(nfa.begin);
         NFA.Node newInitial = new NFA.Node();
         for(NFA.Node subNode : initialEC) {
@@ -125,7 +168,7 @@ public class RegexCompiler {
         while(!newNodesToVisit.isEmpty()) {
             NFA.Node newNode = newNodesToVisit.iterator().next();
             newNodesToVisit.remove(newNode);
-            Map<CharacterClass, Set<NFA.Node>> class2dest = newHashMap();
+            Map<CharacterClass, Set<NFA.Node>> class2dest = newLinkedHashMap();
             for(NFA.Node subNode : newNode2contents.get(newNode)) {
                 for(Pair<CharacterClass, NFA.Node> out : subNode.out) {
                     if(out.first == null) {
@@ -134,7 +177,7 @@ public class RegexCompiler {
                     }
                     Set<NFA.Node> dest = class2dest.get(out.first);
                     if(dest == null) {
-                        class2dest.put(out.first, dest = newHashSet());
+                        class2dest.put(out.first, dest = newLinkedHashSet());
                     }
                     dest.addAll(node2closure.get(out.second));
                 }
@@ -159,7 +202,7 @@ public class RegexCompiler {
     }
 
     static Set<NFA.Node> dfs(NFA.Node origin, boolean acceptNonEps) {
-        Set<NFA.Node> res = newHashSet();
+        Set<NFA.Node> res = newLinkedHashSet();
         Stack<NFA.Node> toVisit = new Stack<NFA.Node>();
         toVisit.add(origin);
         while(!toVisit.isEmpty()) {
@@ -232,7 +275,7 @@ public class RegexCompiler {
             static AtomicInteger nextId = new AtomicInteger(0);
 
             final List<Pair<CharacterClass, Node>> out = newArrayList();
-            final Set<Integer> patternIds = newHashSet();
+            final Set<Integer> patternIds = newLinkedHashSet();
             final int id = nextId.incrementAndGet();
 
             void transition(CharacterClass cc, Node dest) {
@@ -241,6 +284,13 @@ public class RegexCompiler {
 
             public String toString() {
                 return ""+id;
+            }
+
+            public boolean equals(Object o) {
+                return id == ((Node) o).id;
+            }
+            public int hashCode() {
+                return id;
             }
         }
     }

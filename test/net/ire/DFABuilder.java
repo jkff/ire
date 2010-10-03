@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import static net.ire.util.CollectionFactory.newArrayList;
-import static net.ire.util.CollectionFactory.newHashMap;
+import static net.ire.util.CollectionFactory.newLinkedHashMap;
 
 /**
  * Created on: 01.08.2010 13:47:21
@@ -30,7 +30,7 @@ public class DFABuilder {
     }
 
     public DFA<Character, IntState> build() {
-        final Map<Character,int[]> char2table = newHashMap();
+        final Map<Character,int[]> char2table = newLinkedHashMap();
         for(Transition t : transitions) {
             int[] table = char2table.get(t.c);
             if(table == null)
@@ -54,7 +54,12 @@ public class DFABuilder {
                 return new IntTable(states, char2state2next[token]);
             }
         };
-        return new DFA<Character, IntState>(transfer, states[initialState]);
+        return new DFA<Character, IntState>(transfer, states[initialState], IntTable.REDUCER) {
+            @Override
+            public IntState resetTerminatedPattern(IntState state, int pattern) {
+                return states[initialState];
+            }
+        };
     }
 
     public class StateBuilder {

@@ -9,10 +9,10 @@ public class CollectionFactory {
     public static <T> List<T> newArrayList() {
         return new ArrayList<T>();
     }
-    public static <T> Set<T> newHashSet() {
-        return new HashSet<T>();
+    public static <T> Set<T> newLinkedHashSet() {
+        return new LinkedHashSet<T>();
     }
-    public static <K,V> Map<K,V> newHashMap() {
-        return new HashMap<K,V>();
+    public static <K,V> Map<K,V> newLinkedHashMap() {
+        return new LinkedHashMap<K,V>();
     }
 }

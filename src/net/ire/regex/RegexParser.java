@@ -8,9 +8,14 @@ public class RegexParser {
         return parseAlt(new Tokenizer(regex));
     }
 
+    private static boolean expect(Tokenizer t, char c) {
+        Character p = t.peek();
+        return p != null && p.charValue() == c;
+    }
+
     private static RxNode parseAlt(Tokenizer t) {
         RxNode a = parseSequence(t);
-        if (t.peek() != (Character)'|') {
+        if (!expect(t, '|')) {
             return a;
         }
         t.next();
@@ -19,11 +24,11 @@ public class RegexParser {
     }
 
     private static RxNode parseSequence(Tokenizer t) {
-        if(t.peek() == (Character)'|' || t.peek() == (Character)')') {
+        if(expect(t, '|') || expect(t, ')')) {
             return new Empty();
         }
         RxNode a = parseUnary(t);
-        if(t.peek() == (Character)'|' || t.peek() == (Character)')' || t.peek() == null) {
+        if(expect(t, '|') || expect(t, ')') || t.peek() == null) {
             return a;
         }
         RxNode b = parseSequence(t);
@@ -33,13 +38,13 @@ public class RegexParser {
     private static RxNode parseUnary(Tokenizer t) {
         RxNode a = parseAtom(t);
         while(true) {
-            if(t.peek() == (Character)'+') {
+            if(expect(t, '+')) {
                 t.next();
                 a = new OnceOrMore(a);
-            } else if(t.peek() == (Character)'?') {
+            } else if(expect(t, '?')) {
                 t.next();
                 a = new Alternative(new Empty(), a);
-            } else if(t.peek() == (Character)'*') {
+            } else if(expect(t, '*')) {
                 t.next();
                 a = new Alternative(new Empty(), new OnceOrMore(a));
             } else {
@@ -49,13 +54,13 @@ public class RegexParser {
     }
 
     private static RxNode parseAtom(Tokenizer t) {
-        if(t.peek() == (Character)'(') {
+        if(expect(t, '(')) {
             t.next();
             return parseParen(t);
-        } else if(t.peek() == (Character)'[') {
+        } else if(expect(t, '[')) {
             t.next();
             return parseCharacterRange(t);
-        } else if(t.peek() == (Character)'.') {
+        } else if(expect(t, '.')) {
             t.next();
             return CharacterClass.ANY_CHAR;
         } else {
@@ -65,7 +70,7 @@ public class RegexParser {
 
     private static RxNode parseParen(Tokenizer t) {
         RxNode a = parseAlt(t);
-        if(t.peek() != (Character)')') {
+        if(!expect(t, ')')) {
             throw new IllegalArgumentException("Expected ')', got " + t.peek());
         }
         t.next();
@@ -75,9 +80,9 @@ public class RegexParser {
     private static RxNode parseCharacterRange(Tokenizer t) {
         StringBuilder s = new StringBuilder();
         Character last = null;
-        while(t.peek() != (Character)']') {
+        while(!expect(t, ']')) {
             Character c = parseChar(t);
-            if(c == (Character)'-' && last != null) {
+            if(c != null && c.charValue() == '-' && last != null) {
                 c = parseChar(t);
                 for(char i = last; i <= c; ++i) {
                     s.append(i);
@@ -92,7 +97,7 @@ public class RegexParser {
     }
 
     private static Character parseChar(Tokenizer t) {
-        if(t.peek() == (Character)'\\') {
+        if(expect(t, '\\')) {
             t.next();
         }
         return t.next();

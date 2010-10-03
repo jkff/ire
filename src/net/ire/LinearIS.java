@@ -1,11 +1,13 @@
 package net.ire;
 
 import net.ire.fa.BiDFA;
+import net.ire.fa.DFA;
 import net.ire.fa.State;
 import net.ire.fa.TransferFunction;
 import net.ire.util.Function2;
 import net.ire.util.Pair;
 import net.ire.util.Predicate;
+import net.ire.util.Reducer;
 
 /**
  * Created on: 23.07.2010 9:23:42
@@ -101,28 +103,28 @@ public class LinearIS<ST extends State> implements DFAIndexedString<ST> {
     private static <ST extends State> TransferFunction<ST> transferForward(
             BiDFA<Character, ST> bidfa, CharSequence cs)
     {
-        TransferFunction<ST> res = identity();
+        DFA<Character,ST> dfa = bidfa.getForward();
+        Reducer<TransferFunction<ST>> reducer = dfa.getTransferFunctionsReducer();
+        TransferFunction<ST> res = null;
         for(int i = 0; i < cs.length(); ++i) {
-            res = res.followedBy(bidfa.getForward().transfer(cs.charAt(i)));
+            res = reducer.compose(res, dfa.transfer(cs.charAt(i)));
         }
         return res;
     }
 
     private static <ST extends State> TransferFunction<ST> transferBackward(
             BiDFA<Character, ST> bidfa, CharSequence cs) {
-        TransferFunction<ST> res = identity();
+        DFA<Character, ST> dfa = bidfa.getBackward();
+        Reducer<TransferFunction<ST>> reducer = dfa.getTransferFunctionsReducer();
+        TransferFunction<ST> res = null;
         for(int i = cs.length() - 1; i >= 0; --i) {
-            res = res.followedBy(bidfa.getBackward().transfer(cs.charAt(i)));
+            res = reducer.compose(res, dfa.transfer(cs.charAt(i)));
         }
         return res;
     }
 
     private static <T> TransferFunction<T> identity() {
         return new TransferFunction<T>() {
-            public TransferFunction<T> followedBy(TransferFunction<T> other) {
-                return other;
-            }
-
             public T next(T x) {
                 return x;
             }

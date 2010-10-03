@@ -2,7 +2,6 @@ package net.ire;
 
 import net.ire.fa.*;
 
-import net.ire.util.Function2;
 import net.ire.util.WrappedBitSet;
 
 import java.util.List;
@@ -52,9 +51,24 @@ public class NFABuilder {
             }
         };
 
-        WrappedBitSet justInitial = new WrappedBitSet(basisStates.length);
+        final WrappedBitSet justInitial = new WrappedBitSet(basisStates.length);
         justInitial.set(initialState);
-        return new DFA<Character, PowerIntState>(transfer, new PowerIntState(basisStates, justInitial));
+        return new DFA<Character, PowerIntState>(transfer,
+                new PowerIntState(basisStates, justInitial), PowerIntTable.REDUCER)
+        {
+            @Override
+            public PowerIntState resetTerminatedPattern(PowerIntState state, int pattern) {
+                WrappedBitSet reset = new WrappedBitSet(basisStates.length);
+                reset.or(state.getSubset());
+                for(int substate = reset.nextSetBit(0); substate != -1; substate = reset.nextSetBit(substate + 1)) {
+                    if(basisStates[substate].getTerminatedPatterns().get(pattern)) {
+                        reset.clear(substate);
+                    }
+                }
+                reset.or(justInitial);
+                return new PowerIntState(basisStates, reset);
+            }
+        };
     }
 
     public class StateBuilder {

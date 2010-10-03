@@ -178,6 +178,9 @@ public class Rope<M> {
             S afterA = addChunk.applyTo(seed, a);
             if (toBool.isTrueFor(afterA)) {
                 Pair<Rope<M>, Rope<M>> sa = a.splitAfterRise(seed, addChunk, addChar, toBool);
+                if(sa == null) {
+                    System.out.println("Oops");
+                }
                 return (c == null)
                         ? Pair.of(sa.first, sa.second.append(b))
                         : Pair.of(sa.first, sa.second.append(b).append(c));

@@ -22,43 +22,42 @@ public class DFAMatcher {
     {
         final ST initial = bidfa.getForward().getInitialState();
 
-        Function2<ST, IndexedString, ST> addString = new Function2<ST, IndexedString, ST>() {
-            public ST applyTo(ST st, IndexedString s) {
-                return ((DFAIndexedString<ST>) s).getForward().next(st);
-            }
-        };
-        Function2<ST, Character, ST> addChar = new Function2<ST, Character, ST>() {
-            public ST applyTo(ST st, Character c) {
-                return bidfa.getForward().transfer(c).next(st);
+        Function2<SP<ST>, IndexedString, SP<ST>> addString = new Function2<SP<ST>, IndexedString, SP<ST>>() {
+            public SP<ST> applyTo(SP<ST> sp, IndexedString s) {
+                return new SP<ST>(((DFAIndexedString<ST>) s).getForward().next(sp.state), sp.pos+s.length());
             }
         };
 
-        // Split on predicate "term != 0".
-        // First match ends at right bound of split's left part.
-        // Recursively continue on split's right part.
-        Predicate<ST> hasForwardMatch = new Predicate<ST>() {
-            public boolean isTrueFor(ST state) {
-                return !state.getTerminatedPatterns().isEmpty();
+        Function2<SP<ST>, Character, SP<ST>> addChar = new Function2<SP<ST>, Character, SP<ST>>() {
+            public SP<ST> applyTo(SP<ST> sp, Character c) {
+                return new SP<ST>(bidfa.getForward().transfer(c).next(sp.state), sp.pos+1);
             }
         };
 
         List<Match> res = newArrayList();
 
-        DFAIndexedString<ST> rem = string;
-
         int shift = 0;
+
+        SP<ST> matchStartState = new SP<ST>(initial, 0);
+        IndexedString rem = string;
+        IndexedString seen = string.subSequence(0,0);
 
         while(true) {
             Pair<IndexedString, IndexedString> p = rem.splitAfterRise(
-                    initial, addString, addChar, hasForwardMatch);
+                    matchStartState, addString, addChar, DFAMatcher.<ST>hasForwardMatchAfter(shift));
             if(p == null)
                 break;
 
             DFAIndexedString<ST> matchingPrefix = (DFAIndexedString<ST>) p.first;
-            final State stateLeftEnd = matchingPrefix.getForward().next(initial);
-            WrappedBitSet term = stateLeftEnd.getTerminatedPatterns();
+            rem = p.second;
+            seen = seen.append(matchingPrefix);
+
+            final ST stateAfterMatch = matchingPrefix.getForward().next(matchStartState.state);
+            WrappedBitSet term = stateAfterMatch.getTerminatedPatterns();
 
             ST backwardInitial = bidfa.getBackward().getInitialState();
+
+            ST nextMatchStart = stateAfterMatch;
 
             for(int bit = term.nextSetBit(0); bit >= 0; bit = term.nextSetBit(bit+1)) {
                 final int bit2 = bit;
@@ -77,21 +76,41 @@ public class DFAMatcher {
 
                 Predicate<ST> startsThisMatch = new Predicate<ST>() {
                     public boolean isTrueFor(ST state) {
-                        return state.getTerminatedPatterns().get(bit2);
+                        WrappedBitSet tp = state.getTerminatedPatterns();
+                        return tp!=null && tp.get(bit2);
                     }
                 };
 
-                int len = matchingPrefix.splitAfterBackRise(
+                int len = seen.splitAfterBackRise(
                         backwardInitial, addStringBack, addCharBack, startsThisMatch).second.length();
-                int startPos = matchingPrefix.length() - len + shift;
+                int startPos = seen.length() - len;
                 res.add(new Match(bit, startPos, len));
+
+                nextMatchStart = bidfa.getForward().resetTerminatedPattern(nextMatchStart, bit);
             }
 
-            shift += p.first.length();
-            
-            rem = (DFAIndexedString<ST>) p.second;
+            matchStartState = new SP<ST>(nextMatchStart, matchingPrefix.length() + 1);
         }
 
         return res;
+    }
+
+    private static <ST extends State> Predicate<SP<ST>> hasForwardMatchAfter(final int pos) {
+        return new Predicate<SP<ST>>() {
+            public boolean isTrueFor(SP<ST> sp) {
+                return !sp.state.getTerminatedPatterns().isEmpty() && sp.pos >= pos;
+            }
+        };
+    }
+
+    // State and position.
+    private static class SP<ST extends State> {
+        ST state;
+        int pos;
+
+        SP(ST state, int pos) {
+            this.state = state;
+            this.pos = pos;
+        }
     }
 }

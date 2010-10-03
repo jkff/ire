@@ -7,11 +7,6 @@ import net.ire.Match;
 import net.ire.fa.*;
 import net.ire.util.*;
 
-import java.util.Collections;
-import java.util.List;
-
-import static net.ire.util.CollectionFactory.newArrayList;
-
 /**
  * Created on: 21.08.2010 21:10:19
  */
@@ -29,7 +24,11 @@ public class RopeBasedIS<ST extends State> implements DFAIndexedString<ST> {
     public RopeBasedIS(BiDFA<Character,ST> bidfa, String value, int blockSize) {
         this(bidfa, Rope.fromString(
                 new RopeFactory<TransferFunctions<ST>>(
-                        blockSize, new TFProduct<ST>(), new TFMap<ST>(bidfa)),
+                        blockSize,
+                        new TFProduct<ST>(
+                                bidfa.getForward().getTransferFunctionsReducer(),
+                                bidfa.getBackward().getTransferFunctionsReducer()),
+                        new TFMap<ST>(bidfa)),
                 value));
     }
 
@@ -138,68 +137,81 @@ public class RopeBasedIS<ST extends State> implements DFAIndexedString<ST> {
     }
     private static class TFProduct<ST> implements Reducer<TransferFunctions<ST>> {
         private static TransferFunction UNIT_TF = new TransferFunction() {
-            public TransferFunction followedBy(TransferFunction other) {
-                return other;
-            }
-
             public Object next(Object x) {
                 return x;
             }
         };
         private static TransferFunctions UNIT = new TransferFunctions(UNIT_TF, UNIT_TF);
 
+        private Reducer<TransferFunction<ST>> forwardReducer;
+        private Reducer<TransferFunction<ST>> backwardReducer;
+
+        private TFProduct(
+                Reducer<TransferFunction<ST>> forwardReducer,
+                Reducer<TransferFunction<ST>> backwardReducer)
+        {
+            this.forwardReducer = forwardReducer;
+            this.backwardReducer = backwardReducer;
+        }
+
         public TransferFunctions<ST> compose(TransferFunctions<ST> a, TransferFunctions<ST> b) {
             return new TransferFunctions<ST>(
                     a.forward==UNIT_TF ? b.forward : b.forward == UNIT_TF ? a.forward :
-                    a.forward.followedBy(b.forward),
+                    forwardReducer.compose(a.forward, b.forward),
                     a.backward==UNIT_TF ? b.backward : b.backward == UNIT_TF ? a.backward :
-                    b.backward.followedBy(a.backward));
+                    backwardReducer.compose(b.backward, a.backward));
         }
 
-        public TransferFunctions<ST> unit() {
-            return (TransferFunctions<ST>) UNIT;
-        }
-
-        public TransferFunctions<ST> sumAll(final Sequence<TransferFunctions<ST>> tfs) {
+        public TransferFunctions<ST> composeAll(final Sequence<TransferFunctions<ST>> tfs) {
             if(tfs.length() == 0) {
                 return UNIT;
             }
 
-            TransferFunction sumForward = PowerIntTable.composeAll(new Sequence<PowerIntTable>() {
+            TransferFunction sumForward = forwardReducer.composeAll(new Sequence<TransferFunction<ST>>() {
                 public int length() {
                     return tfs.length();
                 }
 
-                public PowerIntTable get(int i) {
-                    return (PowerIntTable) tfs.get(i).forward;
+                public TransferFunction<ST> get(int i) {
+                    return tfs.get(i).forward;
                 }
             });
 
-            TransferFunction sumBackward = PowerIntTable.composeAll(new Sequence<PowerIntTable>() {
+            TransferFunction sumBackward = backwardReducer.composeAll(new Sequence<TransferFunction<ST>>() {
                 public int length() {
                     return tfs.length();
                 }
 
-                public PowerIntTable get(int i) {
-                    return (PowerIntTable) tfs.get(length()-i-1).backward;
+                public TransferFunction<ST> get(int i) {
+                    return tfs.get(length()-i-1).backward;
                 }
             });
 
             return new TransferFunctions<ST>(sumForward, sumBackward);
+        }
+
+        public TransferFunctions<ST> unit() {
+            return UNIT;
         }
     }
 
     private static class TFMap<ST extends State> implements Function<Character, TransferFunctions<ST>> {
         private BiDFA<Character, ST> bidfa;
 
+        private TransferFunctions[] cache = new TransferFunctions[1 + Character.MAX_VALUE];
+
         private TFMap(BiDFA<Character, ST> bidfa) {
             this.bidfa = bidfa;
         }
 
-        public TransferFunctions<ST> applyTo(Character c) {
-            return new TransferFunctions<ST>(
+        public TransferFunctions<ST> applyTo(Character ch) {
+            char c = ch;
+            if(cache[c] == null) {
+                cache[c] = new TransferFunctions<ST>(
                     bidfa.getForward().transfer(c),
                     bidfa.getBackward().transfer(c));
+            }
+            return cache[c];
         }
     }
 }
