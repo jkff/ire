@@ -26,7 +26,7 @@ import static net.ire.util.CollectionFactory.newArrayList;
  */
 public class IntegrationTest {
     @Test
-    public void test() {
+    public void test007() {
         PatternSet pat = RegexCompiler.compile(Arrays.asList(RegexParser.parse(".*007.*")));
         IndexedString s1 = pat.match("as00haklsdjhfla00");
         IndexedString s2 = pat.match("7jhd7dsh007dsfa");
@@ -396,5 +396,4 @@ public class IntegrationTest {
             }
         }
     }
-
 }

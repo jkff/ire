@@ -2,26 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1637b614-9bba-4095-a6e7-d915f195ed72" name="Default" comment="Ropes seem to work; added a test for them.">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/ire/util/Reducer.java" afterPath="$PROJECT_DIR$/src/net/ire/util/Reducer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/ire/fa/PowerIntState.java" afterPath="$PROJECT_DIR$/src/net/ire/fa/PowerIntState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/ire/regex/RegexParser.java" afterPath="$PROJECT_DIR$/src/net/ire/regex/RegexParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/ire/fa/DFA.java" afterPath="$PROJECT_DIR$/src/net/ire/fa/DFA.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/ire/regex/RegexCompiler.java" afterPath="$PROJECT_DIR$/src/net/ire/regex/RegexCompiler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/ire/rope/RopeFactory.java" afterPath="$PROJECT_DIR$/src/net/ire/rope/RopeFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/ire/DFAMatcher.java" afterPath="$PROJECT_DIR$/src/net/ire/DFAMatcher.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/ire/fa/PowerIntTable.java" afterPath="$PROJECT_DIR$/src/net/ire/fa/PowerIntTable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/net/ire/NFABuilder.java" afterPath="$PROJECT_DIR$/test/net/ire/NFABuilder.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\test\net\ire\Integrationtest.java" afterPath="$PROJECT_DIR$/test/net/ire/IntegrationTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/ire/fa/IntTable.java" afterPath="$PROJECT_DIR$/src/net/ire/fa/IntTable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/ire/fa/TransferFunction.java" afterPath="$PROJECT_DIR$/src/net/ire/fa/TransferFunction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/net/ire/rope/RopeTest.java" afterPath="$PROJECT_DIR$/test/net/ire/rope/RopeTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/net/ire/DFABuilder.java" afterPath="$PROJECT_DIR$/test/net/ire/DFABuilder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/ire/rope/Rope.java" afterPath="$PROJECT_DIR$/src/net/ire/rope/Rope.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/ire/util/CollectionFactory.java" afterPath="$PROJECT_DIR$/src/net/ire/util/CollectionFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/ire/rope/RopeBasedIS.java" afterPath="$PROJECT_DIR$/src/net/ire/rope/RopeBasedIS.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/ire/LinearIS.java" afterPath="$PROJECT_DIR$/src/net/ire/LinearIS.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/ire/util/WrappedBitSet.java" afterPath="$PROJECT_DIR$/src/net/ire/util/WrappedBitSet.java" />
     </list>
     <ignored path=".idea/workspace.xml" />
     <ignored path="ire.iws" />
@@ -199,45 +180,6 @@
         <option name="CONDITION" value="offset+u &gt;= words.length" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/test/net/ire/IntegrationTest.java" line="39" class="net.ire.IntegrationTest" package="net.ire">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/test/net/ire/IntegrationTest.java" line="329" class="net.ire.IntegrationTest" package="net.ire">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/net/ire/DFAMatcher.java" line="45" class="net.ire.DFAMatcher" package="net.ire">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
     </line_breakpoints>
     <breakpoint_any>
       <breakpoint>
@@ -286,8 +228,8 @@
       <property name="field_breakpoints_groupByClasses" value="true" />
       <property name="method_breakpoints_groupByClasses" value="true" />
       <property name="exception_breakpoints_viewId" value="TABLE" />
-      <property name="field_breakpoints_viewId" value="TABLE" />
       <property name="exception_breakpoints_groupByClasses" value="true" />
+      <property name="field_breakpoints_viewId" value="TABLE" />
       <property name="method_breakpoints_groupByMethods" value="false" />
     </ui_properties>
   </component>
@@ -301,9 +243,7 @@
         <entry file="file://$PROJECT_DIR$/src/net/ire/fa/PowerIntTable.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="42" column="33" selection-start="1493" selection-end="1493" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -311,7 +251,7 @@
       <file leaf-file-name="IntegrationTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/net/ire/IntegrationTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="348" column="35" selection-start="28043" selection-end="28043" vertical-scroll-proportion="0.2912913">
+            <state line="14" column="37" selection-start="347" selection-end="347" vertical-scroll-proportion="0.5868263">
               <folding />
             </state>
           </provider>
@@ -366,9 +306,7 @@
         <entry file="file://$PROJECT_DIR$/src/net/ire/DFAMatcher.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="42" column="0" selection-start="1354" selection-end="1354" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -425,7 +363,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/net/ire/rope/Rope.java" />
         <option value="$PROJECT_DIR$/src/net/ire/util/WrappedBitSet.java" />
         <option value="$PROJECT_DIR$/src/net/ire/fa/State.java" />
         <option value="$PROJECT_DIR$/src/net/ire/fa/IntState.java" />
@@ -441,6 +378,7 @@
         <option value="$PROJECT_DIR$/src/net/ire/LinearIS.java" />
         <option value="$PROJECT_DIR$/src/net/ire/fa/PowerIntTable.java" />
         <option value="$PROJECT_DIR$/test/net/ire/IntegrationTest.java" />
+        <option value="$PROJECT_DIR$/test/net/ire/Integrationtest.java" />
       </list>
     </option>
   </component>
@@ -483,7 +421,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -606,20 +543,21 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Favorites" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="Modules" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="137" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="OverrideImplement.combined" value="true" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="156" />
+    <property name="OverrideImplement.combined" value="true" />
+    <property name="project.structure.proportion" value="0.0" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="MemberChooser.sorted" value="false" />
-    <property name="recentsLimit" value="5" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="154" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="recentsLimit" value="5" />
+    <property name="MemberChooser.sorted" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="159" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="828" />
@@ -640,8 +578,8 @@
     <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -654,7 +592,7 @@
       <recent name="net.ire" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.IntegrationTest.testPerformance">
+  <component name="RunManager" selected="JUnit.All in ire">
     <configuration default="false" name="IntegrationTest" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="snapshooter" />
       <module name="ire" />
@@ -959,7 +897,6 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32997763" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2147541" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3967213" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295082" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32786885" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -967,11 +904,12 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.22786885" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32978722" sideWeight="0.647541" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32978722" sideWeight="0.64918035" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.352459" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35081968" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2147541" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Analyze Dataflow to" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295082" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Analyze Dataflow from" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1024,9 +962,7 @@
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.7.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="40" selection-start="404" selection-end="404" vertical-scroll-proportion="0.47619048">
-          <folding />
-        </state>
+        <state line="11" column="40" selection-start="404" selection-end="404" vertical-scroll-proportion="0.47619048" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/net/ire/rope/RopeBasedISTest.java">
@@ -1057,6 +993,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/ire/fa/PowerIntTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="33" selection-start="1493" selection-end="1493" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test/net/ire/NFABuilder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="57" column="8" selection-start="2017" selection-end="2017" vertical-scroll-proportion="0.0">
@@ -1071,39 +1014,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/ire/DFAMatcher.java">
+    <entry file="file://$PROJECT_DIR$/src/net/ire/fa/IntTable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="0" selection-start="1354" selection-end="1354" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="16" column="23" selection-start="355" selection-end="355" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/net/ire/LinearISTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="44" column="16" selection-start="1454" selection-end="1454" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/ire/rope/RopeBasedIS.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="179" column="24" selection-start="6751" selection-end="6751" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/ire/util/Reducer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="20" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/ire/fa/IntTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="23" selection-start="355" selection-end="355" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1115,18 +1035,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/ire/fa/PowerIntTable.java">
+    <entry file="file://$PROJECT_DIR$/src/net/ire/DFAMatcher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="33" selection-start="1493" selection-end="1493" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="42" column="0" selection-start="1354" selection-end="1354" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/ire/util/Reducer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="20" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/ire/rope/RopeBasedIS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="179" column="24" selection-start="6751" selection-end="6751" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/net/ire/IntegrationTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="348" column="35" selection-start="28043" selection-end="28043" vertical-scroll-proportion="0.2912913">
+        <state line="14" column="37" selection-start="347" selection-end="347" vertical-scroll-proportion="0.5868263">
           <folding />
         </state>
       </provider>
