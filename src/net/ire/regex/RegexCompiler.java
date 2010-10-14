@@ -3,6 +3,7 @@ package net.ire.regex;
 import net.ire.DFARopePatternSet;
 import net.ire.PatternSet;
 import net.ire.fa.*;
+import net.ire.util.CoarsestPartition;
 import net.ire.util.WrappedBitSet;
 import net.ire.util.Pair;
 
@@ -55,10 +56,10 @@ public class RegexCompiler {
     }
 
     static DFA<Character, PowerIntState> toDFA(NFA nfa, int numPatterns) {
-        Pair<Set<NFA.Node>, NFA.Node> eClosure = computeEClosure(nfa);
+        Pair<Set<NFA.Node>, NFA.Node> opt = optimize(nfa);
 
-        Set<NFA.Node> allNodes = eClosure.first;
-        NFA.Node newInitial = eClosure.second;
+        Set<NFA.Node> allNodes = opt.first;
+        NFA.Node newInitial = opt.second;
 
         final int numStates = allNodes.size();
 
@@ -129,6 +130,7 @@ public class RegexCompiler {
 //            }
 //        }
 //        dot.append("}\n");
+//        System.out.println(dot);
 
         return new DFA<Character, PowerIntState>(transfer, initial, PowerIntTable.REDUCER) {
             @Override
@@ -144,6 +146,110 @@ public class RegexCompiler {
                 return new PowerIntState(basis, reset);
             }
         };
+    }
+
+    private static Pair<Set<NFA.Node>, NFA.Node> optimize(NFA nfa) {
+        Pair<Set<NFA.Node>, NFA.Node> eClosure = computeEClosure(nfa);
+        Pair<Set<NFA.Node>, NFA.Node> groupedLeft = groupEquivalentStates(eClosure, true);
+        Pair<Set<NFA.Node>, NFA.Node> groupedRight = groupEquivalentStates(groupedLeft, false);
+
+        return groupedRight;
+    }
+
+    private static Pair<Set<NFA.Node>, NFA.Node> groupEquivalentStates(
+            Pair<Set<NFA.Node>, NFA.Node> nfa, boolean leftNotRight)
+    {
+        // See paper "On NFA reductions".
+        Set<NFA.Node> nodes = nfa.first;
+        NFA.Node initial = nfa.second;
+
+        // Nodes terminating different patterns are different.
+        Map<Set<Integer>, Integer> patIds2block = newLinkedHashMap();
+        Map<NFA.Node, Integer> node2block = newLinkedHashMap();
+        for(NFA.Node node : nodes) {
+            Integer block = patIds2block.get(node.patternIds);
+            if(block == null) {
+                patIds2block.put(node.patternIds, block = patIds2block.size());
+            }
+            node2block.put(node, block);
+        }
+
+        NFA.Node[] id2node = nodes.toArray(new NFA.Node[nodes.size()]);
+        Map<NFA.Node, Integer> node2id = newLinkedHashMap();
+        for(int i = 0; i < id2node.length; ++i) {
+            node2id.put(id2node[i], i);
+        }
+
+        int[] p = new int[id2node.length];
+        for(int i = 0; i < id2node.length; ++i) {
+            p[i] = node2block.get(id2node[i]);
+        }
+
+        // Instead of iterating over the whole unicode alphabet,
+        // let us iterate over the distinct labels of the automaton.
+        Set<CharacterClass> alphabet = newLinkedHashSet();
+        for(NFA.Node node : nodes) {
+            for (Pair<CharacterClass, NFA.Node> out : node.out) {
+                alphabet.add(out.first);
+            }
+        }
+
+        boolean anythingChanged;
+        do {
+            anythingChanged = false;
+            for(CharacterClass c : alphabet) {
+                List<int[]> edges = newArrayList();
+                for(int i = 0; i < id2node.length; ++i) {
+                    NFA.Node node = id2node[i];
+                    for (Pair<CharacterClass, NFA.Node> out : node.out) {
+                        // When splitting by a particular label, say, [agc],
+                        // we should take into account all edges that might
+                        // be triggered by any of the characters accepted
+                        // by this label. For example, a "." edge should be used.
+                        if(out.first.intersects(c)) {
+                            int j = node2id.get(out.second);
+                            edges.add(leftNotRight ? new int[] {i,j} : new int[] {j, i});
+                        }
+                    }
+                }
+                int[] newP = CoarsestPartition.coarsestStablePartition(p, edges.toArray(new int[edges.size()][]));
+                if(!Arrays.equals(p, newP)) {
+                    anythingChanged = true;
+                    p = newP;
+                }
+            }
+        } while(anythingChanged);
+
+        // Group nodes of the nfa according to 'p'.
+        Map<Integer, NFA.Node> block2newNode = newLinkedHashMap();
+        Map<Integer,List<Integer>> block2oldNodeIds = newLinkedHashMap();
+        for (int i = 0; i < p.length; i++) {
+            int b = p[i];
+            if (!block2newNode.containsKey(b)) {
+                NFA.Node newNode = new NFA.Node();
+                block2newNode.put(b, newNode);
+                block2oldNodeIds.put(b, new ArrayList<Integer>());
+            }
+            block2oldNodeIds.get(b).add(i);
+        }
+        for(int b : block2newNode.keySet()) {
+            NFA.Node newNode = block2newNode.get(b);
+            for(int oldNodeId : block2oldNodeIds.get(b)) {
+                NFA.Node oldNode = id2node[oldNodeId];
+                newNode.patternIds.addAll(oldNode.patternIds);
+                for (Pair<CharacterClass, NFA.Node> out : oldNode.out) {
+                    CharacterClass cc = out.first;
+                    NFA.Node dest = out.second;
+                    NFA.Node newDest = block2newNode.get(p[node2id.get(dest)]);
+                    Pair<CharacterClass, NFA.Node> edge = Pair.of(cc, newDest);
+                    if(!newNode.out.contains(edge))
+                        newNode.out.add(edge);
+                }
+            }
+        }
+        NFA.Node newInitial = block2newNode.get(p[node2id.get(initial)]);
+        Set<NFA.Node> newNodes = new HashSet<NFA.Node>(block2newNode.values());
+        return Pair.of(newNodes, newInitial);
     }
 
     private static Pair<Set<NFA.Node>, NFA.Node> computeEClosure(NFA nfa) {
