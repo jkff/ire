@@ -2,55 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1637b614-9bba-4095-a6e7-d915f195ed72" name="Default" comment="Ropes seem to work; added a test for them.">
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\Compiler.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/Compiler.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\DFAIndexedString.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/DFAIndexedString.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\DFAMatcher.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/DFAMatcher.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\DFARopePatternSet.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/DFARopePatternSet.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\IndexedString.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/IndexedString.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\LinearIS.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/LinearIS.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\Match.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/Match.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\PatternSet.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/PatternSet.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\fa\BiDFA.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/fa/BiDFA.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\fa\DFA.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/fa/DFA.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\fa\IntState.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/fa/IntState.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\fa\IntTable.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/fa/IntTable.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\fa\MutableTransferFunction.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/fa/MutableTransferFunction.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\fa\PowerIntState.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/fa/PowerIntState.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\fa\PowerIntTable.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/fa/PowerIntTable.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\fa\Sequence.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/fa/Sequence.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\fa\State.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/fa/State.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\fa\TransferFunction.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/fa/TransferFunction.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\fa\TransferTable.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/fa/TransferTable.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\regex\Alternative.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/regex/Alternative.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\regex\CharacterClass.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/regex/CharacterClass.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\regex\Empty.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/regex/Empty.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\regex\Labeled.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/regex/Labeled.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\regex\OnceOrMore.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/regex/OnceOrMore.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\regex\RegexCompiler.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/regex/RegexCompiler.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\regex\RegexParser.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/regex/RegexParser.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\regex\RxNode.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/regex/RxNode.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\regex\Sequence.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/regex/Sequence.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\rope\Rope.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/rope/Rope.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\rope\RopeBasedIS.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/rope/RopeBasedIS.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\rope\RopeFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/rope/RopeFactory.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\util\CoarsestPartition.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/util/CoarsestPartition.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\util\CollectionFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/util/CollectionFactory.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\util\Function.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/util/Function.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\util\Function2.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/util/Function2.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\util\Pair.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/util/Pair.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\util\Predicate.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/util/Predicate.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\util\Reducer.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/util/Reducer.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\util\WrappedBitSet.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/util/WrappedBitSet.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\test\org\jkff\ire\DFABuilder.java" afterPath="$PROJECT_DIR$/src/test/java/org/jkff/ire/DFABuilder.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\test\org\jkff\ire\IntegrationTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/jkff/ire/IntegrationTest.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\test\org\jkff\ire\LinearISTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/jkff/ire/LinearISTest.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\test\org\jkff\ire\NFABuilder.java" afterPath="$PROJECT_DIR$/src/test/java/org/jkff/ire/NFABuilder.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\test\org\jkff\ire\regex\RegexCompilerTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/jkff/ire/regex/RegexCompilerTest.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\test\org\jkff\ire\regex\RegexParserTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/jkff/ire/regex/RegexParserTest.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\test\org\jkff\ire\rope\RopeBasedISTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/jkff/ire/rope/RopeBasedISTest.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\test\org\jkff\ire\rope\RopeTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/jkff/ire/rope/RopeTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ire.iml" afterPath="$PROJECT_DIR$/ire.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/jkff/ire/DFARopePatternSet.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/DFARopePatternSet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/jkff/ire/PatternSet.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/PatternSet.java" />
     </list>
     <ignored path="ire.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -302,7 +257,7 @@
       <file leaf-file-name="IntegrationTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/org/jkff/ire/IntegrationTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="381" column="0" selection-start="31337" selection-end="31337" vertical-scroll-proportion="0.0">
+            <state line="311" column="30" selection-start="29042" selection-end="29042" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -310,73 +265,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DFAMatcher.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/DFAMatcher.java">
+      <file leaf-file-name="PatternSet.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/PatternSet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="83" column="0" selection-start="3139" selection-end="3139" vertical-scroll-proportion="0.0">
+            <state line="5" column="24" selection-start="90" selection-end="90" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Integer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.6.0_21/src.zip!/java/lang/Integer.java">
+      <file leaf-file-name="DFARopePatternSet.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/DFARopePatternSet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="732" column="0" selection-start="25994" selection-end="25994" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CoarsestPartition.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/util/CoarsestPartition.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="29" selection-start="2171" selection-end="2171" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RegexCompiler.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/regex/RegexCompiler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="221" column="0" selection-start="9172" selection-end="9172" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PowerIntTable.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/fa/PowerIntTable.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="107" column="0" selection-start="4108" selection-end="4108" vertical-scroll-proportion="0.5719361">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CharacterClass.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/regex/CharacterClass.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="32" selection-start="1915" selection-end="1915" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HashMap.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.6.0_21/src.zip!/java/util/HashMap.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="371" column="0" selection-start="14330" selection-end="14330" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RopeBasedIS.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/rope/RopeBasedIS.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="13" selection-start="374" selection-end="374" vertical-scroll-proportion="0.0">
+            <state line="9" column="13" selection-start="186" selection-end="186" vertical-scroll-proportion="0.26558265">
               <folding />
             </state>
           </provider>
@@ -415,9 +316,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/net/ire/fa/TransferFunction.java" />
-        <option value="$PROJECT_DIR$/src/net/ire/fa/DFA.java" />
-        <option value="$PROJECT_DIR$/test/net/ire/DFABuilder.java" />
         <option value="$PROJECT_DIR$/src/net/ire/util/Reducer.java" />
         <option value="$PROJECT_DIR$/src/net/ire/fa/IntTable.java" />
         <option value="$PROJECT_DIR$/src/net/ire/LinearIS.java" />
@@ -431,8 +329,50 @@
         <option value="$PROJECT_DIR$/test/net/ire/IntegrationTest.java" />
         <option value="$PROJECT_DIR$/src/net/ire/fa/PowerIntTable.java" />
         <option value="$PROJECT_DIR$/src/org/jkff/ire/fa/PowerIntTable.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/org/jkff/ire/DFARopePatternSet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/jkff/ire/PatternSet.java" />
       </list>
     </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="ire" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Dependencies" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependenciesNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="ire" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Lifecycle" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
+        </PATH_ELEMENT>
+      </PATH>
+    </treeState>
   </component>
   <component name="MavenRunner">
     <option name="jreName" value="#JAVA_INTERNAL" />
@@ -505,6 +445,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ire" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ire" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ire" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
@@ -539,7 +505,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.Font" />
+    <property name="options.lastSelected" value="MavenSettings" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="options.searchVisible" value="true" />
@@ -682,6 +648,53 @@
       <ConfigurationWrapper RunnerId="Debug" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
+    </configuration>
+    <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings">
+          <MavenGeneralSettings>
+            <option name="checksumPolicy" value="FAIL" />
+            <option name="failureBehavior" value="FAST" />
+            <option name="mavenHome" value="" />
+            <option name="mavenSettingsFile" value="" />
+            <option name="nonRecursive" value="false" />
+            <option name="overriddenLocalRepository" value="" />
+            <option name="pluginUpdatePolicy" value="DO_NOT_UPDATE" />
+            <option name="printErrorStackTraces" value="false" />
+            <option name="snapshotUpdatePolicy" value="ALWAYS_UPDATE" />
+            <option name="usePluginRegistry" value="false" />
+            <option name="workOffline" value="false" />
+          </MavenGeneralSettings>
+        </option>
+        <option name="myRunnerSettings">
+          <MavenRunnerSettings>
+            <option name="jreName" value="#JAVA_INTERNAL" />
+            <option name="mavenProperties">
+              <map />
+            </option>
+            <option name="runMavenInBackground" value="true" />
+            <option name="skipTests" value="false" />
+            <option name="vmOptions" value="" />
+          </MavenRunnerSettings>
+        </option>
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="goals">
+              <list />
+            </option>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="workingDirPath" value="" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="false" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
     </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
@@ -854,19 +867,19 @@
     <frame x="-8" y="-8" width="1378" height="744" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32997763" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32843137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40163934" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295082" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3267974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.22786885" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25304878" sideWeight="0.67156863" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3292683" sideWeight="0.67320263" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3292683" sideWeight="0.67156863" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40031397" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39869282" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2147541" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -915,26 +928,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/util/WrappedBitSet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="44" selection-start="1108" selection-end="1108" vertical-scroll-proportion="0.6511628" />
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.6.0_21/src.zip!/java/util/BitSet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="192" column="13" selection-start="6575" selection-end="6575" vertical-scroll-proportion="0.35813954" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/DFARopePatternSet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="27" selection-start="435" selection-end="435" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/rope/Rope.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/IndexedString.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="43" selection-start="402" selection-end="402" vertical-scroll-proportion="0.0" />
@@ -969,44 +962,74 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.6.0_21/src.zip!/java/util/HashMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="371" column="0" selection-start="14330" selection-end="14330" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/rope/RopeBasedIS.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="13" selection-start="374" selection-end="374" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/org/jkff/ire/IntegrationTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="381" column="0" selection-start="31337" selection-end="31337" vertical-scroll-proportion="0.0">
+        <state line="311" column="30" selection-start="29042" selection-end="29042" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/DFAMatcher.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/rope/RopeBasedIS.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="0" selection-start="3139" selection-end="3139" vertical-scroll-proportion="0.0">
+        <state line="16" column="39" selection-start="477" selection-end="477" vertical-scroll-proportion="0.106796116">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/regex/RegexCompiler.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.6.0_21/src.zip!/java/util/HashMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="221" column="0" selection-start="9172" selection-end="9172" vertical-scroll-proportion="0.0">
+        <state line="371" column="0" selection-start="14330" selection-end="14330" vertical-scroll-proportion="0.29787233">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/jkff/ire/DFABuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="13" selection-start="325" selection-end="325" vertical-scroll-proportion="0.2887538">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="28" selection-start="844" selection-end="844" vertical-scroll-proportion="1.0028653">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/fa/PowerIntTable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="0" selection-start="4108" selection-end="4108" vertical-scroll-proportion="0.5719361">
+        <state line="107" column="0" selection-start="4108" selection-end="4108" vertical-scroll-proportion="0.9226361">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/regex/RegexCompiler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="221" column="0" selection-start="9172" selection-end="9172" vertical-scroll-proportion="0.48137537">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/DFAMatcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="83" column="0" selection-start="3139" selection-end="3139" vertical-scroll-proportion="0.048710603">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/PatternSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="24" selection-start="90" selection-end="90" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/DFARopePatternSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="13" selection-start="186" selection-end="186" vertical-scroll-proportion="0.26558265">
           <folding />
         </state>
       </provider>
@@ -1024,6 +1047,11 @@
               </list>
             </option>
           </splitter-proportions>
+        </settings>
+      </state>
+      <state key="Copyright.UI">
+        <settings>
+          <splitter-proportions />
         </settings>
       </state>
       <state key="FacetStructureConfigurable.UI">
@@ -1083,6 +1111,11 @@
               </list>
             </option>
           </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions />
         </settings>
       </state>
     </states>

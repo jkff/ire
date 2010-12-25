@@ -17,4 +17,8 @@ public class DFARopePatternSet implements PatternSet {
     public IndexedString match(String s) {
         return new RopeBasedIS<PowerIntState>(bidfa, s);
     }
+
+    public IndexedString match(String s, int blockSize) {
+        return new RopeBasedIS<PowerIntState>(bidfa, s, blockSize);
+    }
 }

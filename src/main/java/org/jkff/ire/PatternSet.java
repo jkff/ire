@@ -5,4 +5,6 @@ package org.jkff.ire;
  */
 public interface PatternSet {
     IndexedString match(String s);
+
+    IndexedString match(String s, int blockSize);
 }
