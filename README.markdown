@@ -19,7 +19,7 @@ Add the target/ire-VERSION.jar to your classpath.
     PatternSet pat = RegexCompiler.compile(regexes);
 
     // Index a string (slow)
-    IndexedString is = pat.match(someString);
+    IndexedString is = pat.match(someString); // or match(someString, blockSize)
 
     // Get matches (fast)
     for(Match m : is.getMatches()) {
