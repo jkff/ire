@@ -36,6 +36,7 @@ How fast is it?
 ===============
 
 It is much faster than `java.util.regex` in the following case:
+
 * Not too many patterns
 * Not too many occurences of them
 * The input strings are very long
