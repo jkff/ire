@@ -8,6 +8,9 @@ ire is a library for incremental regular expression matching, based on further d
 
 How to use it?
 ===============
+
+Add the target/ire-VERSION.jar to your classpath.
+
     import net.ire.*;
     import net.ire.regex.RegexCompiler;
 
