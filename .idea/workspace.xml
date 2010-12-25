@@ -2,55 +2,55 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1637b614-9bba-4095-a6e7-d915f195ed72" name="Default" comment="Ropes seem to work; added a test for them.">
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\Compiler.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/Compiler.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\DFAIndexedString.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/DFAIndexedString.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\DFAMatcher.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/DFAMatcher.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\DFARopePatternSet.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/DFARopePatternSet.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\IndexedString.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/IndexedString.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\LinearIS.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/LinearIS.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\Match.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/Match.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\PatternSet.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/PatternSet.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\fa\BiDFA.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/fa/BiDFA.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\fa\DFA.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/fa/DFA.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\fa\IntState.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/fa/IntState.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\fa\IntTable.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/fa/IntTable.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\fa\MutableTransferFunction.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/fa/MutableTransferFunction.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\fa\PowerIntState.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/fa/PowerIntState.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\fa\PowerIntTable.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/fa/PowerIntTable.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\fa\Sequence.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/fa/Sequence.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\fa\State.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/fa/State.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\fa\TransferFunction.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/fa/TransferFunction.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\fa\TransferTable.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/fa/TransferTable.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\regex\Alternative.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/regex/Alternative.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\regex\CharacterClass.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/regex/CharacterClass.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\regex\Empty.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/regex/Empty.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\regex\Labeled.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/regex/Labeled.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\regex\OnceOrMore.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/regex/OnceOrMore.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\regex\RegexCompiler.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/regex/RegexCompiler.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\regex\RegexParser.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/regex/RegexParser.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\regex\RxNode.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/regex/RxNode.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\regex\Sequence.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/regex/Sequence.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\rope\Rope.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/rope/Rope.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\rope\RopeBasedIS.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/rope/RopeBasedIS.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\rope\RopeFactory.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/rope/RopeFactory.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\util\CoarsestPartition.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/util/CoarsestPartition.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\util\CollectionFactory.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/util/CollectionFactory.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\util\Function.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/util/Function.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\util\Function2.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/util/Function2.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\util\Pair.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/util/Pair.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\util\Predicate.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/util/Predicate.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\util\Reducer.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/util/Reducer.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\net\ire\util\WrappedBitSet.java" afterPath="$PROJECT_DIR$/src/org/jkff/ire/util/WrappedBitSet.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\test\net\ire\DFABuilder.java" afterPath="$PROJECT_DIR$/test/org/jkff/ire/DFABuilder.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\test\net\ire\Integrationtest.java" afterPath="$PROJECT_DIR$/test/org/jkff/ire/IntegrationTest.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\test\net\ire\LinearISTest.java" afterPath="$PROJECT_DIR$/test/org/jkff/ire/LinearISTest.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\test\net\ire\NFABuilder.java" afterPath="$PROJECT_DIR$/test/org/jkff/ire/NFABuilder.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\test\net\ire\regex\RegexCompilerTest.java" afterPath="$PROJECT_DIR$/test/org/jkff/ire/regex/RegexCompilerTest.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\test\net\ire\regex\RegexParserTest.java" afterPath="$PROJECT_DIR$/test/org/jkff/ire/regex/RegexParserTest.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\test\net\ire\rope\RopeBasedISTest.java" afterPath="$PROJECT_DIR$/test/org/jkff/ire/rope/RopeBasedISTest.java" />
-      <change type="MOVED" beforePath="C:\projects\opensource\ire\test\net\ire\rope\RopeTest.java" afterPath="$PROJECT_DIR$/test/org/jkff/ire/rope/RopeTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\Compiler.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/Compiler.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\DFAIndexedString.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/DFAIndexedString.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\DFAMatcher.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/DFAMatcher.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\DFARopePatternSet.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/DFARopePatternSet.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\IndexedString.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/IndexedString.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\LinearIS.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/LinearIS.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\Match.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/Match.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\PatternSet.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/PatternSet.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\fa\BiDFA.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/fa/BiDFA.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\fa\DFA.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/fa/DFA.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\fa\IntState.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/fa/IntState.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\fa\IntTable.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/fa/IntTable.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\fa\MutableTransferFunction.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/fa/MutableTransferFunction.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\fa\PowerIntState.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/fa/PowerIntState.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\fa\PowerIntTable.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/fa/PowerIntTable.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\fa\Sequence.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/fa/Sequence.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\fa\State.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/fa/State.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\fa\TransferFunction.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/fa/TransferFunction.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\fa\TransferTable.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/fa/TransferTable.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\regex\Alternative.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/regex/Alternative.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\regex\CharacterClass.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/regex/CharacterClass.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\regex\Empty.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/regex/Empty.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\regex\Labeled.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/regex/Labeled.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\regex\OnceOrMore.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/regex/OnceOrMore.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\regex\RegexCompiler.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/regex/RegexCompiler.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\regex\RegexParser.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/regex/RegexParser.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\regex\RxNode.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/regex/RxNode.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\regex\Sequence.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/regex/Sequence.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\rope\Rope.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/rope/Rope.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\rope\RopeBasedIS.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/rope/RopeBasedIS.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\rope\RopeFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/rope/RopeFactory.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\util\CoarsestPartition.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/util/CoarsestPartition.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\util\CollectionFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/util/CollectionFactory.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\util\Function.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/util/Function.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\util\Function2.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/util/Function2.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\util\Pair.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/util/Pair.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\util\Predicate.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/util/Predicate.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\util\Reducer.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/util/Reducer.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\src\org\jkff\ire\util\WrappedBitSet.java" afterPath="$PROJECT_DIR$/src/main/java/org/jkff/ire/util/WrappedBitSet.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\test\org\jkff\ire\DFABuilder.java" afterPath="$PROJECT_DIR$/src/test/java/org/jkff/ire/DFABuilder.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\test\org\jkff\ire\IntegrationTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/jkff/ire/IntegrationTest.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\test\org\jkff\ire\LinearISTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/jkff/ire/LinearISTest.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\test\org\jkff\ire\NFABuilder.java" afterPath="$PROJECT_DIR$/src/test/java/org/jkff/ire/NFABuilder.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\test\org\jkff\ire\regex\RegexCompilerTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/jkff/ire/regex/RegexCompilerTest.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\test\org\jkff\ire\regex\RegexParserTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/jkff/ire/regex/RegexParserTest.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\test\org\jkff\ire\rope\RopeBasedISTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/jkff/ire/rope/RopeBasedISTest.java" />
+      <change type="MOVED" beforePath="C:\projects\opensource\ire\test\org\jkff\ire\rope\RopeTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/jkff/ire/rope/RopeTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ire.iml" afterPath="$PROJECT_DIR$/ire.iml" />
     </list>
     <ignored path="ire.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -124,7 +124,7 @@
   </component>
   <component name="DebuggerManager">
     <line_breakpoints>
-      <breakpoint url="file://$PROJECT_DIR$/test/org/jkff/ire/LinearISTest.java" line="31" class="net.ire.LinearISTest" package="net.ire">
+      <breakpoint url="file://$PROJECT_DIR$/src/test/java/org/jkff/ire/LinearISTest.java" line="31" class="net.ire.LinearISTest" package="net.ire">
         <option name="ENABLED" value="false" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -137,7 +137,7 @@
         <option name="CONDITION" value="bit &gt; 64" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/test/org/jkff/ire/LinearISTest.java" line="22" class="net.ire.LinearISTest" package="net.ire">
+      <breakpoint url="file://$PROJECT_DIR$/src/test/java/org/jkff/ire/LinearISTest.java" line="22" class="net.ire.LinearISTest" package="net.ire">
         <option name="ENABLED" value="false" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -150,7 +150,7 @@
         <option name="CONDITION" value="bit &gt; 64" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/test/org/jkff/ire/LinearISTest.java" line="91" class="net.ire.LinearISTest" package="net.ire">
+      <breakpoint url="file://$PROJECT_DIR$/src/test/java/org/jkff/ire/LinearISTest.java" line="91" class="net.ire.LinearISTest" package="net.ire">
         <option name="ENABLED" value="false" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -163,7 +163,7 @@
         <option name="CONDITION" value="bit &gt; 64" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/test/org/jkff/ire/rope/RopeTest.java" line="102" class="net.ire.rope.RopeTest" package="net.ire.rope">
+      <breakpoint url="file://$PROJECT_DIR$/src/test/java/org/jkff/ire/rope/RopeTest.java" line="102" class="net.ire.rope.RopeTest" package="net.ire.rope">
         <option name="ENABLED" value="false" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -176,7 +176,7 @@
         <option name="CONDITION" value="bit &gt; 64" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/test/org/jkff/ire/regex/RegexCompilerTest.java" line="23" class="net.ire.regex.RegexCompilerTest" package="net.ire.regex">
+      <breakpoint url="file://$PROJECT_DIR$/src/test/java/org/jkff/ire/regex/RegexCompilerTest.java" line="23" class="net.ire.regex.RegexCompilerTest" package="net.ire.regex">
         <option name="ENABLED" value="false" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -189,7 +189,7 @@
         <option name="CONDITION" value="bit &gt; 64" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/test/org/jkff/ire/regex/RegexCompilerTest.java" line="86" class="net.ire.regex.RegexCompilerTest" package="net.ire.regex">
+      <breakpoint url="file://$PROJECT_DIR$/src/test/java/org/jkff/ire/regex/RegexCompilerTest.java" line="86" class="net.ire.regex.RegexCompilerTest" package="net.ire.regex">
         <option name="ENABLED" value="false" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -202,7 +202,7 @@
         <option name="CONDITION" value="bit &gt; 64" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/test/org/jkff/ire/regex/RegexCompilerTest.java" line="41" class="net.ire.regex.RegexCompilerTest" package="net.ire.regex">
+      <breakpoint url="file://$PROJECT_DIR$/src/test/java/org/jkff/ire/regex/RegexCompilerTest.java" line="41" class="net.ire.regex.RegexCompilerTest" package="net.ire.regex">
         <option name="ENABLED" value="false" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -215,7 +215,7 @@
         <option name="CONDITION" value="bit &gt; 64" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/org/jkff/ire/util/WrappedBitSet.java" line="48" class="net.ire.util.WrappedBitSet" package="net.ire.util">
+      <breakpoint url="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/util/WrappedBitSet.java" line="48" class="net.ire.util.WrappedBitSet" package="net.ire.util">
         <option name="ENABLED" value="false" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -228,7 +228,7 @@
         <option name="CONDITION" value="offset+u &gt;= words.length" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/test/org/jkff/ire/IntegrationTest.java" line="389" class="net.ire.IntegrationTest" package="net.ire">
+      <breakpoint url="file://$PROJECT_DIR$/src/test/java/org/jkff/ire/IntegrationTest.java" line="389" class="net.ire.IntegrationTest" package="net.ire">
         <option name="ENABLED" value="false" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -300,7 +300,7 @@
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="IntegrationTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/org/jkff/ire/IntegrationTest.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/org/jkff/ire/IntegrationTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="381" column="0" selection-start="31337" selection-end="31337" vertical-scroll-proportion="0.0">
               <folding>
@@ -311,7 +311,7 @@
         </entry>
       </file>
       <file leaf-file-name="DFAMatcher.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/jkff/ire/DFAMatcher.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/DFAMatcher.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="83" column="0" selection-start="3139" selection-end="3139" vertical-scroll-proportion="0.0">
               <folding />
@@ -329,7 +329,7 @@
         </entry>
       </file>
       <file leaf-file-name="CoarsestPartition.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/jkff/ire/util/CoarsestPartition.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/util/CoarsestPartition.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="53" column="29" selection-start="2171" selection-end="2171" vertical-scroll-proportion="0.0">
               <folding />
@@ -338,7 +338,7 @@
         </entry>
       </file>
       <file leaf-file-name="RegexCompiler.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/jkff/ire/regex/RegexCompiler.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/regex/RegexCompiler.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="221" column="0" selection-start="9172" selection-end="9172" vertical-scroll-proportion="0.0">
               <folding />
@@ -347,7 +347,7 @@
         </entry>
       </file>
       <file leaf-file-name="PowerIntTable.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/org/jkff/ire/fa/PowerIntTable.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/fa/PowerIntTable.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="107" column="0" selection-start="4108" selection-end="4108" vertical-scroll-proportion="0.5719361">
               <folding />
@@ -356,7 +356,7 @@
         </entry>
       </file>
       <file leaf-file-name="CharacterClass.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/jkff/ire/regex/CharacterClass.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/regex/CharacterClass.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="72" column="32" selection-start="1915" selection-end="1915" vertical-scroll-proportion="0.0">
               <folding />
@@ -374,7 +374,7 @@
         </entry>
       </file>
       <file leaf-file-name="RopeBasedIS.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/jkff/ire/rope/RopeBasedIS.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/rope/RopeBasedIS.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="15" column="13" selection-start="374" selection-end="374" vertical-scroll-proportion="0.0">
               <folding />
@@ -491,6 +491,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ire" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ire" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
@@ -500,7 +514,7 @@
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="Modules" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="136" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="154" />
     <property name="options.splitter.main.proportions" value="0.3" />
@@ -526,7 +540,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
     <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.Font" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="options.searchVisible" value="true" />
     <property name="dynamic.classpath" value="false" />
@@ -901,7 +915,7 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/org/jkff/ire/util/WrappedBitSet.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/util/WrappedBitSet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="37" column="44" selection-start="1108" selection-end="1108" vertical-scroll-proportion="0.6511628" />
       </provider>
@@ -911,22 +925,22 @@
         <state line="192" column="13" selection-start="6575" selection-end="6575" vertical-scroll-proportion="0.35813954" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/jkff/ire/DFARopePatternSet.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/DFARopePatternSet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="27" selection-start="435" selection-end="435" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/jkff/ire/rope/Rope.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/rope/Rope.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/jkff/ire/IndexedString.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/IndexedString.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="43" selection-start="402" selection-end="402" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/org/jkff/ire/NFABuilder.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/jkff/ire/NFABuilder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="49" column="63" selection-start="1717" selection-end="1717" vertical-scroll-proportion="0.0" />
       </provider>
@@ -941,14 +955,14 @@
         <state line="732" column="0" selection-start="25994" selection-end="25994" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/jkff/ire/util/CoarsestPartition.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/util/CoarsestPartition.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="53" column="29" selection-start="2171" selection-end="2171" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/jkff/ire/regex/CharacterClass.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/regex/CharacterClass.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="72" column="32" selection-start="1915" selection-end="1915" vertical-scroll-proportion="0.0">
           <folding />
@@ -960,14 +974,14 @@
         <state line="371" column="0" selection-start="14330" selection-end="14330" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/jkff/ire/rope/RopeBasedIS.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/rope/RopeBasedIS.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="13" selection-start="374" selection-end="374" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/org/jkff/ire/IntegrationTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/jkff/ire/IntegrationTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="381" column="0" selection-start="31337" selection-end="31337" vertical-scroll-proportion="0.0">
           <folding>
@@ -976,21 +990,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/jkff/ire/DFAMatcher.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/DFAMatcher.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="83" column="0" selection-start="3139" selection-end="3139" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/jkff/ire/regex/RegexCompiler.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/regex/RegexCompiler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="221" column="0" selection-start="9172" selection-end="9172" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/jkff/ire/fa/PowerIntTable.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/jkff/ire/fa/PowerIntTable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="107" column="0" selection-start="4108" selection-end="4108" vertical-scroll-proportion="0.5719361">
           <folding />
@@ -1001,47 +1015,75 @@
   <component name="masterDetails">
     <states>
       <state key="ArtifactsStructureConfigurable.UI">
-        <UIState>
+        <settings>
+          <artifact-editor />
           <splitter-proportions>
-            <SplitterProportionsDataImpl>
-              <option name="proportions">
-                <list>
-                  <option value="0.2" />
-                </list>
-              </option>
-            </SplitterProportionsDataImpl>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
           </splitter-proportions>
-          <settings />
-        </UIState>
+        </settings>
       </state>
-      <state key="Copyright.UI">
-        <UIState>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Android</last-edited>
           <splitter-proportions>
-            <SplitterProportionsDataImpl />
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
           </splitter-proportions>
-        </UIState>
+        </settings>
       </state>
-      <state key="ProjectJDKs.UI">
-        <UIState>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
           <splitter-proportions>
-            <SplitterProportionsDataImpl>
-              <option name="proportions">
-                <list>
-                  <option value="0.2" />
-                </list>
-              </option>
-            </SplitterProportionsDataImpl>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
           </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
           <last-edited>1.6</last-edited>
-        </UIState>
-      </state>
-      <state key="ScopeChooserConfigurable.UI">
-        <UIState>
           <splitter-proportions>
-            <SplitterProportionsDataImpl />
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
           </splitter-proportions>
-          <settings />
-        </UIState>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>ire</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
       </state>
     </states>
   </component>
