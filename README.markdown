@@ -32,10 +32,19 @@ How to use it?
     IndexedString sub = is.subSequence(start, end);
     Pair<IndexedString,IndexedString> p = is.splitBefore(i);
 
+How to experiment with it?
+==========================
+Open the IDEA project (or create a project in your favourite IDE over it - there's just one library dependency in the "lib" folder) and run the "tests" in `net.ire.IntegrationTest`.
+
+Do not forget to run the unit tests after changes.
+
+Ask me (ekirpichov@gmail.com) if you're interested in something.
+
 How fast is it?
 ===============
 
 It is much faster than `java.util.regex` in the following case:
+
 * Not too many patterns
 * Not too many occurences of them
 * The input strings are very long
