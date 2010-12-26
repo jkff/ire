@@ -11,8 +11,8 @@ How to use it?
 
 Add the target/ire-VERSION.jar to your classpath.
 
-    import net.ire.*;
-    import net.ire.regex.RegexCompiler;
+    import org.jkff.ire.*;
+    import org.jkff.regex.RegexCompiler;
 
     // Compile the regexes
     String[] regexes = {...};
@@ -37,7 +37,7 @@ Add the target/ire-VERSION.jar to your classpath.
 
 How to experiment with it?
 ==========================
-Open the IDEA project (or create a project in your favourite IDE over it - there's just one library dependency in the "lib" folder) and run the "tests" in `net.ire.IntegrationTest`.
+Open the IDEA project (or create a project in your favourite IDE over it - there's just one library dependency in the "lib" folder) and run the "tests" in `org.jkff.ire.IntegrationTest`.
 
 Do not forget to run the unit tests after changes.
 
@@ -65,9 +65,10 @@ How does it work?
 ==================
 Read Dan Piponi's aforementioned blogpost; here are the differences:
 
-* Instead of fingertrees, we use a "rope" datastructure with caching sums of values in an arbitrary monoid. The rope datastructure is in `net.ire.rope` package. It uses a constant-height 2-3 tree of N..2N-1 array chunks. Append and split operations are quite trivial.
-* We not only test for a match, but also find match positions. This is done by 1 split to find the end of the match and another to find the beginning, with some intricacies for overlapping matches. See `net.ire.DFAMatcher` class.
-* We use NFA instead of DFA, because we care mostly about number of states (we have to compose transition tables) and state blow-up of DFAs is unacceptable. FAs are in `net.ire.fa` package.
-* We do some optimization of the NFA to further reduce states, see `net.ire.regex.RegexCompiler`.
-* We use a compact representation of NFA as a boolean matrix represented as a bitset, with fast multiplication, see `net.ire.fa.PowerIntTable`
+* Instead of fingertrees, we use a "rope" datastructure with caching sums of values in an arbitrary monoid. The rope datastructure is in `org.jkff.ire.rope` package. It uses a constant-height 2-3 tree of N..2N-1 array chunks. Append and split operations are quite trivial.
+* We not only test for a match, but also find match positions. This is done by 1 split to find the end of the match and another to find the beginning, with some intricacies for overlapping matches. See `org.jkff.ire.DFAMatcher` class.
+* We use NFA instead of DFA, because we care mostly about number of states (we have to compose transition tables) and state blow-up of DFAs is unacceptable. FAs are in `org.jkff.ire.fa` package.
+* We do some optimization of the NFA to further reduce states, see `org.jkff.ire.regex.RegexCompiler`.
+* We use a compact representation of NFA as a boolean matrix represented as a bitset, with fast multiplication, see `org.jkff.ire.fa.PowerIntTable`
 
+If you happen to read Russian, then read [an article in fprog.ru](http://fprog.ru/2010/issue6/eugene-kirpichov-incremental-regular-expressions/)
