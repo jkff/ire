@@ -1371,7 +1371,7 @@ rising edge within a leaf-level rope chunk).
     }
   
 
-Addendum 2: Monoids
+Appendix 2: Monoids
 -------------------
 Remember how, given a finite automaton, we can associate every string
 with a “transition function” with respect to this automaton, and when
@@ -1542,3 +1542,4 @@ are also listed in Dan Piponi's article `Monoids and their uses <http://blog.sig
 .. [#f11] However, it's not a secret to anyone that Real
   Programmers don't use debuggers: unfortunately, they won't be able to
   appreciate this particular advantage.
+
