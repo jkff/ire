@@ -6,6 +6,8 @@ ire is a library for incremental regular expression matching, based on further d
 * **incremental** means "fast recomputation of results according to changes of input string" (not pattern)
 * **regular** means "regular" - t.i. no backrefs or other Perl magic.
 
+There is an article about it: http://jkff.info/articles/ire
+
 How to use it?
 ===============
 
